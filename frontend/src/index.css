@@ -1,4 +1,142 @@
-/* TODO Add site wide styles */
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video, input[type=submit]{
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+
+/* ------------------------------END_CSS_RESET-------------------------------- */
+/* ---------------------------BEGIN_SITEWIDE_STYLES--------------------------- */
+
+
+
+:root{
+    /* BACKGROUND COLORS */
+    --primary-background: #f7dba7;
+    --secondary-background: #f1ab86;
+    --tertiary-background: #c57b57;
+
+    /* BUTTON COLORS */
+    --primary-button: #041f1e;
+    --secondary-button: #1e2d2f;
+
+    --primary-button-light: rgb(255 255 255);
+    --secondary-button-light: #1e2d2f;
+    
+    /* TEXT COLORS */
+    --primary-text: rgb(25 25 25); 
+    --secondary-text: rgb(73 73 73);
+    --primary-text-light: rgb(255 255 255);
+
+    /* BORDER COLORS */
+    --primary-border: rgb(25 25 25); /* Recommend keeping the same as primary-text */
+    --secondary-border: rgb(73 73 73);
+    --tertiary-border: rgb(186 186 186);
+
+    /* BASICS */
+    --primary-black: rgb(25 25 25);
+    --primary-gray: rgb(73 73 73);
+    --secondary-gray: rgb(178, 178, 178);
+    --tertiary-gray: #f3f7f7;
+    --primary-white: rgb(255 255 255);
+}
+
+
+/* Apply this class to all buttons -- Modify buttons by adding additional classes */
+.button{
+    border-radius: 8px;
+    padding: 10px 15px;
+    background-color: var(--primary-button);
+    color: var(--primary-text-light)
+}
+
+.button:hover{
+    background-color: var(--secondary-button);
+    cursor: pointer;
+}
+
+
+.inverse-button{
+    border: 1px solid var(--primary-border);
+    border-radius: 8px;
+    background-color: none;
+    color: var(--primary-text)
+}
+
+.inverse-button:hover{
+    background-color: var(--secondary-button-light);
+    color: var(--primary-text-light);
+    cursor: pointer;
+}
+
+h1{
+    font-size: 40px;
+    color: var(--primary-text);
+}
+
+h2{
+    font-size: 30px;
+    color: var(--secondary-gray);
+}
+
+h3{
+    font-size: 25px;
+    color: var(--secondary-gray);
+}
+
+h4{
+    font-size: 15px;
+    color: var(--tertiary-gray);
+}
+
+p{
+    font-size: 14px;
+    color: var(--primary-text);
+}
+
 form > .errors {
     color: red;
     font-size: 0.875em;
