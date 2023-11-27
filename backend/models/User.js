@@ -9,11 +9,12 @@ const userSchema = new Schema({
     email: {
       type: String,
       required: true
-    },
+    }, 
     hashedPassword: {
       type: String,
       required: true
-    }, birthday: {
+    }, 
+    birthday: {
       type: Date,
       required: true
   }
