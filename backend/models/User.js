@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const userSchema = new Schema({
-    username: {
+    name: {
       type: String,
       required: true
     },
@@ -13,7 +13,10 @@ const userSchema = new Schema({
     hashedPassword: {
       type: String,
       required: true
-    }
+    }, birthday: {
+      type: Date,
+      required: true
+  }
 }, {
     timestamps: true
 });

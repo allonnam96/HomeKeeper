@@ -9,7 +9,7 @@ const { Strategy: JwtStrategy, ExtractJwt } = require('passport-jwt');
 
 passport.use(new LocalStrategy({
     session: false,
-    usernameField: 'email',
+    nameField: 'email',
     passwordField: 'password',
 }, async function (email, password, done) {
     const user = await User.findOne({ email });
@@ -26,7 +26,7 @@ passport.use(new LocalStrategy({
 exports.loginUser = async function(user) {
     const userInfo = {
       _id: user._id,
-      username: user.username,
+      name: user.name,
       email: user.email
     };
     const token = await jwt.sign(

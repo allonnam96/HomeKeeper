@@ -18,21 +18,18 @@ router.get('/', function(req, res, next) {
 
 router.post('/register', validateRegisterInput, async (req, res, next) => {
   // Check to make sure no one has already registered with the proposed email or
-  // username.
+  // name.
   const user = await User.findOne({
-    $or: [{ email: req.body.email }, { username: req.body.username }]
+    $or: [{ email: req.body.email }, { name: req.body.name }]
   });
 
   if (user) {
-    // Throw a 400 error if the email address and/or username already exists
+    // Throw a 400 error if the email address and/or name already exists
     const err = new Error("Validation Error");
     err.statusCode = 400;
     const errors = {};
     if (user.email === req.body.email) {
       errors.email = "A user has already registered with this email";
-    }
-    if (user.username === req.body.username) {
-      errors.username = "A user has already registered with this username";
     }
     err.errors = errors;
     return next(err);
@@ -40,7 +37,7 @@ router.post('/register', validateRegisterInput, async (req, res, next) => {
 
   // Otherwise create a new user
   const newUser = new User({
-    username: req.body.username,
+    name: req.body.name,
     email: req.body.email
   });
 
@@ -87,7 +84,7 @@ router.get('/current', restoreUser, (req, res) => {
   if (!req.user) return res.json(null);
   res.json({
     _id: req.user._id,
-    username: req.user.username,
+    name: req.user.name,
     email: req.user.email
   });
 });
