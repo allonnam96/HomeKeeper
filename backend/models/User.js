@@ -15,7 +15,8 @@ const userSchema = new Schema({
       required: true
     }, 
     birthday: {
-      type: Date
+      type: Date,
+      required: true
   }
 }, {
     timestamps: true
