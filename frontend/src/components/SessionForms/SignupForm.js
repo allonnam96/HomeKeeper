@@ -1,104 +1,143 @@
 import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import './SessionForm.css';
+import './SignupForm.css';
 import { signup, clearSessionErrors } from '../../store/session';
+import Modal from '../Modal/Modal.js'
+import LoginForm from './LoginForm.js';
 
-function SignupForm () {
-  const [email, setEmail] = useState('');
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-  const [password2, setPassword2] = useState('');
-  const errors = useSelector(state => state.errors.session);
-  const dispatch = useDispatch();
+const monthOptions = Array.from({ length: 12 }, (_, index) => (index + 1).toString().padStart(2, '0'));
+const dayOptions = Array.from({ length: 31 }, (_, index) => (index + 1).toString().padStart(2, '0'));
+const currentYear = new Date().getFullYear();
+const yearOptions = Array.from({ length: 100 }, (_, index) => (currentYear - index).toString());
 
-  useEffect(() => {
-    return () => {
-      dispatch(clearSessionErrors());
+
+function SignupForm() {
+    const [email, setEmail] = useState('');
+    const [name, setName] = useState('');
+    const [password, setPassword] = useState('');
+    const [confirmPassword, setConfirmPassword] = useState('');
+    const [birthday, setBirthday] = useState({
+      month: "",
+      day: "",
+      year: ""
+    });
+    const errors = useSelector((state) => state.errors.session);
+    const dispatch = useDispatch();
+    const [modalIsOpen, setModalIsOpen] = useState(false);
+
+    
+    useEffect(() => {
+        return () => {
+            dispatch(clearSessionErrors());
+        };
+    }, [dispatch]);
+
+    const update = (field) => {
+        let setState;
+
+        switch (field) {
+            case 'email':
+                setState = setEmail;
+                break;
+            case 'name':
+                setState = setName;
+                break;
+            case 'password':
+                setState = setPassword;
+                break;
+            case 'confirmPassword':
+                setState = setConfirmPassword;
+                break;
+            default:
+                throw Error('Unknown field in Signup Form');
+        }
+
+        return (e) => setState(e.currentTarget.value);
     };
-  }, [dispatch]);
 
-  const update = field => {
-    let setState;
-
-    switch (field) {
-      case 'email':
-        setState = setEmail;
-        break;
-      case 'username':
-        setState = setUsername;
-        break;
-      case 'password':
-        setState = setPassword;
-        break;
-      case 'password2':
-        setState = setPassword2;
-        break;
-      default:
-        throw Error('Unknown field in Signup Form');
-    }
-
-    return e => setState(e.currentTarget.value);
-  }
-
-  const handleSubmit = e => {
-    e.preventDefault();
-    const user = {
-      email,
-      username,
-      password
+    const openModal = () => {
+      setModalIsOpen(true);
+    };
+    
+    const toggleModal = () => {
+      setModalIsOpen(!modalIsOpen);
     };
 
-    dispatch(signup(user)); 
-  }
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        const formattedBirthday = `${birthday.year}-${birthday.month}-${birthday.day}`;
 
-  return (
-    <form className="session-form" onSubmit={handleSubmit}>
-      <h2>Sign Up Form</h2>
-      <div className="errors">{errors?.email}</div>
-      <label>
-        <span>Email</span>
-        <input type="text"
-          value={email}
-          onChange={update('email')}
-          placeholder="Email"
-        />
-      </label>
-      <div className="errors">{errors?.username}</div>
-      <label>
-        <span>Username</span>
-        <input type="text"
-          value={username}
-          onChange={update('username')}
-          placeholder="Username"
-        />
-      </label>
-      <div className="errors">{errors?.password}</div>
-      <label>
-        <span>Password</span>
-        <input type="password"
-          value={password}
-          onChange={update('password')}
-          placeholder="Password"
-        />
-      </label>
-      <div className="errors">
-        {password !== password2 && 'Confirm Password field must match'}
-      </div>
-      <label>
-        <span>Confirm Password</span>
-        <input type="password"
-          value={password2}
-          onChange={update('password2')}
-          placeholder="Confirm Password"
-        />
-      </label>
-      <input
-        type="submit"
-        value="Sign Up"
-        disabled={!email || !username || !password || password !== password2}
-      />
-    </form>
-  );
+        const user = {
+            email,
+            name,
+            birthday: formattedBirthday,
+            password,
+        };
+
+        dispatch(signup(user));
+    };
+
+    return (
+        <div className="signup-container">
+          {/* <Modal onClose={toggleModal} isOpen={modalIsOpen}>{LoginForm}</Modal> */}
+            {modalIsOpen && (
+              <Modal onClose={toggleModal} isOpen={modalIsOpen}>
+                <LoginForm />
+              </Modal>
+            )}
+            <form className="session-form" onSubmit={handleSubmit}>
+                <span className='create-account'>Create an account</span>
+                <div className="user-info">
+                    <label htmlFor='email'>Email</label>
+                    <input id='email' type="text" value={email} className='signup-input' onChange={update('email')} />
+                    <div className="errors">{errors?.email}</div>
+                    
+                    <label htmlFor='name'>Name</label>
+                    <input id='name' type="text" value={name} className='signup-input' onChange={update('name')} />
+                    <div className="errors">{errors?.name}</div>
+
+                    <label>
+                      Birthday
+                      <div className="birthday">
+                        <select value={birthday.month} onChange={(e) => setBirthday({ ...birthday, month: e.target.value })}>
+                          <option value="">Month</option>
+                          {monthOptions.map((month) => (
+                            <option key={month} value={month}>{month}</option>
+                          ))}
+                        </select>
+                        <select value={birthday.day} onChange={(e) => setBirthday({ ...birthday, day: e.target.value })}>
+                          <option value="">Day</option>
+                          {dayOptions.map((day) => (
+                            <option key={day} value={day}>{day}</option>
+                          ))}
+                        </select>
+                        <select value={birthday.year} onChange={(e) => setBirthday({ ...birthday, year: e.target.value })}>
+                          <option value="">Year</option>
+                          {yearOptions.map((year) => (
+                            <option key={year} value={year}>{year}</option>
+                          ))}
+                        </select>
+                      </div>
+                    </label>
+
+                    <label htmlFor='password'>Password</label>
+                    <input id='password' type="password" value={password} className='signup-input' onChange={update('password')} />
+                    <div className="errors">{errors?.password}</div>
+
+                    <label htmlFor='password'>Confirm Password</label>
+                    <input type="password" value={confirmPassword} className='signup-input' onChange={update('confirmPassword')} />
+                    <div className="errors">{password !== confirmPassword && 'Confirm Password field must match'}</div>
+
+                    <div className='signup-button'>
+                      <button className='button signup-click' type="submit" disabled={!email || !name || !password || password !== confirmPassword}>
+                        Sign Up
+                      </button>
+                    </div>
+                </div>
+            <p className='redirect-user-accounts'>Already have an account? <button className='login-link' onClick={openModal}>Log in</button></p>
+            </form>
+        </div>
+    );
 }
 
 export default SignupForm;

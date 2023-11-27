@@ -38,7 +38,8 @@ router.post('/register', validateRegisterInput, async (req, res, next) => {
   // Otherwise create a new user
   const newUser = new User({
     name: req.body.name,
-    email: req.body.email
+    email: req.body.email,
+    birthday: req.body.birthday
   });
 
   bcrypt.genSalt(10, (err, salt) => {
@@ -85,7 +86,8 @@ router.get('/current', restoreUser, (req, res) => {
   res.json({
     _id: req.user._id,
     name: req.user.name,
-    email: req.user.email
+    email: req.user.email,
+    birthday: req.user.birthday
   });
 });
 
