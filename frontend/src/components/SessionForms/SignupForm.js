@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 import './SignupForm.css';
 import { signup, clearSessionErrors } from '../../store/session';
 import Modal from '../Modal/Modal.js'
@@ -24,7 +23,7 @@ function SignupForm() {
     });
     const errors = useSelector((state) => state.errors.session);
     const dispatch = useDispatch();
-    const [modalIsOpen, setModalIsOpen] = useState(false)
+    const [modalIsOpen, setModalIsOpen] = useState(false);
 
     
     useEffect(() => {
@@ -56,15 +55,18 @@ function SignupForm() {
         return (e) => setState(e.currentTarget.value);
     };
 
+    const openModal = () => {
+      setModalIsOpen(true);
+    };
+    
     const toggleModal = () => {
-      modalIsOpen ? setModalIsOpen(false) : setModalIsOpen(true)
-    }
+      setModalIsOpen(!modalIsOpen);
+    };
 
     const handleSubmit = (e) => {
         e.preventDefault();
         const formattedBirthday = `${birthday.year}-${birthday.month}-${birthday.day}`;
 
-        debugger
         const user = {
             email,
             name,
@@ -77,7 +79,12 @@ function SignupForm() {
 
     return (
         <div className="signup-container">
-          <Modal onClose={toggleModal} isOpen={modalIsOpen}>{LoginForm}</Modal>
+          {/* <Modal onClose={toggleModal} isOpen={modalIsOpen}>{LoginForm}</Modal> */}
+            {modalIsOpen && (
+              <Modal onClose={toggleModal} isOpen={modalIsOpen}>
+                <LoginForm />
+              </Modal>
+            )}
             <form className="session-form" onSubmit={handleSubmit}>
                 <span className='create-account'>Create an account</span>
                 <div className="user-info">
@@ -127,7 +134,7 @@ function SignupForm() {
                       </button>
                     </div>
                 </div>
-            <p className='redirect-user-accounts'>Already have an account? <button className='link-tag' onClick={toggleModal}>Log in</button></p>
+            <p className='redirect-user-accounts'>Already have an account? <button className='login-link' onClick={openModal}>Log in</button></p>
             </form>
         </div>
     );

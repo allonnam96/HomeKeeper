@@ -65,3 +65,16 @@ label {
     margin-bottom: 0.5em;
     font-size: 15px;
 }
+
+.login-link {
+    background: none;
+    border: none;
+    color: #007185;
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
+}
+
+.login-link:hover {
+    text-decoration: underline;
+}
