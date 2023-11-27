@@ -9,7 +9,7 @@ const { Strategy: JwtStrategy, ExtractJwt } = require('passport-jwt');
 
 passport.use(new LocalStrategy({
     session: false,
-    nameField: 'email',
+    usernameField: 'email',
     passwordField: 'password',
 }, async function (email, password, done) {
     const user = await User.findOne({ email });
