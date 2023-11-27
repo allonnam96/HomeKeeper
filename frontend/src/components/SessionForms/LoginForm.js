@@ -28,27 +28,25 @@ function LoginForm () {
 
   return (
     <form className="login-form" onSubmit={handleSubmit}>
-      <span>HomeKeeper</span>
+      <div className='homekeeper-login'>HomeKeeper</div>
       <div className='email-password'>
-        
       <label htmlFor='email'>Email</label>
         <input type="text"
           id='name'
+          className='login-input'
           value={email}
           onChange={update('email')}
-          placeholder="Email"
         />
-
       <label htmlFor='password'>Password</label>
         <input type="password"
           id='password'
+          className='login-input'
           value={password}
           onChange={update('password')}
-          placeholder="Password"
         />
       </div>
           <div className='login-button'>
-            <button className='button' type="submit" disabled={!email || !password}>
+            <button className='button ' type="submit" disabled={!email || !password}>
               Log in
             </button>
           </div>
