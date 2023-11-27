@@ -1,0 +1,15 @@
+.category-section-main{
+    width: 100vw;
+    height: 300px;
+    background-color: var(--primary-background);
+    display: flex;
+    justify-content: space-around;
+}
+
+.section-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 80vw;
+    padding: 20px 0;
+}

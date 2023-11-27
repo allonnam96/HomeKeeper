@@ -1,0 +1,26 @@
+.footer-main{
+    position: relative;
+    height: 100px;
+    width: 100vw;
+    background-color: var(--secondary-background);
+    display: flex;
+    justify-content: space-around;
+}
+
+.footer-content{
+    width: 70%;
+    padding: 15px 0;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.theme-selector{
+    position: absolute;
+    top: 40px;
+    display: flex;
+    justify-content: space-around;
+    padding-top: 20px;
+    background-color: var(--primary-background);
+    height: 60px;
+    width: 200px;
+}

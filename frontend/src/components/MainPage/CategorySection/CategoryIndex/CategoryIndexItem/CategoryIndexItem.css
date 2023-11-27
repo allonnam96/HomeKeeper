@@ -1,0 +1,27 @@
+.category-index-item{
+    height: 170px;
+    width: 150px;
+    border: 2px solid var(--secondary-border);
+    margin: 15px 25px 15px 0;
+    flex-shrink: 0;
+    background-color: var(--secondary-background);
+    border-radius: 3px;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+}
+
+.index-item-title{
+    color: var(--secondary-text);
+    font-size: 20px;
+    margin: 10px;
+}
+
+.hover-shadow{
+    transition: transform 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-shadow:hover{
+    transform: translate(4px,-4px);
+    box-shadow: -5px 5px 0 0 var(--secondary-border);
+}
