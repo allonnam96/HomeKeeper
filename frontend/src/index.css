@@ -87,7 +87,7 @@ table {
 
 /* Apply this class to all buttons -- Modify buttons by adding additional classes */
 .button{
-    border-radius: 8px;
+    border-radius: 4px;
     padding: 10px 15px;
     background-color: var(--primary-button);
     color: var(--primary-text-light)
@@ -101,7 +101,8 @@ table {
 
 .inverse-button{
     border: 1px solid var(--primary-border);
-    border-radius: 8px;
+    border-radius: 4px;
+    padding: 10px 15px;
     background-color: none;
     color: var(--primary-text)
 }
@@ -119,7 +120,7 @@ h1{
 
 h2{
     font-size: 30px;
-    color: var(--secondary-gray);
+    color: var(--primary-gray);
 }
 
 h3{
