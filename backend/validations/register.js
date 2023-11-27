@@ -16,8 +16,7 @@ const validateRegisterInput = [
     .isLength({ min: 6, max: 30 })
     .withMessage('Password must be between 6 and 30 characters'),
   check('birthday')
-    .exists({ checkFalsy: true })
-    .withMessage('Birthday must be in a valid date format'),
+    .exists({ checkFalsy: true }),
   handleValidationErrors
 ];
 
