@@ -1,20 +1,21 @@
 .category-index-item{
     height: 170px;
     width: 150px;
-    border: 2px solid var(--secondary-border);
-    margin: 15px 25px 15px 0;
+    border: 1px solid var(--primary-border);
+    margin: 25px 14px;
     flex-shrink: 0;
     background-color: var(--secondary-background);
-    border-radius: 3px;
+    border-radius: 25px;
     display: flex;
     justify-content: space-around;
     align-items: flex-end;
+    box-shadow: -5px 5px 0 1px var(--primary-border);
 }
 
 .index-item-title{
-    color: var(--secondary-text);
+    color: var(--primary-text);
     font-size: 20px;
-    margin: 10px;
+    margin: 15px;
 }
 
 .hover-shadow{
@@ -22,6 +23,6 @@
 }
 
 .hover-shadow:hover{
-    transform: translate(4px,-4px);
-    box-shadow: -5px 5px 0 0 var(--secondary-border);
+    transform: translate(-2.8px,2.8px);
+    box-shadow: -2px 2px 0 1px var(--primary-border);
 }

@@ -1,5 +1,25 @@
 .category-index{
-    display: flex;
+    width: 50%;
     height: 80%;
-    overflow-x: auto;
+    display: flex;
+    justify-content: space-around;
+}
+
+@media screen and (max-width: 899px){
+    .category-index{
+        justify-content: flex-start;
+        overflow-x: auto;
+        width: 100%;
+    }
+}
+
+/* Not in use */
+.category-index-scroll{
+    display: flex;
+    animation: scrollIcons 15s linear infinite;
+}
+
+@keyframes scrollIcons {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(); }
 }
