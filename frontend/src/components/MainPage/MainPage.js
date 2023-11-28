@@ -5,8 +5,8 @@ import MainSearchBar from './MainSearchBar/MainSearchBar';
 const MainPage = () => {
     return (
         <>
-            <CategorySection />
             <MainSearchBar />
+            <CategorySection />
         </>
     )
 }

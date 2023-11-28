@@ -4,12 +4,15 @@
     background-color: var(--primary-background);
     display: flex;
     justify-content: space-around;
+    align-items: center;
 }
 
 .section-content{
     display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    width: 80vw;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
     padding: 20px 0;
+    white-space: nowrap;
+    overflow: hidden;
 }

@@ -67,12 +67,12 @@ table {
     --secondary-button-light: #1e2d2f;
     
     /* TEXT COLORS */
-    --primary-text: rgb(25 25 25); 
+    --primary-text: #041f1e; 
     --secondary-text: rgb(73 73 73);
     --primary-text-light: rgb(255 255 255);
 
     /* BORDER COLORS */
-    --primary-border: rgb(25 25 25); /* Recommend keeping the same as primary-text */
+    --primary-border: #041f1e; /* Recommend keeping the same as primary-text */
     --secondary-border: rgb(73 73 73);
     --tertiary-border: rgb(186 186 186);
 
@@ -87,13 +87,16 @@ table {
     --link: #0458ff;
 }
 
-
+body {
+    font-family: 'Poppins', sans-serif;
+}
 /* Apply this class to all buttons -- Modify buttons by adding additional classes */
 .button{
-    border-radius: 4px;
-    padding: 10px 15px;
+    border-radius: 9px;
+    padding: 3px 8px;
     background-color: var(--primary-button);
-    color: var(--primary-text-light)
+    color: var(--primary-text-light);
+    border: none;
 }
 
 .button:hover{
@@ -104,10 +107,10 @@ table {
 
 .inverse-button{
     border: 1px solid var(--primary-border);
-    border-radius: 4px;
-    padding: 10px 15px;
+    border-radius: 9px;
+    padding: 3px 8px;
     background-color: none;
-    color: var(--primary-text)
+    color: var(--primary-text);
 }
 
 .inverse-button:hover{
@@ -123,7 +126,7 @@ h1{
 
 h2{
     font-size: 30px;
-    color: var(--primary-gray);
+    color: var(--primary-text);
 }
 
 h3{
