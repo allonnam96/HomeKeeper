@@ -1,5 +1,3 @@
-
-
 require('dotenv').config();
 
 const mongoose = require('mongoose');
@@ -36,8 +34,6 @@ const generateFakeContractor = (categoryObjectIds) => {
     category: randomCategoryObjectId,
   });
 };
-
-
 
 const seedData = async () => {
   const categoryObjectIds = await seedCategories();
