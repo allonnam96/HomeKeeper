@@ -13,7 +13,7 @@ const passport = require('passport');
 const usersRouter = require('./routes/api/users'); 
 const contractorsRouter = require('./routes/api/contractors');
 const categoriesRouter = require('./routes/api/categories');
-const reviewsRouter = require('./routes/api/review.js');
+const reviewsRouter = require('./routes/api/review');
 const csrfRouter = require('./routes/api/csrf');
 
 const app = express();
