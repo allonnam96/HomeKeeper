@@ -22,6 +22,14 @@ const contractorSchema = new Schema({
         type: String,
         required: true
     },
+    phoneNum: {
+        type: String, 
+        required: true
+    },
+    email: {
+        type: String,
+        require: true
+    },
     category: { 
         type: Schema.Types.ObjectId, 
         ref: "Category" }
