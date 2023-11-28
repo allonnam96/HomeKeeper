@@ -82,6 +82,9 @@ table {
     --secondary-gray: rgb(178, 178, 178);
     --tertiary-gray: #f3f7f7;
     --primary-white: rgb(255 255 255);
+
+    /* LINKS */
+    --link: #0458ff;
 }
 
 

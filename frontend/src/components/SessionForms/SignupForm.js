@@ -4,6 +4,7 @@ import './SignupForm.css';
 import { signup, clearSessionErrors } from '../../store/session';
 import Modal from '../Modal/Modal.js'
 import LoginForm from './LoginForm.js';
+import {useHistory} from 'react-router-dom/cjs/react-router-dom.min';
 
 const monthOptions = Array.from({ length: 12 }, (_, index) => (index + 1).toString().padStart(2, '0'));
 const dayOptions = Array.from({ length: 31 }, (_, index) => (index + 1).toString().padStart(2, '0'));
@@ -12,6 +13,7 @@ const yearOptions = Array.from({ length: 100 }, (_, index) => (currentYear - ind
 
 
 function SignupForm() {
+    const history = useHistory()
     const [email, setEmail] = useState('');
     const [name, setName] = useState('');
     const [password, setPassword] = useState('');
@@ -21,11 +23,11 @@ function SignupForm() {
       day: "",
       year: ""
     });
+
     const errors = useSelector((state) => state.errors.session);
     const dispatch = useDispatch();
     const [modalIsOpen, setModalIsOpen] = useState(false);
 
-    
     useEffect(() => {
         return () => {
             dispatch(clearSessionErrors());
@@ -63,28 +65,28 @@ function SignupForm() {
       setModalIsOpen(!modalIsOpen);
     };
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        const formattedBirthday = `${birthday.year}-${birthday.month}-${birthday.day}`;
-
-        const user = {
-            email,
-            name,
-            birthday: formattedBirthday,
-            password,
-        };
-
-        dispatch(signup(user));
+    const handleSubmit = async (e) => {
+      e.preventDefault();
+      const formattedBirthday = `${birthday.year}-${birthday.month}-${birthday.day}`;
+    
+      const user = {
+        email,
+        name,
+        birthday: formattedBirthday,
+        password,
+      };
+    
+      await dispatch(signup(user)); 
     };
 
     return (
         <div className="signup-container">
-          {/* <Modal onClose={toggleModal} isOpen={modalIsOpen}>{LoginForm}</Modal> */}
-            {modalIsOpen && (
+          <Modal onClose={toggleModal} isOpen={modalIsOpen}><LoginForm toggleModal={toggleModal}/></Modal>
+            {/* {modalIsOpen && (
               <Modal onClose={toggleModal} isOpen={modalIsOpen}>
                 <LoginForm />
               </Modal>
-            )}
+            )} */}
             <form className="session-form" onSubmit={handleSubmit}>
                 <span className='create-account'>Create an account</span>
                 <div className="user-info">
@@ -134,8 +136,12 @@ function SignupForm() {
                       </button>
                     </div>
                 </div>
-            <p className='redirect-user-accounts'>Already have an account? <button className='login-link' onClick={openModal}>Log in</button></p>
             </form>
+
+            <div className='redirect-user-accounts'>
+              <p>Already have an account? </p>
+              <button className='login-link' onClick={openModal}>Log in</button>
+            </div>
         </div>
     );
 }
