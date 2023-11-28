@@ -4,9 +4,9 @@ const MainSearchBar = () => {
     return (
         <div className="main-search-bar-container">
             <div className="search-bar-content">
-                <h2>Search</h2>
+                <h3>Search</h3>
                 <div className="search-icon">
-                    
+                    O
                 </div>
             </div>
         </div>
