@@ -5,6 +5,7 @@ const { mongoURI: db } = require('../config/keys.js');
 const User = require('../models/User');
 const Contractor = require('../models/Contractor');
 const Category = require('../models/Category');
+// const Review = require('../models/Review')
 const bcrypt = require('bcryptjs');
 const { faker } = require('@faker-js/faker');
 
@@ -23,14 +24,18 @@ const seedCategories = async () => {
 const generateFakeContractor = (categoryObjectIds) => {
   const firstName = faker.person.firstName();
   const lastName = faker.person.lastName();
+  const phoneFormats = ['###-###-####', '(###) ###-####', '1-###-###-####']; // Add more formats if needed
+  const randomPhoneFormat = faker.random.arrayElement(phoneFormats);
+  const phoneNum = faker.phone.phoneNumberFormat({ format: randomPhoneFormat });
   const randomCategoryObjectId = categoryObjectIds[Math.floor(Math.random() * categoryObjectIds.length)]._id;
+  
   return new Contractor({
     name: `${firstName} ${lastName}`,
     title: faker.name.jobTitle(),
     bio: faker.lorem.paragraph(),
     address: faker.address.streetAddress(),
     photoUrl: faker.image.imageUrl(),
-    phoneNum: faker.phone.phoneNumber(),
+    phoneNum: phoneNum,
     email: faker.internet.email(firstName),
     category: randomCategoryObjectId,
   });
