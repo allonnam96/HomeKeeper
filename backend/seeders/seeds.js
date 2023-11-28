@@ -5,6 +5,7 @@ const { mongoURI: db } = require('../config/keys.js');
 const User = require('../models/User');
 const Contractor = require('../models/Contractor');
 const Category = require('../models/Category');
+// const Review = require('../models/Review')
 const bcrypt = require('bcryptjs');
 const { faker } = require('@faker-js/faker');
 
@@ -23,16 +24,29 @@ const seedCategories = async () => {
 const generateFakeContractor = (categoryObjectIds) => {
   const firstName = faker.person.firstName();
   const lastName = faker.person.lastName();
+  const phoneFormats = ['###-###-####', '(###) ###-####', '1-###-###-####'];
+  // const randomPhoneFormat = phoneFormats[Math.floor(Math.random() * phoneFormats.length)];
+  const phoneNum = formatPhoneNumber();
   const randomCategoryObjectId = categoryObjectIds[Math.floor(Math.random() * categoryObjectIds.length)]._id;
+  
   return new Contractor({
     name: `${firstName} ${lastName}`,
     title: faker.name.jobTitle(),
-    reviewStar: faker.datatype.number({ min: 1, max: 5 }),
     bio: faker.lorem.paragraph(),
     address: faker.address.streetAddress(),
     photoUrl: faker.image.imageUrl(),
+    phoneNum: phoneNum,
+    email: faker.internet.email(firstName),
     category: randomCategoryObjectId,
   });
+};
+
+const formatPhoneNumber = () => {
+  const phoneFormats = ['###-###-####', '(###) ###-####', '1-###-###-####'];
+  const randomPhoneFormat = phoneFormats[Math.floor(Math.random() * phoneFormats.length)];
+
+  // Replace '#' with random digits
+  return randomPhoneFormat.replace(/#/g, () => Math.floor(Math.random() * 10));
 };
 
 const seedData = async () => {
@@ -91,4 +105,3 @@ mongoose
     console.error(err.stack);
     process.exit(1);
   });
-
