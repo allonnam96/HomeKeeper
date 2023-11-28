@@ -4,12 +4,16 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 
 require('./models/User');
-// require('./models/Contractor');
+require('./models/Contractor');
+require('./models/Category');
+require('./models/Review');
 require('./config/passport');
 const passport = require('passport');
 
 const usersRouter = require('./routes/api/users'); 
-// const contractorsRouter = require('./routes/api/contractors')
+const contractorsRouter = require('./routes/api/contractors');
+const categoriesRouter = require('./routes/api/categories');
+const reviewsRouter = require('./routes/api/review.js');
 const csrfRouter = require('./routes/api/csrf');
 
 const app = express();
@@ -46,7 +50,9 @@ app.use(
 
 // Attach Express routers
 app.use('/api/users', usersRouter); // update the path
-// app.use('/api/contractors', contractorsRouter)
+app.use('/api/contractors', contractorsRouter);
+app.use('/api/categories', categoriesRouter);
+app.use('/api/reviews', reviewsRouter);
 app.use('/api/csrf', csrfRouter);
 
 // Express custom middleware for catching all unmatched requests and formatting

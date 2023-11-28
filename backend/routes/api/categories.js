@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const Category = mongoose.model('Category');
 const Contractor = mongoose.model('Contractor');
 const { requireUser } = require('../../config/passport');
+const validateCategoryInput = require('../../validations/categories')
 
 router.get('/:id', async (req, res, next) => {
     try {
