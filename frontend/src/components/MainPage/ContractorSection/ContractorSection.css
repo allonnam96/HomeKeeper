@@ -1,16 +1,27 @@
 .contractor-section-container{
-    height: 500px;
+    height: 300px;
     width: 100%;
-    background-color: var(--tertiary-background);
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+    background-color: var(--secondary-background);
 }
 
 .contractor-section-content{
-    width: 70%;
     height: 100%;
+    width: 70%;
+    margin: 0 auto;
     position: relative;
+}
+
+.contractor-section-content h2{
+    padding: 20px 0;
+}
+
+.contractor-section-index{
     display: flex;
-    align-items: center;
+    height: 100%;
+    overflow-x: auto;
+}
+
+.contractor-section-index h3{
+    width: 120px;
+    flex-shrink: 0;
 }
