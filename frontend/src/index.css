@@ -55,7 +55,7 @@ table {
 
 :root{
     /* BACKGROUND COLORS */
-    --primary-background: #87CEEB;
+    --primary-background:  #c1e9fa;
     --secondary-background: #FAF3E0;
     --tertiary-background: #87CEEB;
 
@@ -68,7 +68,7 @@ table {
     
     /* TEXT COLORS */
     --primary-text: #041f1e; 
-    --secondary-text: rgb(73 73 73);
+    --secondary-text: #041f1e;
     --primary-text-light: rgb(255 255 255);
 
     /* BORDER COLORS */
@@ -125,7 +125,7 @@ h1{
 }
 
 h2{
-    font-size: 30px;
+    font-size: 25px;
     color: var(--primary-text);
 }
 
