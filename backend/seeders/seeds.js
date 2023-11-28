@@ -5,6 +5,7 @@ const { mongoURI: db } = require('../config/keys.js');
 const User = require('../models/User');
 const Contractor = require('../models/Contractor');
 const Category = require('../models/Category');
+// const Review = require('../models/Review')
 const bcrypt = require('bcryptjs');
 const { faker } = require('@faker-js/faker');
 
@@ -23,6 +24,9 @@ const seedCategories = async () => {
 const generateFakeContractor = (categoryObjectIds) => {
   const firstName = faker.person.firstName();
   const lastName = faker.person.lastName();
+  const phoneFormats = ['###-###-####', '(###) ###-####', '1-###-###-####'];
+  // const randomPhoneFormat = phoneFormats[Math.floor(Math.random() * phoneFormats.length)];
+  const phoneNum = formatPhoneNumber();
   const randomCategoryObjectId = categoryObjectIds[Math.floor(Math.random() * categoryObjectIds.length)]._id;
   
   return new Contractor({
@@ -101,4 +105,3 @@ mongoose
     console.error(err.stack);
     process.exit(1);
   });
-
