@@ -3,10 +3,23 @@ import { useSelector, useDispatch } from 'react-redux';
 import './NavBar.css';
 import { logout } from '../../store/session';
 import MainSearchBar from '../MainPage/MainSearchBar/MainSearchBar';
+import Modal from '../Modal/Modal';
+import LoginForm from '../SessionForms/LoginForm';
+import { useState } from 'react';
+import ContractorsIndex from '../Contractors/ContractorsIndex';
 
 function NavBar () {
   const loggedIn = useSelector(state => !!state.session.user);
   const dispatch = useDispatch();
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+
+  const openModal = () => {
+    setModalIsOpen(true);
+  };
+  
+  const toggleModal = () => {
+    setModalIsOpen(!modalIsOpen);
+  };
   
   const logoutUser = e => {
       e.preventDefault();
@@ -23,8 +36,9 @@ function NavBar () {
     } else {
       return (
         <div className="links-auth">
+          <Modal onClose={toggleModal} isOpen={modalIsOpen}><LoginForm toggleModal={toggleModal}/></Modal>
           <Link to={'/signup'}>Signup</Link>
-          <Link to={'/login'}>Login</Link>
+          <div onClick={openModal}>Login</div>
         </div>
       );
     }

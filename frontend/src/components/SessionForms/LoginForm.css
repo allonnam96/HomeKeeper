@@ -38,7 +38,9 @@
 }
 
 .login-submit {
-    width: 10em;
+    width: 11em;
+    height: 3em;
+    margin: 0 auto;
 }
 
 .login-button {

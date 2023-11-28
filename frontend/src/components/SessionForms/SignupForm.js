@@ -76,7 +76,10 @@ function SignupForm() {
         password,
       };
     
-      await dispatch(signup(user)); 
+      await dispatch(signup(user))
+        .then(
+        history.push('/')
+        )
     };
 
     return (

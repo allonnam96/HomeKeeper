@@ -8,6 +8,7 @@
     max-width: 30em;
     min-width: 20em;
     margin: 0 auto;
+    margin-top: 2em;
 }
 
 .birthday {
@@ -25,7 +26,7 @@
 }
 
 .create-account {
-    font-size: 30px;
+    font-size: 29px;
     margin-bottom: 1em;
 }
 
@@ -56,7 +57,8 @@
 }
 
 .signup-click {
-    width: 20.5em
+    width: 20.5em;
+    height: 3em;
 }
 
 label {
