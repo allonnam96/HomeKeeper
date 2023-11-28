@@ -15,7 +15,7 @@ const ContractorSectionIndexItem = ({contractor}) => {
             <div className="index-item-body-container">
                 <p>{contractor?.phoneNum}</p>
                 <p>{contractor?.email}</p>
-                <p>11930 NW Kathleen Dr. Portland, OR</p>
+                <p>{contractor?.address}, NY</p>
             </div>
         </div>
     )
