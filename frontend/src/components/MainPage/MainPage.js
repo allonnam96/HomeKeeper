@@ -8,7 +8,7 @@ const MainPage = () => {
     return (
         <div className="main-page-container">
             <CategorySection />
-            {/* <ContractorSection /> */}
+            <ContractorSection />
             {/* <Footer /> */}
         </div>
     )

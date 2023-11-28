@@ -1,0 +1,38 @@
+.contractor-show-container{
+    height: 50vh;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    position: relative;
+}
+
+.contractor-show-content{
+    width: 80%;
+    height: 190%;
+    border: 2px solid red;
+    margin-top: 25px;
+    display: flex;
+}
+
+.contractor-show-content > *{
+    margin: 10px;
+    padding: 10px;
+}
+
+.contractor-show-info-card{
+    width: 300px;
+    height: 150px;
+    border: 1px solid blue;
+}
+
+.contractor-show-reviews-card{
+    width: 300px;
+    height: 200px;
+    border: 1px solid blue;
+}
+
+.contractor-show-appointment-card{
+    width: 200px;
+    height: 350px;
+    border: 1px solid blue;
+}
