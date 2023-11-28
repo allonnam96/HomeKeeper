@@ -10,12 +10,6 @@ const contractorSchema = new Schema({
         type: String,
         required: true
     },
-    reviewStar: {
-        type: Number,
-        min: 1,
-        max: 5,
-        required: true
-    },
     bio: {
         type: String,
         required: true
