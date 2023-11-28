@@ -1,5 +1,3 @@
-
-
 require('dotenv').config();
 
 const mongoose = require('mongoose');
@@ -11,7 +9,7 @@ const bcrypt = require('bcryptjs');
 const { faker } = require('@faker-js/faker');
 
 const NUM_SEED_USERS = 10;
-const NUM_SEED_CONTRACTORS = 10;
+const NUM_SEED_CONTRACTORS = 30;
 
 const users = [];
 const contractors = [];
@@ -25,7 +23,6 @@ const seedCategories = async () => {
 const generateFakeContractor = (categoryObjectIds) => {
   const firstName = faker.person.firstName();
   const lastName = faker.person.lastName();
-  // const randomCategory = categories[Math.floor(Math.random() * categories.length)];
   const randomCategoryObjectId = categoryObjectIds[Math.floor(Math.random() * categoryObjectIds.length)]._id;
   return new Contractor({
     name: `${firstName} ${lastName}`,
@@ -34,18 +31,13 @@ const generateFakeContractor = (categoryObjectIds) => {
     bio: faker.lorem.paragraph(),
     address: faker.address.streetAddress(),
     photoUrl: faker.image.imageUrl(),
-    // category: randomCategory,
     category: randomCategoryObjectId,
   });
 };
 
-
-
 const seedData = async () => {
-  // Seed categories
   const categoryObjectIds = await seedCategories();
 
-  // Seed users
   users.push(
     new User({
       name: 'Demo User',
@@ -68,13 +60,11 @@ const seedData = async () => {
     );
   }
 
-  // Seed contractors
   for (let i = 0; i < NUM_SEED_CONTRACTORS; i++) {
     const newContractor = generateFakeContractor(categoryObjectIds);
     contractors.push(newContractor);
   };
 
-  // Connect to the database and insert your seeds
   try {
     console.log("Resetting db and seeding users and contractors...");
 
