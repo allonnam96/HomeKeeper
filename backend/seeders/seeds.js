@@ -78,11 +78,16 @@ require('dotenv').config();
 const mongoose = require("mongoose");
 const { mongoURI: db } = require('../config/keys.js');
 const User = require('../models/User');
+<<<<<<< HEAD
+=======
+// const Contractor = require('../models/Contractor');
+>>>>>>> 9dc7937 (users seeding working)
 const bcrypt = require('bcryptjs');
 const { faker } = require('@faker-js/faker');
 
 // Create your seeds (users and tweets)
 const NUM_SEED_USERS = 10;
+<<<<<<< HEAD
 
 const generateFakeContractor = () => {
   return {
@@ -102,6 +107,54 @@ for (let i = 0; i < NUM_SEED_CONTRACTORS; i++) {
   const newContractor = generateFakeContractor();
   contractors.push(newContractor);
 }
+=======
+// const NUM_SEED_CONTRACTORS = 10;
+
+const users = [];
+
+users.push(
+  new User({
+    name: 'Demo User',
+    email: 'demo-user@appacademy.io',
+    hashedPassword: bcrypt.hashSync('starwars', 10),
+    birthday: faker.date.past(30), // Adjust the age as needed
+  })
+);
+
+for (let i = 1; i < NUM_SEED_USERS; i++) {
+  const firstName = faker.person.firstName();
+  const lastName = faker.person.lastName();
+  users.push(
+    new User({
+      name: `${firstName} ${lastName}`,
+      email: faker.internet.email({ firstName, lastName }),
+      hashedPassword: bcrypt.hashSync(faker.internet.password(), 10),
+      birthday: faker.date.past(30), // Adjust the age as needed
+    })
+  );
+}
+
+// const contractors = [];
+// const categories = ['Plumber', 'Painter', 'Electrician', 'Home Remodeler', 'Lawyer'];
+
+// const generateFakeContractor = () => {
+//   const randomCategory = categories[Math.floor(Math.random() * categories.length)];
+//   return new Contractor({
+//     person: faker.name.firstName(),
+//     title: faker.name.jobTitle(),
+//     reviewStar: faker.datatype.number({ min: 1, max: 5 }),
+//     bio: faker.lorem.paragraph(),
+//     address: faker.address.streetAddress(),
+//     photoUrl: faker.image.imageUrl(),
+//     category: randomCategory,
+//   });
+// };
+
+// for (let i = 0; i < NUM_SEED_CONTRACTORS; i++) {
+//   const newContractor = generateFakeContractor();
+//   contractors.push(newContractor);
+// }
+>>>>>>> 9dc7937 (users seeding working)
 
 // Validate contractors before insertion
 const validateContractorInput = [
@@ -121,6 +174,7 @@ const validateContractorInput = [
   handleValidationErrors
 ];
 
+<<<<<<< HEAD
 // Connect to the database and insert contractors
 const insertContractors = async () => {
   try {
@@ -135,6 +189,20 @@ const insertContractors = async () => {
     console.error(err.stack);
     process.exit(1);
   }
+=======
+  User.deleteMany({})
+    // .then(() => Contractor.deleteMany({}))
+    .then(() => User.insertMany(users))
+    // .then(() => Contractor.insertMany(contractors))
+    .then(() => {
+      console.log("Seeding completed!");
+      mongoose.disconnect();
+    })
+    .catch(err => {
+      console.error(err.stack);
+      process.exit(1);
+    });
+>>>>>>> 9dc7937 (users seeding working)
 };
 
 // Connect to the database
