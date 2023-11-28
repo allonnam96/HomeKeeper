@@ -24,9 +24,9 @@ const seedCategories = async () => {
 const generateFakeContractor = (categoryObjectIds) => {
   const firstName = faker.person.firstName();
   const lastName = faker.person.lastName();
-  const phoneFormats = ['###-###-####', '(###) ###-####', '1-###-###-####']; // Add more formats if needed
-  const randomPhoneFormat = faker.random.arrayElement(phoneFormats);
-  const phoneNum = faker.phone.phoneNumberFormat({ format: randomPhoneFormat });
+  const phoneFormats = ['###-###-####', '(###) ###-####', '1-###-###-####'];
+  // const randomPhoneFormat = phoneFormats[Math.floor(Math.random() * phoneFormats.length)];
+  const phoneNum = formatPhoneNumber();
   const randomCategoryObjectId = categoryObjectIds[Math.floor(Math.random() * categoryObjectIds.length)]._id;
   
   return new Contractor({
@@ -39,6 +39,14 @@ const generateFakeContractor = (categoryObjectIds) => {
     email: faker.internet.email(firstName),
     category: randomCategoryObjectId,
   });
+};
+
+const formatPhoneNumber = () => {
+  const phoneFormats = ['###-###-####', '(###) ###-####', '1-###-###-####'];
+  const randomPhoneFormat = phoneFormats[Math.floor(Math.random() * phoneFormats.length)];
+
+  // Replace '#' with random digits
+  return randomPhoneFormat.replace(/#/g, () => Math.floor(Math.random() * 10));
 };
 
 const seedData = async () => {
