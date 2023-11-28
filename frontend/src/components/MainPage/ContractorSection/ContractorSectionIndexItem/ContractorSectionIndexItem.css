@@ -1,0 +1,8 @@
+.contractor-section-index-item-container{
+    height: 70%;
+    width: 100%;
+    border: 1px solid var(--primary-border);
+    background-color: var(--primary-white);
+    border-radius: 20px;
+    padding: 10px;
+}

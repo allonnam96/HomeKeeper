@@ -1,7 +1,8 @@
 .footer-main{
     position: absolute;
-    bottom: 0;
+    bottom: -230px;
     left: 0;
+    flex-shrink: 0;
     height: 100px;
     width: 100vw;
     background-color: var(--secondary-background);

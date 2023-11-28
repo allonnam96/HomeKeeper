@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import './NavBar.css';
 import { logout } from '../../store/session';
+import MainSearchBar from '../MainPage/MainSearchBar/MainSearchBar';
 
 function NavBar () {
   const loggedIn = useSelector(state => !!state.session.user);
@@ -30,10 +31,11 @@ function NavBar () {
   }
 
   return (
-    <>
+    <div className="nav-bar-main">
       <h1>HomeKeeper</h1>
+      <MainSearchBar />
       { getLinks() }
-    </>
+    </div>
   );
 }
 
