@@ -4,10 +4,12 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 
 require('./models/User');
+require('./models/Contractor');
 require('./config/passport');
 const passport = require('passport');
 
-const usersRouter = require('./routes/api/users'); // update the import file path
+const usersRouter = require('./routes/api/users'); 
+const contractorsRouter = require('./routes/api/contractors')
 const csrfRouter = require('./routes/api/csrf');
 
 const app = express();
@@ -44,6 +46,7 @@ app.use(
 
 // Attach Express routers
 app.use('/api/users', usersRouter); // update the path
+app.use('/api/contractors', contractorsRouter)
 app.use('/api/csrf', csrfRouter);
 
 // Express custom middleware for catching all unmatched requests and formatting
