@@ -69,4 +69,3 @@ exports.loginUser = async function(user) {
       next();
     })(req, res, next);
   };
-
