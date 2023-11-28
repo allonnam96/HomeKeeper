@@ -26,7 +26,7 @@ const generateFakeContractor = (categoryObjectIds) => {
   const phoneNum = formatPhoneNumber();
   const randomCategoryObjectId = categoryObjectIds[Math.floor(Math.random() * categoryObjectIds.length)]._id;
 
-  const imageUrl = 'https://source.unsplash.com/400x400/?headshot%20professional';
+  // const imageUrl = 'https://source.unsplash.com/400x400/?headshot%20professional';
 
   const genericPhrases = [
     'Experienced professional in the field',
@@ -41,7 +41,7 @@ const generateFakeContractor = (categoryObjectIds) => {
     title: faker.name.jobTitle(),
     bio: genericPhrases[Math.floor(Math.random() * genericPhrases.length)],
     address: faker.address.streetAddress(),
-    photoUrl: imageUrl,
+    photoUrl: faker.image.avatarLegacy(),
     phoneNum: phoneNum,
     email: faker.internet.email(firstName),
     category: randomCategoryObjectId,
