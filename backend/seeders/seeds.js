@@ -5,8 +5,6 @@ const { mongoURI: db } = require('../config/keys.js');
 const User = require('../models/User');
 const Contractor = require('../models/Contractor');
 const Category = require('../models/Category');
-// const Review = require('../models/Review')
-// const Review = require('../models/Review')
 const bcrypt = require('bcryptjs');
 const { faker } = require('@faker-js/faker');
 
