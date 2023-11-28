@@ -27,10 +27,11 @@ const generateFakeContractor = (categoryObjectIds) => {
   return new Contractor({
     name: `${firstName} ${lastName}`,
     title: faker.name.jobTitle(),
-    reviewStar: faker.datatype.number({ min: 1, max: 5 }),
     bio: faker.lorem.paragraph(),
     address: faker.address.streetAddress(),
     photoUrl: faker.image.imageUrl(),
+    phoneNum: faker.phone.phoneNumber(),
+    email: faker.internet.email(firstName),
     category: randomCategoryObjectId,
   });
 };
