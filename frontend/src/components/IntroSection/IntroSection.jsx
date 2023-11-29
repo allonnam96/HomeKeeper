@@ -1,0 +1,40 @@
+import React from 'react';
+import './IntroSection.css'; // Import your CSS file with the styles
+import house_icon from '../../img/house-icon-clipart-transparent-background-free-png.webp'
+
+const IntroSection = () => {
+    return (
+        <div className='outer-intro'>
+        <div className="intro-container">
+            <div className="intro-content">
+                <h1>HomeKeeper</h1>
+                <p>
+                    Welcome to HomeKeeper, your go-to platform for hassle-free home transformations.
+                    Easily book appointments with skilled contractors to remodel, renovate, or repaint your space.
+                    Elevate your home's aesthetics with confidence, as HomeKeeper connects you with trusted professionals committed to turning your vision into reality.
+                    With HomeKeeper, your dream home is just a click away!
+                </p>
+            </div>
+            <div className="intro-image-placeholder">
+                <img className='house-icon' src={house_icon}></img>
+            </div>
+        </div>
+            <svg className="hero-waves" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none">
+                <defs>
+                    <path id="wave-path" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"></path>
+                </defs>
+                <g className="wave1">
+                    <use xlinkHref="#wave-path" x="50" y="3" fill="rgba(255,255,255, .1)"></use>
+                </g>
+                <g className="wave2">
+                    <use xlinkHref="#wave-path" x="50" y="0" fill="rgba(255,255,255, .2)"></use>
+                </g>
+                <g className="wave3">
+                    <use xlinkHref="#wave-path" x="50" y="9" fill="var(--secondary-background)"></use>
+                </g>
+            </svg>
+        </div>
+    );
+}
+
+export default IntroSection;
