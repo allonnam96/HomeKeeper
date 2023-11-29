@@ -6,7 +6,8 @@
 
 .contractor-section-content{
     height: 100%;
-    width: 70%;
+    width: 80%;
+    padding-top: 2em;
     margin: 0 auto;
     position: relative;
 }

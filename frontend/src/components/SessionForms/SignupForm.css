@@ -1,14 +1,12 @@
 .signup-container {
     color: var(--primary-text);
+    background-color: var(--primary-background);
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    width: 25vw;
-    max-width: 30em;
-    min-width: 20em;
-    margin: 0 auto;
-    margin-top: 2em;
+    padding-top: 3em;
+    width: 100vw;
+    height: 100vh;
 }
 
 .birthday {
@@ -57,8 +55,10 @@
 }
 
 .signup-click {
+    color: black;
     width: 20.5em;
     height: 3em;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 label {

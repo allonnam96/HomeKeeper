@@ -6,7 +6,7 @@ import MainSearchBar from '../MainPage/MainSearchBar/MainSearchBar';
 import Modal from '../Modal/Modal';
 import LoginForm from '../SessionForms/LoginForm';
 import { useState } from 'react';
-import ContractorsIndex from '../Contractors/ContractorsIndex';
+// import ContractorsIndex from '../Contractors/ContractorsIndex';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 
 function NavBar () {
@@ -39,8 +39,8 @@ function NavBar () {
       return (
         <div className="links-auth">
           <Modal onClose={toggleModal} isOpen={modalIsOpen}><LoginForm toggleModal={toggleModal}/></Modal>
-          <Link to={'/signup'}>Signup</Link>
-          <div onClick={openModal}>Login</div>
+          <Link className="signup-nav-link" to={'/signup'}>Signup</Link>
+          <div className="login-nav-link" onClick={openModal}>Login</div>
         </div>
       );
     }

@@ -2,14 +2,17 @@ const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
 const Category = mongoose.model('Category');
-const Contractor = mongoose.model('Contractor');
-const { requireUser } = require('../../config/passport');
 const validateCategoryInput = require('../../validations/categories')
 
 router.get('/', async (req,res) => {
-    res.json({
-        message: "GET /api/categories"
-    });
+    try {
+        const categories = await Category.find()
+            .populate('name');
+        return res.json(categories);
+    }
+    catch (err) {
+        return res.json([]);
+    }
 });
 
 router.get('/:id', async (req, res, next) => {

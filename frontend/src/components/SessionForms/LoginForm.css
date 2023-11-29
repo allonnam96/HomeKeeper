@@ -1,5 +1,5 @@
 .login-form {
-    background-color: white;
+    background-color: var(--primary-background);
     padding-bottom: 2em;
     padding-left: 2em;
     padding-right: 2em;
@@ -20,8 +20,7 @@
 .email-password {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    width: 7.5em;
+    align-items: flex-start;
     text-align: left;
 }
 
@@ -42,6 +41,7 @@
 .login-submit {
     width: 11em;
     height: 3em;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin: 0 auto;
 }
 

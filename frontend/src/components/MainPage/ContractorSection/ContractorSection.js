@@ -5,6 +5,7 @@ import { fetchContractors } from "../../../store/contractors";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux/es/hooks/useSelector";
 import { useEffect } from "react";
+import IntroSection from '../../IntroSection/IntroSection';
 
 const ContractorSection = () => {
     const painting = []
@@ -34,7 +35,9 @@ const ContractorSection = () => {
     })
 
     return (
+        <>
         <div className="contractor-section-container">
+        <IntroSection/>
             <div className="contractor-section-content">
                 <h2>Featured Contractors</h2>
                 <ContractorSectionIndex key={1} category={"Painting"} contractors={painting}/>
@@ -44,6 +47,7 @@ const ContractorSection = () => {
                 <ContractorSectionIndex key={5} category={"Plumbing"} contractors={plumbing}/>
             </div>
         </div>
+        </>
     )
 }
 
