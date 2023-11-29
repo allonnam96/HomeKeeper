@@ -7,8 +7,10 @@ import Modal from '../Modal/Modal';
 import LoginForm from '../SessionForms/LoginForm';
 import { useState } from 'react';
 import ContractorsIndex from '../Contractors/ContractorsIndex';
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 
 function NavBar () {
+  const history = useHistory()
   const loggedIn = useSelector(state => !!state.session.user);
   const dispatch = useDispatch();
   const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -46,7 +48,7 @@ function NavBar () {
 
   return (
     <div className="nav-bar-main">
-      <h1>HomeKeeper</h1>
+      <h1 onClick={() => {history.push('/')}}>HomeKeeper</h1>
       <MainSearchBar />
       { getLinks() }
     </div>
