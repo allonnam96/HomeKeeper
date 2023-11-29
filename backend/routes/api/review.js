@@ -5,7 +5,7 @@ const Category = mongoose.model('Category');
 const Review = mongoose.model('Review');
 const { requireUser } = require('../../config/passport');
 
-router.get('/:contractorId/reviews', async (req, res, next) => {
+router.get('/contractors/:contractorId', async (req, res, next) => {
     try {
         const reviews = await Review.find({ category: req.params.contractorId})
         .populate('contractor', '_id name');
@@ -17,6 +17,4 @@ router.get('/:contractorId/reviews', async (req, res, next) => {
         error.statusCode = 500;
         return next(error);
     }
-});
-
-module.exports = router;
+})
