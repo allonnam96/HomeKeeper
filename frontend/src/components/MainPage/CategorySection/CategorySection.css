@@ -1,17 +1,16 @@
 .category-section-main{
     width: 100vw;
     height: 50px;
-    background-color: var(--primary-background);
+    background-color: var(--tertiary-background);
     display: flex;
     justify-content: space-around;
     align-items: center;
-    border-bottom: 1px solid var(--primary-black)
 }
 
 .section-content{
     display: flex;
     justify-content: space-around;
     align-items: center;
+    background-color: var(--tertiary-background);
     width: 100%;
-    padding: 20px 0;
 }

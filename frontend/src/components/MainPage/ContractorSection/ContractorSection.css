@@ -1,5 +1,5 @@
 .contractor-section-container{
-    height: 300px;
+    height: 100%;
     width: 100%;
     background-color: var(--secondary-background);
 }
@@ -19,6 +19,12 @@
     display: flex;
     height: 100%;
     overflow-x: auto;
+    padding: 2em;
+    margin: 1em;
+    border-radius: 8px;
+    background-color: var(--primary-background);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
 }
 
 .contractor-section-index h3{
