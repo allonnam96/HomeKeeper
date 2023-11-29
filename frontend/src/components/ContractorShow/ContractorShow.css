@@ -1,5 +1,4 @@
 .contractor-show-container{
-    height: 50vh;
     width: 100%;
     display: flex;
     justify-content: space-around;
@@ -7,7 +6,7 @@
 }
 
 .contractor-show-content{
-    width: 80%;
+    width: 70%;
     height: 190%;
     margin-top: 25px;
     display: flex;
@@ -20,7 +19,7 @@
 }
 
 .contractor-show-info-card{
-    width: 300px;
+    width: 40%;
     margin-bottom: 20px;
 }
 
@@ -29,14 +28,33 @@
     height: 200px;
 }
 
-.contractor-show-appointment-card{
-    position: absolute;
-    right: 0;
-    width: 45%;
+.contractor-show-right{
+    position: sticky;
+    top: 50px;
     height: 70%;
     background-color: var(--secondary-background);
-    border-radius: 4px;
-    padding: 20px;
+    padding: 40px;
+    border: 2px solid var(--primary-border);
+}
+
+.contractor-show-right h3{
+    font-weight: bold;
+    color: var(--primary-border);
+    margin-bottom: 20px;
+}
+.contractor-show-left{
+    position: relative;
+    width: 100%;
+    min-width: 330px;
+    height: 270%;
+    background-color: var(--secondary-background);
+    padding: 40px;
+}
+
+@media screen and (max-width: 1300px){
+    .contractor-show-content{
+        width: 90%;
+    }
 }
 
 .contractor-show-image{
@@ -58,16 +76,25 @@
 #category{
     font-size: 14px;
     color: var(--secondary-text);
-    /* font-style: italic; */
 }
 
 #address{
     margin-top: 20px;
-    /* font-weight: 600; */
 }
 
 #bio{
     width: 300px;
     margin-top: 5px;
     color: var(--primary-gray);
+}
+
+select{
+    width: 100%;
+    background-color: var(--primary-white);
+    height: 35px;
+    border-radius: 4px;
+    padding: 0 8px;
+    font-size: 16px;
+    margin: 15px 0;
+    border: none;
 }

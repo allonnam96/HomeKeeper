@@ -3,6 +3,7 @@ import './ContractorShow.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchContractor } from '../../store/contractors';
 import { useParams } from 'react-router-dom';
+import Calendar from './Calendar/Calendar';
 
 const ContractorShow = () => {
     const dispatch = useDispatch();
@@ -15,11 +16,11 @@ const ContractorShow = () => {
     return (
         <div className="contractor-show-container">
             <div className="contractor-show-content">
-                <div className="contractor-show-left">
+                <div className="contractor-show-left slight-shadow">
                     <div className="contractor-show-info-card">
                         <div className="contractor-index-item-header-container">
                             <img src={contractor?.photoUrl} className="contractor-show-image" />
-                            <div className="header-name-container">
+                            <div className="header-name-container wider">
                                 <h3>{contractor?.name}</h3>
                                 <h3 id="category">{contractor?.category ? contractor.category?.name : ''}</h3>
                                 <p id="bio">{contractor?.bio}</p>
@@ -36,13 +37,9 @@ const ContractorShow = () => {
                     </div>
                 </div>
 
-                <div className="contractor-show-right">
-                    <div className="contractor-show-appointment-card">
-                        <p>Calender goes here</p>
-                        <form>
-                            <input type="date" />
-                        </form>
-                    </div>
+                <div className="contractor-show-right slight-shadow">
+                    <h3>Get Connected</h3>
+                    <Calendar />
                 </div>
             </div>
         </div>
