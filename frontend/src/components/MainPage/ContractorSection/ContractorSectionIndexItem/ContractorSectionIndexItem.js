@@ -1,6 +1,9 @@
+import { useSelector } from 'react-redux';
+import { getReviews } from '../../../../store/reviews';
 import './ContractorSectionIndexItem.css'
 
 const ContractorSectionIndexItem = ({contractor}) => {
+
     const backgroundImageStyle = {
         backgroundImage: `url(${contractor?.photoUrl})`,
         backgroundSize: 'cover',

@@ -4,15 +4,19 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchContractor } from '../../store/contractors';
 import { useParams } from 'react-router-dom';
 import Calendar from './Calendar/Calendar';
+import { fetchReviews, getReviews } from '../../store/reviews';
 
 const ContractorShow = () => {
     const dispatch = useDispatch();
     const contractorId = useParams()['id'];
     const contractor = useSelector(state => state?.contractors ? state.contractors[contractorId] : '')
-
+    const reviews = useSelector(state => getReviews(state, contractorId))
+    console.log(reviews)
     useEffect(() => {
         dispatch(fetchContractor(contractorId))
+        dispatch(fetchReviews())
     }, [dispatch])
+
     return (
         <div className="contractor-show-container">
             <div className="contractor-show-content">
@@ -33,6 +37,15 @@ const ContractorShow = () => {
                         </div>
                     </div>
                     <div className="contractor-show-reviews-card">
+                        <h3>Reviews</h3>
+                        { reviews && reviews.map(review => {
+                            return (
+                                <div>
+                                    <p>Body: {review.reviewSummary}</p>
+                                    <p>ReviewId: {review._id}</p>
+                                </div>
+                            )
+                        })}
                         <p>Reviews go here</p>
                     </div>
                 </div>
