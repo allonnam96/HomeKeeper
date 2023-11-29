@@ -30,6 +30,7 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
 	line-height: 1;
+    background-color: var(--primary-background);
 }
 ol, ul {
 	list-style: none;
@@ -73,7 +74,7 @@ table {
     --primary-text-light: rgb(255 255 255);
 
     /* BORDER COLORS */
-    --primary-border: #041f1e; /* Recommend keeping the same as primary-text */
+    --primary-border: var(--primary-text);
     --secondary-border: rgb(73 73 73);
     --tertiary-border: rgb(186 186 186);
 
@@ -154,4 +155,9 @@ form > .errors {
     height: 15px;
     display: flex;
     align-items: center;
+}
+
+.slight-shadow{
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
 }
