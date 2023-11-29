@@ -1,14 +1,22 @@
 import "./CategoryIndex.css"
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import CategoryIndexItem from "./CategoryIndexItem/CategoryIndexItem"
+import { useEffect } from "react"
+import { fetchCategories } from "../../../../store/category"
 
 const CategoryIndex = () => {
-    const categories = useSelector(state => state?.categories ? state.categories : ["Painting", "Remodeling", "Electrician", "Lawyer", "Plumbing"])
+    const dispatch = useDispatch()
+    const categories = useSelector(state => state.categories ? Object.values(state.categories) : [])
+    // const categories = ["Painting", "Remodeling", "Electrician", "Lawyer", "Plumbing"]
 
+    useEffect(() => {
+        dispatch(fetchCategories())
+    },[dispatch])
+    
     return (
         <div className="category-index">
-            { categories && categories.map(category => {
-                return <CategoryIndexItem category={category} key={category}/>
+            { categories?.map((category) => {
+                return <CategoryIndexItem category={category} key={category.id}/>
             })}
         </div>
     )

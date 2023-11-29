@@ -1,6 +1,8 @@
 .category-section-main{
     width: 100vw;
     height: 50px;
+    margin: 0;
+    padding: 0;
     background-color: var(--tertiary-background);
     display: flex;
     justify-content: space-around;
@@ -11,6 +13,5 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    background-color: var(--tertiary-background);
     width: 100%;
 }

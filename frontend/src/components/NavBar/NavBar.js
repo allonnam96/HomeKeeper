@@ -6,7 +6,7 @@ import MainSearchBar from '../MainPage/MainSearchBar/MainSearchBar';
 import Modal from '../Modal/Modal';
 import LoginForm from '../SessionForms/LoginForm';
 import { useState } from 'react';
-import ContractorsIndex from '../Contractors/ContractorsIndex';
+// import ContractorsIndex from '../Contractors/ContractorsIndex';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 
 function NavBar () {

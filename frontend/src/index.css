@@ -56,13 +56,14 @@ table {
 
 :root{
     /* BACKGROUND COLORS */
-    --primary-background:  #c1e9fa;
-    --secondary-background: #FAF3E0;
-    --tertiary-background: #87CEEB;
+    --primary-background:  #f5f0e2;
+    --secondary-background: #ff9437;
+    --tertiary-background: #f5f0e2;
+    --secondary-background-dark: #F6AE2D;
 
     /* BUTTON COLORS */
-    --primary-button: #041f1e;
-    --secondary-button: #1e2d2f;
+    --primary-button: #ff9437;
+    --secondary-button: #F6AE2D;
 
     --primary-button-light: rgb(255 255 255);
     --secondary-button-light: #1e2d2f;

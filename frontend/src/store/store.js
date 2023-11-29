@@ -4,12 +4,14 @@ import session from './session';
 import errors from './errors'
 import contractorsReducer from './contractors';
 import reviewsReducer from './reviews';
+import categoriesReducer from './category';
 
 const rootReducer = combineReducers({
   session,
   errors,
   contractors : contractorsReducer,
-  reviews: reviewsReducer
+  reviews: reviewsReducer,
+  categories : categoriesReducer
 });
 
 let enhancer;
