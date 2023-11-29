@@ -6,6 +6,12 @@ const Contractor = mongoose.model('Contractor');
 const { requireUser } = require('../../config/passport');
 const validateCategoryInput = require('../../validations/categories')
 
+router.get('/', async (req,res) => {
+    res.json({
+        message: "GET /api/categories"
+    });
+});
+
 router.get('/:id', async (req, res, next) => {
     try {
         const category = await Category.findById(req.params.id)
