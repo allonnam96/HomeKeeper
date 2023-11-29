@@ -1,11 +1,17 @@
 .nav-bar-main{
     position: relative;
-    height: 70px;
+    height: 65px;
     padding: 0 50px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     background-color: var(--primary-background);
+}
+
+.nav-bar-main h1{
+    border: 1px solid var(--primary-gray);
+    padding: 5px 7px;
+    border-radius: 4px;
 }
 
 .links-auth{

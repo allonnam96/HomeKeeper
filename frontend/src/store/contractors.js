@@ -37,7 +37,7 @@ const contractorsReducer = (state = { }, action) => {
         case RECEIVE_CONTRACTORS:
             return {...action.contractors};
         case RECEIVE_CONTRACTOR:
-            return {...newState, [action.contractor.id] : action.contractor}
+            return {...newState, [action.contractor._id] : action.contractor}
         default:
             return state;
     }

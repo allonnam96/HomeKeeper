@@ -9,9 +9,9 @@
 .contractor-show-content{
     width: 80%;
     height: 190%;
-    border: 2px solid red;
     margin-top: 25px;
     display: flex;
+    position: relative;
 }
 
 .contractor-show-content > *{
@@ -21,18 +21,47 @@
 
 .contractor-show-info-card{
     width: 300px;
-    height: 150px;
-    border: 1px solid blue;
+    margin-bottom: 20px;
 }
 
 .contractor-show-reviews-card{
     width: 300px;
     height: 200px;
-    border: 1px solid blue;
 }
 
 .contractor-show-appointment-card{
-    width: 200px;
-    height: 350px;
-    border: 1px solid blue;
+    position: absolute;
+    right: 0;
+    width: 45%;
+    height: 70%;
+    background-color: var(--secondary-background);
+    border-radius: 4px;
+    padding: 20px;
+}
+
+.contractor-show-image{
+    border-radius: 50%;
+    height: 120px;
+    width: 120px;
+    margin: 10px;
+}
+
+.contractor-show-container .header-name-container h3{
+    font-size: 30px;
+    width: 300px;
+}
+
+.info-card > * {
+    margin: 5px 5px;
+}
+
+#category{
+    font-size: 25px;
+    color: var(--secondary-text);
+    font-style: italic;
+}
+
+#address{
+    margin-top: 20px;
+    font-weight: 600;
 }
