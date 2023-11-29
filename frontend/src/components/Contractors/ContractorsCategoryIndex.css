@@ -1,0 +1,6 @@
+.contractors-index-container {
+    background-color: var(--secondary-background);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

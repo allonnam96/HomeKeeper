@@ -6,17 +6,17 @@ import { fetchCategories } from "../../../../store/category"
 
 const CategoryIndex = () => {
     const dispatch = useDispatch()
-    // const categories = useSelector(state => state?.categories ? Object.values(state.categories) : [])
-    const categories = ["Painting", "Remodeling", "Electrician", "Lawyer", "Plumbing"]
+    const categories = useSelector(state => state.categories ? Object.values(state.categories) : [])
+    // const categories = ["Painting", "Remodeling", "Electrician", "Lawyer", "Plumbing"]
 
     useEffect(() => {
-        // dispatch(fetchCategories())
-    })
+        dispatch(fetchCategories())
+    },[dispatch])
     
     return (
         <div className="category-index">
             { categories?.map((category) => {
-                return <CategoryIndexItem category={category} key={category}/>
+                return <CategoryIndexItem category={category} key={category.id}/>
             })}
         </div>
     )
