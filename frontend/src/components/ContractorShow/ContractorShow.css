@@ -56,12 +56,18 @@
 }
 
 #category{
-    font-size: 25px;
+    font-size: 14px;
     color: var(--secondary-text);
-    font-style: italic;
+    /* font-style: italic; */
 }
 
 #address{
     margin-top: 20px;
-    font-weight: 600;
+    /* font-weight: 600; */
+}
+
+#bio{
+    width: 300px;
+    margin-top: 5px;
+    color: var(--primary-gray);
 }

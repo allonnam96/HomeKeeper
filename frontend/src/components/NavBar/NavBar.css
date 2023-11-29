@@ -1,6 +1,6 @@
 .nav-bar-main{
     position: relative;
-    height: 65px;
+    height: 70px;
     padding: 0 50px;
     display: flex;
     justify-content: space-between;
@@ -9,19 +9,50 @@
 }
 
 .nav-bar-main h1{
-    border: 1px solid var(--primary-gray);
-    padding: 5px 7px;
+    padding: 10px;
+    font-size: 20px;
     border-radius: 4px;
+    background-color: var(--primary-white);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.nav-bar-main h1:hover{
+    background-color: var(--tertiary-gray);
+    cursor: pointer;
 }
 
 .links-auth{
-    width: 110px;
     display: flex;
     justify-content: space-between;
     flex-shrink: 0;
+    background-color: var(--primary-white);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
 }
 
 .links-auth *{
     color: var(--primary-text);
     text-decoration: none;
+}
+
+.signup-nav-link{
+    padding: 10px 5px 10px 10px
+}
+
+.signup-nav-link:hover{
+    background-color: var(--tertiary-gray);
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    cursor: pointer;
+}
+
+.login-nav-link{
+    padding: 10px 10px 10px 5px;
+}
+
+.login-nav-link:hover{
+    background-color: var(--tertiary-gray);
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    cursor: pointer;
 }

@@ -22,10 +22,10 @@ const ContractorShow = () => {
                             <div className="header-name-container">
                                 <h3>{contractor?.name}</h3>
                                 <h3 id="category">{contractor?.category ? contractor.category?.name : ''}</h3>
+                                <p id="bio">{contractor?.bio}</p>
                             </div>
                         </div>
                         <div className="info-card">
-                            <p id="bio">{contractor?.bio}</p>
                             <p>{contractor?.email}</p>
                             <p>{contractor?.phoneNum}</p>
                             <p id="address">{contractor?.address}</p>
@@ -39,6 +39,9 @@ const ContractorShow = () => {
                 <div className="contractor-show-right">
                     <div className="contractor-show-appointment-card">
                         <p>Calender goes here</p>
+                        <form>
+                            <input type="date" />
+                        </form>
                     </div>
                 </div>
             </div>

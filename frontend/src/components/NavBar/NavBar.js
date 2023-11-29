@@ -39,8 +39,8 @@ function NavBar () {
       return (
         <div className="links-auth">
           <Modal onClose={toggleModal} isOpen={modalIsOpen}><LoginForm toggleModal={toggleModal}/></Modal>
-          <Link to={'/signup'}>Signup</Link>
-          <div onClick={openModal}>Login</div>
+          <Link className="signup-nav-link" to={'/signup'}>Signup</Link>
+          <div className="login-nav-link" onClick={openModal}>Login</div>
         </div>
       );
     }
