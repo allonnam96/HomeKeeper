@@ -91,13 +91,14 @@ const seedData = async () => {
 
     await User.deleteMany({});
     await Contractor.deleteMany({});
+    await Review.deleteMany({});
     await User.insertMany(users);
     const insertedContractors = await Contractor.insertMany(contractors);
 
     // Generate and seed reviews
     const reviews = [];
     for (let i = 0; i < 200; i++) {
-      const contractor = categoryObjectIds[Math.floor(Math.random() * categoryObjectIds.length)];
+      const contractor = insertedContractors[Math.floor(Math.random() * insertedContractors.length)];
       reviews.push({
         reviewStar: faker.datatype.number({ min: 1, max: 5 }),
         reviewSummary: faker.lorem.sentence(),
@@ -105,7 +106,7 @@ const seedData = async () => {
       });
     }
 
-    await Review.deleteMany({});
+
     await Review.insertMany(reviews);
 
     console.log("Seeding completed!");
