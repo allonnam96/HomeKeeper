@@ -1,7 +1,8 @@
 .nav-bar-main{
     position: relative;
     height: 70px;
-    padding: 0 50px;
+    padding: 0 130px;
+    margin: auto;
     display: flex;
     justify-content: space-between;
     align-items: center;

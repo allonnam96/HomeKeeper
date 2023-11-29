@@ -1,5 +1,5 @@
 .intro-container {
-    background-color: var(--secondary-background-dark);
+    background-color: var(--primary-background);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -39,7 +39,7 @@
 
 
 .hero-waves {
-    background-color: var(--secondary-background-dark);
+    background-color: var(--primary-background);
     display: block;
     width: 100%;
     height: 60px;
@@ -89,5 +89,60 @@
 
     100% {
     transform: translate(85px, 0%);
+    }
+}
+
+#hero .animated {
+    animation: up-down 2s ease-in-out infinite alternate-reverse both;
+}
+@media (min-width: 1024px) {
+    #hero {
+    background-attachment: fixed;
+    }
+}
+
+@media (max-width: 991px) {
+    #hero {
+    padding-top: 80px;
+    }
+
+    #hero .animated {
+    animation: none;
+    }
+
+    #hero .hero-img {
+    text-align: center;
+    }
+
+    #hero .hero-img img {
+    max-width: 50%;
+    }
+
+    #hero h1 {
+    font-size: 28px;
+    line-height: 32px;
+    margin-bottom: 10px;
+    }
+
+    #hero h2 {
+    font-size: 18px;
+    line-height: 24px;
+    margin-bottom: 30px;
+    }
+}
+
+@media (max-width: 575px) {
+    #hero .hero-img img {
+    width: 80%;
+    }
+}
+
+@keyframes up-down {
+    0% {
+    transform: translateY(10px);
+    }
+
+    100% {
+    transform: translateY(-10px);
     }
 }
