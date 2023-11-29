@@ -1,6 +1,6 @@
 .contractor-section-index-item-container{
-    height: 60%;
-    min-width: 200px;
+    height: 12em;
+    min-width: 15em;
     width: 40%;
     border: 1px solid var(--primary-border);
     background-color: var(--primary-white);
@@ -49,4 +49,9 @@
 
 .index-item-body-container > *{
     margin: 10px 0;
+}
+
+.contractor-name {
+    width: 10vw;
+    margin-bottom: 0.5em;
 }
