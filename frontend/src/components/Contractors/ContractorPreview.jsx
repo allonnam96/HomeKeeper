@@ -1,6 +1,10 @@
+import { useSelector } from 'react-redux';
 import './ContractorPreview.css'
+import { getReviewsAverage } from '../../store/reviews';
 
 const ContractorPreview = ({contractor}) => {
+    const [reviewCount, reviewsAverage] = useSelector(state => state && contractor?._id ? getReviewsAverage(state, contractor._id) : [])
+
     const backgroundImageStyle = {
         backgroundImage: `url(${contractor?.photoUrl})`,
         backgroundSize: 'cover',
@@ -13,7 +17,7 @@ const ContractorPreview = ({contractor}) => {
             <div className="contractor-section-index-item-image-placeholder" style={backgroundImageStyle}></div>
                 <div className="header-name-container">
                     <div className='contractor-name'>{contractor?.name}</div>
-                    <div className="reviews-tag">4.5 ★ (100)</div>
+                    <div className="reviews-tag">{reviewsAverage} ★ ({reviewCount})</div>
                     
                 </div>
             <div className="index-item-body-container">

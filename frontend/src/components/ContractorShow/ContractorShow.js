@@ -4,14 +4,14 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchContractor } from '../../store/contractors';
 import { useParams } from 'react-router-dom';
 import Calendar from './Calendar/Calendar';
-import { fetchReviews, getReviews } from '../../store/reviews';
+import { fetchReviews, getReviews, getReviewsAverage } from '../../store/reviews';
 
 const ContractorShow = () => {
     const dispatch = useDispatch();
     const contractorId = useParams()['id'];
     const contractor = useSelector(state => state?.contractors ? state.contractors[contractorId] : '')
+    const [reviewCount, reviewsAverage] = useSelector(state => state && contractor?._id ? getReviewsAverage(state, contractor._id) : [])
     const reviews = useSelector(state => getReviews(state, contractorId))
-    console.log(reviews)
     useEffect(() => {
         dispatch(fetchContractor(contractorId))
         dispatch(fetchReviews())
@@ -31,6 +31,7 @@ const ContractorShow = () => {
                             </div>
                         </div>
                         <div className="info-card">
+                            <p>{reviewsAverage}★({reviewCount})</p>
                             <p>{contractor?.email}</p>
                             <p>{contractor?.phoneNum}</p>
                             <p id="address">{contractor?.address}</p>

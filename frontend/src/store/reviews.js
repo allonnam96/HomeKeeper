@@ -43,6 +43,16 @@ export const getReviews = (state, contractorId) => {
     }
 }
 
+export const getReviewsAverage = (state, contractorId) => {
+    const reviews = getReviews(state, contractorId)
+
+    let totalReviewScore = reviews.reduce((total, review) =>{
+        return total + review.reviewStar
+    },0)
+    const reviewCount = reviews.length
+    return reviewCount > 0 ? [reviewCount, (totalReviewScore / reviewCount).toFixed(1)] : [0, "0.0"]
+}
+
 const reviewsReducer = (state = { }, action) => {
     const newState = {...state}
     switch(action.type) {

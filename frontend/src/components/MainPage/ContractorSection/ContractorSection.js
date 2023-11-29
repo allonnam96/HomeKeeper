@@ -6,6 +6,7 @@ import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux/es/hooks/useSelector";
 import { useEffect } from "react";
 import IntroSection from '../../IntroSection/IntroSection';
+import { fetchReview, fetchReviews } from '../../../store/reviews';
 
 const ContractorSection = () => {
     const painting = []
@@ -18,6 +19,7 @@ const ContractorSection = () => {
     
     useEffect(() => {
         dispatch(fetchContractors());
+        dispatch(fetchReviews());
     }, [dispatch])
 
     contractors.forEach((contractor) => {
