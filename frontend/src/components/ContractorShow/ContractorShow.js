@@ -20,7 +20,7 @@ const ContractorShow = () => {
     return (
         <div className="contractor-show-container">
             <div className="contractor-show-content">
-                <div className="contractor-show-left slight-shadow">
+                <div className="contractor-show-left">
                     <div className="contractor-show-info-card">
                         <div className="contractor-index-item-header-container">
                             <img src={contractor?.photoUrl} className="contractor-show-image" />

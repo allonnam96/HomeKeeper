@@ -2,32 +2,29 @@
     background-color: var(--primary-background);
     display: flex;
     justify-content: center;
-    align-items: center;
     padding: 2em;
     padding-bottom: 5em;
 }
 
 .intro-content {
     flex: 1;
-    max-width: 600px;
-    color: #fff; 
+    color: #fff;
+    width: 100px;
 }
 
 .intro-content > h1 {
-    font-size: 35px;
-    text-decoration: underline;
+    font-size: 80px;
     font-weight: 500;
 }
 
 .intro-content > p {
-    margin-top: 2em;
-    font-size: 22px;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    font-size: 30px;
 }
 
 .intro-image-placeholder {
     flex: 1;
-    height: 20em; 
-    width: 20em;
     display: flex;
     justify-content: center;
 }
@@ -92,57 +89,20 @@
     }
 }
 
-#hero .animated {
-    animation: up-down 2s ease-in-out infinite alternate-reverse both;
-}
-@media (min-width: 1024px) {
-    #hero {
-    background-attachment: fixed;
-    }
+.house-icon {
+    height: 20em;
+    width: 20em;
+    animation: bobbing 4s ease-in-out infinite alternate;
 }
 
-@media (max-width: 991px) {
-    #hero {
-    padding-top: 80px;
-    }
-
-    #hero .animated {
-    animation: none;
-    }
-
-    #hero .hero-img {
-    text-align: center;
-    }
-
-    #hero .hero-img img {
-    max-width: 50%;
-    }
-
-    #hero h1 {
-    font-size: 28px;
-    line-height: 32px;
-    margin-bottom: 10px;
-    }
-
-    #hero h2 {
-    font-size: 18px;
-    line-height: 24px;
-    margin-bottom: 30px;
-    }
-}
-
-@media (max-width: 575px) {
-    #hero .hero-img img {
-    width: 80%;
-    }
-}
-
-@keyframes up-down {
+@keyframes bobbing {
     0% {
-    transform: translateY(10px);
+        transform: translateY(0);
     }
-
+    50% {
+        transform: translateY(-10px);
+    }
     100% {
-    transform: translateY(-10px);
+        transform: translateY(0);
     }
 }

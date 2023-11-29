@@ -114,7 +114,7 @@ body {
     border: 1px solid var(--primary-border);
     border-radius: 9px;
     padding: 3px 8px;
-    background-color: none;
+    background-color: var(--primary-button-light);
     color: var(--primary-text);
 }
 

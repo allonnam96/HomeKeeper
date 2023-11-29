@@ -47,8 +47,7 @@
     width: 100%;
     min-width: 330px;
     height: 270%;
-    background-color: var(--secondary-background);
-    padding: 40px;
+    background-color: var(--primary-background);
 }
 
 @media screen and (max-width: 1300px){

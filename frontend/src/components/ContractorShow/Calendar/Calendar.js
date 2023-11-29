@@ -43,7 +43,7 @@ const Calendar = () => {
                     dateFormat="Pp"
                     />
                 </div>
-                <button className="button slight-shadow" type="submit">Request Quote</button>
+                <button className="inverse-button slight-shadow" type="submit">Book Appointment</button>
             </form>
         </div>
     )
