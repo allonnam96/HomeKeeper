@@ -6,10 +6,6 @@ const appointmentSchema = new Schema({
         type: Date,
         required: true
     },
-    appointmentTime: {
-        type: String,
-        required: true
-    },
     status: {
         type: String,
         enum: ['Scheduled', 'Pending', 'Declined']
