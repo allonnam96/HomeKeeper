@@ -10,6 +10,10 @@ const appointmentSchema = new Schema({
         type: String,
         enum: ['Scheduled', 'Pending', 'Declined']
     },
+    type:{
+        type: String,
+        enum: ['Quote', 'Consultation', 'Other']
+    },
     contractor: {
         type: Schema.Types.ObjectId,
         ref: 'Contractor',

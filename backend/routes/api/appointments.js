@@ -1,13 +1,12 @@
 const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
-const Contractor = mongoose.model('Contractor');
 const Appointment = mongoose.model('Appointment');
 const User = mongoose.model('User');
 const { requireUser } = require('../../config/passport');
 const validateAppointmentInput = require('../../validations/appointments')
 
-router.get('user/userId', async (req, res, next) => {
+router.get('/user/:userId', async (req, res, next) => {
     let user;
     try{
         user = await User.findById(req.params.userId);
@@ -18,7 +17,8 @@ router.get('user/userId', async (req, res, next) => {
         return next(error);
     }
     try{
-        const appointments = await Appointment.find({ user: user._id });
+        const appointments = await Appointment.find({ user: user._id })
+        .populate("user", "_id name");
         return res.json(appointments);
     }
     catch(err) {
@@ -26,7 +26,7 @@ router.get('user/userId', async (req, res, next) => {
     }
 });
 
-router.post('contractors/contractorId', requireUser, async (req, res, next) => {
+router.post('/apointments/new', requireUser, async (req, res, next) => {
     try {
         const newAppointment = new Appointment({
             appointmentDate: req.body.appointmentDate,
@@ -43,7 +43,7 @@ router.post('contractors/contractorId', requireUser, async (req, res, next) => {
     }
 });
 
-router.put('/appointments/:appointmentId', requireUser, async (req, res, next) => {
+router.patch('/appointments/:appointmentId', requireUser, async (req, res, next) => {
     try {
         const appointment = await Appointment.findOneAndUpdate(
             { _id: req.params.appointmentId, user: req.user._id },

@@ -1,7 +1,6 @@
 const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
-const Category = mongoose.model('Category');
 const Review = mongoose.model('Review');
 const { requireUser } = require('../../config/passport');
 const Contractor = require('../../models/Contractor');

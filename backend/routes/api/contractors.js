@@ -1,9 +1,9 @@
 const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
-const User = mongoose.model('User');
 const Contractor = mongoose.model('Contractor');
 const Category = mongoose.model('Category');
+const Review = mongoose.model('Review')
 const { requireUser } = require('../../config/passport');
 const validateContractorInput = require('../../validations/contractors'); // Assuming your model file is in a 'models' directory
 
@@ -36,7 +36,7 @@ router.get('/:categoryId/contractors', async (req, res, next) => {
 router.get('/:id', async (req, res, next) => {
     try {
         const contractor = await Contractor.findById(req.params.id)
-            .populate('category', '_id name');
+            .populate('category', '_id name')
 
         return res.json(contractor);
     }
@@ -46,8 +46,21 @@ router.get('/:id', async (req, res, next) => {
         error.errors = { message: "No Contractor found with that id" }
         return next(error);
     }
+
 });
 
+router.get('/:id/reviews', async (req, res, next) => {
+    try {
+        const reviews = await Review.find({ contractorId: req.params.id })
+            .populate('reviews', '_id');
+
+        return res.json(reviews);
+    } catch (err) {
+        const error = new Error('Error retrieving reviews for this contractor');
+        error.statusCode = 500;
+        next(error);
+    }
+});
 
 
 module.exports = router;

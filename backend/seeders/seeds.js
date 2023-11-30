@@ -36,6 +36,14 @@ const generateFakeContractor = (categoryObjectIds) => {
     'Dedicated to excellence in every project',
   ];
 
+  const genericReviewPhrases = [
+    'Great service and highly recommended!',
+    'Extremely satisfied with the work done.',
+    'Professional and efficient service.',
+    'Exceeded expectations, will hire again!',
+    'Impressed by the quality of workmanship.',
+  ];
+
   return new Contractor({
     name: `${firstName} ${lastName}`,
     title: faker.name.jobTitle(),
@@ -95,13 +103,13 @@ const seedData = async () => {
     await User.insertMany(users);
     const insertedContractors = await Contractor.insertMany(contractors);
 
-    // Generate and seed reviews
+
     const reviews = [];
     for (let i = 0; i < 200; i++) {
       const contractor = insertedContractors[Math.floor(Math.random() * insertedContractors.length)];
       reviews.push({
         reviewStar: faker.datatype.number({ min: 1, max: 5 }),
-        reviewSummary: faker.lorem.sentence(),
+        reviewSummary: genericReviewPhrases[Math.floor(Math.random() * genericReviewPhrases.length)],
         contractor: contractor._id,
       });
     }
