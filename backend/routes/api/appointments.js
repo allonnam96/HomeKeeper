@@ -26,22 +26,26 @@ router.get('/user/:userId', async (req, res, next) => {
     }
 });
 
-router.post('/appointments/new', requireUser, async (req, res, next) => {
+router.post('/new', requireUser, async (req, res, next) => {
     try {
         const newAppointment = new Appointment({
             appointmentDate: req.body.appointmentDate,
             status: req.body.status,
             type: req.body.type,
-            contractor: req.contractor._id,
-            user: req.user._id
+            contractor: req.body.contractor,
+            user: req.body.user
         });
         let appointment = await newAppointment.save();
         appointment = await appointment.populate('user', '_id name')
-        .populate('contractor', '_id name');
+        await appointment.populate('contractor', '_id name');
+        console.log("hello")
         return res.json(appointment);
     }
     catch(err) {
-        next(err);
+        // next(err);
+        return res.json({
+            Message: "Could not create appointment"
+        })
     }
 });
 
