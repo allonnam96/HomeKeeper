@@ -11,6 +11,10 @@
     flex-direction: column;
 }
 
+.contractor-section-index-item-container:hover {
+    box-shadow: none;
+}
+
 .contractor-section-index-item-image-placeholder{
     height: 70px;
     width: 70px;

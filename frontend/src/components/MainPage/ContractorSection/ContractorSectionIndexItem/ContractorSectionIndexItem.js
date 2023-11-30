@@ -17,7 +17,7 @@ const ContractorSectionIndexItem = ({contractor}) => {
             <div className="contractor-section-index-item-image-placeholder" style={backgroundImageStyle}></div>
                 <div className="header-name-container">
                     <div className='contractor-name'>{contractor?.name}</div>
-                    <div className="reviews-tag">{reviewsAverage} ★ ({reviewCount})</div>
+                    <div className="reviews-tag">{reviewsAverage} <span style={{ color: 'orange' }}> ★ </span> ({reviewCount})</div>
                 </div>
             </div>
             <div className="index-item-body-container">

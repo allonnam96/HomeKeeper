@@ -23,7 +23,7 @@ const ContractorPreview = ({ contractor }) => {
         <div className='profile-info-preview'>
             <div className="preview-body-container">
                 <div className='preview-contractor-name'>{contractor?.name}</div>
-                <div className="preview-reviews-tag">{reviewsAverage} ★ ({reviewCount})</div>
+                <div className="preview-reviews-tag">{reviewsAverage} <span style={{ color: 'orange' }}> ★ </span> ({reviewCount})</div>
                 <p>{contractor?.phoneNum}</p>
                 <p>{contractor?.email}</p>
                 <p>{contractor?.address}, NY</p>

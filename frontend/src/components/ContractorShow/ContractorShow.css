@@ -23,11 +23,6 @@
     margin-bottom: 20px;
 }
 
-.contractor-show-reviews-card{
-    width: 300px;
-    height: 200px;
-}
-
 .contractor-show-right{
     position: sticky;
     top: 50px;
@@ -96,4 +91,19 @@ select{
     font-size: 16px;
     margin: 15px 0;
     border: none;
+}
+
+.contractor-show-reviews-card {
+    padding: 1em;
+}
+
+.contractor-review {
+    margin: 1em;
+    padding: 1em;
+    background-color: white;
+    border-radius: 8px;
+}
+
+.review-info {
+    padding: 0.5em;
 }

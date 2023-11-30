@@ -5,6 +5,7 @@ import { fetchContractor } from '../../store/contractors';
 import { useParams } from 'react-router-dom';
 import Calendar from './Calendar/Calendar';
 import { fetchReviews, getReviews, getReviewsAverage } from '../../store/reviews';
+import StarRating from './Calendar/starRating';
 
 const ContractorShow = () => {
     const dispatch = useDispatch();
@@ -41,19 +42,26 @@ const ContractorShow = () => {
                         <h3>Reviews</h3>
                         { reviews && reviews.map(review => {
                             return (
-                                <div>
-                                    <p>{review.reviewSummary}</p>
-                                    <p>ReviewId: {review._id}</p>
+                                <div className='contractor-review'>
+                                    <div className='review-info'>
+                                        <StarRating rating={review.reviewStar} />
+                                    </div>
+                                    <div className='review-info'>
+                                        <p>{review?.reviewSummary}</p>
+                                    </div>
+                                    <div className='review-info'>
+                                        <p> - {review?.name}</p>
+                                    </div>
                                 </div>
                             )
                         })}
-                        <p>Reviews go here</p>
+                        {/* <p>Reviews go here</p> */}
                     </div>
                 </div>
 
                 <div className="contractor-show-right slight-shadow">
                     <h3>Get Connected</h3>
-                    <Calendar />
+                    <Calendar contractor={contractor} />
                 </div>
             </div>
         </div>
