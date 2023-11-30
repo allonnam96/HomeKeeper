@@ -26,7 +26,7 @@ router.get('/user/:userId', async (req, res, next) => {
     }
 });
 
-router.post('/apointments/new', requireUser, async (req, res, next) => {
+router.post('/appointments/new', requireUser, async (req, res, next) => {
     try {
         const newAppointment = new Appointment({
             appointmentDate: req.body.appointmentDate,
@@ -35,8 +35,9 @@ router.post('/apointments/new', requireUser, async (req, res, next) => {
             user: req.user._id
         });
         let appointment = await newAppointment.save();
-        appointment = await appointment.populate('user', '_id name');
-        return res.json(tweet);
+        appointment = await appointment.populate('user', '_id name')
+        .populate('contractor', '_id name');
+        return res.json(appointment);
     }
     catch(err) {
         next(err);
