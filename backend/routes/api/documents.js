@@ -27,3 +27,22 @@ router.get('/user/:userId', async (req, res, next) => {
 });
 
 
+router.delete('/:id', requireUser, async (req, res, next) => {
+    try {
+        const document = await Document.findOneAndDelete({
+            _id: req.params.id,
+            user: req.user._id
+        });
+        if (!document) {
+            const error = new Error('Appointment not found or unauthorized');
+            error.statusCode = 404;
+            error.errors = { message: 'No appointment found with that id or unauthorized access'};
+            return next(error);
+        }
+        return res.json({ message: 'Document deleted successfully'});
+    } catch (err) {
+        next(err);
+    }
+});
+
+module.exports = router;
