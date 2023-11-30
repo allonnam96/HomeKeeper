@@ -12,6 +12,10 @@ const reviewSchema = new Schema({
         type: String,
         required: true 
     },
+    name:{
+        type:String,
+        required: true
+    },
     contractor: {
         type: Schema.Types.ObjectId,
         ref: "Contractor" }
@@ -20,3 +24,5 @@ const reviewSchema = new Schema({
 });
 
 module.exports = mongoose.model('Review', reviewSchema)
+
+// add reviewName
