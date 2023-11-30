@@ -49,10 +49,10 @@ router.post('/new', requireUser, async (req, res, next) => {
     }
 });
 
-router.patch('/:Id', requireUser, async (req, res, next) => {
+router.patch('/:id', requireUser, async (req, res, next) => {
     try {
         const appointment = await Appointment.findOneAndUpdate(
-            { _id: req.params.appointmentId, user: req.user._id },
+            { _id: req.params.id, user: req.user._id },
             {
                 $set: {
                     appointmentDate: req.body.appointmentDate,
@@ -73,10 +73,10 @@ router.patch('/:Id', requireUser, async (req, res, next) => {
     }
 });
 
-router.delete('/:Id', requireUser, async (req, res, next) => {
+router.delete('/:id', requireUser, async (req, res, next) => {
     try {
         const appointment = await Appointment.findOneAndDelete({
-            _id: req.params.appointmentId,
+            _id: req.params.id,
             user: req.user._id
         });
         if (!appointment) {
