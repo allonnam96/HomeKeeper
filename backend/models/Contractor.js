@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
+
+
 const contractorSchema = new Schema({
     name: {
         type: String,
@@ -23,18 +25,22 @@ const contractorSchema = new Schema({
         required: true
     },
     phoneNum: {
-        type: String, 
+        type: String,
         required: true
     },
     email: {
         type: String,
         require: true
     },
-    category: { 
-        type: Schema.Types.ObjectId, 
-        ref: "Category" }
-}, {
-    timestamps: true
-});
+    category: {
+        type: Schema.Types.ObjectId,
+        ref: "Category"
+    },
+},
+    {
+        timestamps: true
+    });
 
 module.exports = mongoose.model('Contractor', contractorSchema);
+
+

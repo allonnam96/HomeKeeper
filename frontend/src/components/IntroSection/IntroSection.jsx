@@ -7,13 +7,10 @@ const IntroSection = () => {
         <div className='outer-intro'>
         <div className="intro-container">
             <div className="intro-content">
+                <p>Welcome to,</p>
                 <h1>HomeKeeper</h1>
-                <p>
-                    Welcome to HomeKeeper, your go-to platform for hassle-free home transformations.
-                    Easily book appointments with skilled contractors to remodel, renovate, or repaint your space.
-                    Elevate your home's aesthetics with confidence, as HomeKeeper connects you with trusted professionals committed to turning your vision into reality.
-                    With HomeKeeper, your dream home is just a click away!
-                </p>
+                <p>Your go-to platform for hassle-free home transformations.</p>
+                {/* <button>get started</button> */}
             </div>
             <div className="intro-image-placeholder" data-aos="zoom-out" data-aos-delay="300">
                 <img className='house-icon' src={house_icon}></img>

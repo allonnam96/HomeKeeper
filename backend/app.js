@@ -7,6 +7,8 @@ require('./models/User');
 require('./models/Contractor');
 require('./models/Category');
 require('./models/Review');
+require('./models/Appointment')
+require('./models/Document')
 require('./config/passport');
 const passport = require('passport');
 
@@ -14,6 +16,8 @@ const usersRouter = require('./routes/api/users');
 const contractorsRouter = require('./routes/api/contractors');
 const categoriesRouter = require('./routes/api/categories');
 const reviewsRouter = require('./routes/api/reviews');
+const appointmentsRouter = require('./routes/api/appointments');
+const documentsRouter = require('./routes/api/documents');
 const csrfRouter = require('./routes/api/csrf');
 
 const app = express();
@@ -53,6 +57,8 @@ app.use('/api/users', usersRouter); // update the path
 app.use('/api/contractors', contractorsRouter);
 app.use('/api/categories', categoriesRouter);
 app.use('/api/reviews', reviewsRouter);
+app.use('/api/appointments', appointmentsRouter);
+app.use('/api/documents', documentsRouter);
 app.use('/api/csrf', csrfRouter);
 
 // Express custom middleware for catching all unmatched requests and formatting

@@ -17,11 +17,11 @@ const ContractorsIndex = () => {
 
     return (
         <div className="contractors-index-container">
-        {contractors.map((contractor) => {
-            return <ContractorPreview contractor={contractor} key={contractor.id}/>
-        })}
+        {contractors.map((contractor) => (
+            <ContractorPreview contractor={contractor} key={contractor.id} />
+        ))}
         </div>
-    )
+    );
 }
 
 export default ContractorsIndex;
