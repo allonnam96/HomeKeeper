@@ -11,7 +11,7 @@ const Calendar = () => {
     });
     const handleDateChange = (date) => {
         setStartDate(date);
-      };
+    };
     
       const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });

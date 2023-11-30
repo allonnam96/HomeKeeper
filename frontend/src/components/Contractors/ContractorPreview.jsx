@@ -1,8 +1,10 @@
 import { useSelector } from 'react-redux';
 import './ContractorPreview.css'
 import { getReviewsAverage } from '../../store/reviews';
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 
 const ContractorPreview = ({contractor}) => {
+    const history = useHistory()
     const [reviewCount, reviewsAverage] = useSelector(state => state && contractor?._id ? getReviewsAverage(state, contractor._id) : [])
 
     const backgroundImageStyle = {
@@ -12,7 +14,7 @@ const ContractorPreview = ({contractor}) => {
         backgroundRepeat: 'no-repeat',
     };
     return (
-        <div className="contractor-section-index-item-container">
+        <div className="contractor-section-index-item-container" onClick={() => {history.push(`/contractors/${contractor._id}`)}}>
             <div className="contractor-index-item-header-container">
             <div className="contractor-section-index-item-image-placeholder" style={backgroundImageStyle}></div>
                 <div className="header-name-container">
