@@ -29,6 +29,26 @@ function LoginForm ({toggleModal}) {
     history.push('/')
   }
 
+  const handleDemoLogin = async () => {
+    const demoUser = {
+      email: 'demo-user@appacademy.io',
+      password: 'starwars',
+    };
+  
+    try {
+      await dispatch(login(demoUser)).then(() => {
+        history.push('/');
+      });
+    } catch (err) {
+      let data;
+      try {
+        data = await err.clone().json();
+      } catch {
+        data = await err.text();
+      }
+    }
+  };
+
   return (
     <form className="login-form" onSubmit={handleSubmit}>
       <div className='close-login' onClick={toggleModal}>×</div>
@@ -53,6 +73,9 @@ function LoginForm ({toggleModal}) {
                 <div className='login-button'>
                   <button className='button login-submit' type="submit" disabled={!email || !password}>
                     Log in
+                  </button>
+                  <button type="button" onClick={handleDemoLogin}>
+                    Demo User
                   </button>
                 </div>
           </div>
