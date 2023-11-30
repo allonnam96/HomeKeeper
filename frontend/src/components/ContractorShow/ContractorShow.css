@@ -13,10 +13,10 @@
     position: relative;
 }
 
-.contractor-show-content > *{
+/* .contractor-show-content > * {
     margin: 10px;
     padding: 10px;
-}
+} */
 
 .contractor-show-info-card{
     width: 40%;
@@ -63,10 +63,6 @@
     width: 300px;
 }
 
-.info-card > * {
-    margin: 5px 5px;
-}
-
 #category{
     font-size: 14px;
     color: var(--secondary-text);
@@ -98,7 +94,9 @@ select{
 }
 
 .contractor-review {
-    margin: 1em;
+    margin-right: 1em;
+    margin-bottom: 1em;
+    margin-top: 1em;
     padding: 1em;
     background-color: white;
     border-radius: 8px;
@@ -106,4 +104,13 @@ select{
 
 .review-info {
     padding: 0.5em;
+}
+
+.user-show-information {
+    padding-top: 0.3em;
+    padding-bottom: 0.3em;
+}
+
+.info-card {
+    margin-top: 0.5em
 }

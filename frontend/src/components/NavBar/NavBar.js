@@ -31,8 +31,8 @@ function NavBar () {
   const getLinks = () => {
     if (loggedIn) {
       return (
-        <div className="links-nav">
-          <button onClick={logoutUser}>Logout</button>
+        <div className="links-auth">
+          <button className="login-nav-link" onClick={logoutUser}>Logout</button>
         </div>
       );
     } else {

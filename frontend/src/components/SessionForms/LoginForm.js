@@ -26,7 +26,6 @@ function LoginForm ({toggleModal}) {
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(login({ email, password })); 
-
     history.push('/')
   }
 
