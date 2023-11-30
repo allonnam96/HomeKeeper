@@ -49,18 +49,5 @@ router.get('/:id', async (req, res, next) => {
 
 });
 
-router.get('/:id/reviews', async (req, res, next) => {
-    try {
-        const reviews = await Review.find({ contractorId: req.params.id })
-            .populate('reviews', '_id');
-
-        return res.json(reviews);
-    } catch (err) {
-        const error = new Error('Error retrieving reviews for this contractor');
-        error.statusCode = 500;
-        next(error);
-    }
-});
-
 
 module.exports = router;
