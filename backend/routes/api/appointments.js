@@ -31,6 +31,7 @@ router.post('/appointments/new', requireUser, async (req, res, next) => {
         const newAppointment = new Appointment({
             appointmentDate: req.body.appointmentDate,
             status: req.body.status,
+            type: req.body.type,
             contractor: req.contractor._id,
             user: req.user._id
         });
