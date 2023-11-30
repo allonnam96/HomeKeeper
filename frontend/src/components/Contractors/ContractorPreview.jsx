@@ -3,8 +3,8 @@ import './ContractorPreview.css'
 import { getReviewsAverage } from '../../store/reviews';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 
-const ContractorPreview = ({contractor}) => {
-    const history = useHistory()
+const ContractorPreview = ({ contractor }) => {
+    const history = useHistory();
     const [reviewCount, reviewsAverage] = useSelector(state => state && contractor?._id ? getReviewsAverage(state, contractor._id) : [])
 
     const backgroundImageStyle = {
@@ -13,23 +13,24 @@ const ContractorPreview = ({contractor}) => {
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
     };
+
     return (
-        <div className="contractor-section-index-item-container" onClick={() => {history.push(`/contractors/${contractor._id}`)}}>
-            <div className="contractor-index-item-header-container">
-            <div className="contractor-section-index-item-image-placeholder" style={backgroundImageStyle}></div>
-                <div className="header-name-container">
-                    <div className='contractor-name'>{contractor?.name}</div>
-                    <div className="reviews-tag">{reviewsAverage} ★ ({reviewCount})</div>
-                    
-                </div>
-            <div className="index-item-body-container">
+        <div className="contractor-preview-container" onClick={() => { history.push(`/contractors/${contractor._id}`) }}>
+        <div className='profile-photo-preview'>
+            <div className="contractor-preview-image-placeholder" style={backgroundImageStyle}></div>
+        </div>
+
+        <div className='profile-info-preview'>
+            <div className="preview-body-container">
+                <div className='preview-contractor-name'>{contractor?.name}</div>
+                <div className="preview-reviews-tag">{reviewsAverage} ★ ({reviewCount})</div>
                 <p>{contractor?.phoneNum}</p>
                 <p>{contractor?.email}</p>
                 <p>{contractor?.address}, NY</p>
             </div>
-            </div>
         </div>
-    )
+        </div>
+    );
 }
 
-export default ContractorPreview
+export default ContractorPreview;

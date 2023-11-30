@@ -4,7 +4,6 @@ import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 
 const ContractorSectionIndex = ({category, contractors}) => {
     const history = useHistory()
-    debugger
     return (
         <div className="contractor-section-index">
             <h3>{category}</h3>

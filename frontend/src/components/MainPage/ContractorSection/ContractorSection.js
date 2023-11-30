@@ -41,7 +41,7 @@ const ContractorSection = () => {
         <div className="contractor-section-container">
         <IntroSection/>
             <div className="contractor-section-content">
-                <h2>Featured Contractors</h2>
+                <h1 className='featured-contractors'>Featured Contractors</h1>
                 <ContractorSectionIndex key={1} category={"Painting"} contractors={painting}/>
                 <ContractorSectionIndex key={2} category={"Remodeling"} contractors={remodeling}/>
                 <ContractorSectionIndex key={3} category={"Electrician"} contractors={electrician}/>

@@ -1,57 +1,45 @@
-.contractor-section-index-item-container{
-    height: 12em;
-    min-width: 15em;
-    width: 70%;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    background-color: var(--primary-white);
-    border-radius: 5px;
-    padding: 10px;
-    margin: 1em;
+.contractor-preview-container {
+    background-color: var(--primary-background);
+    padding: 2em;
+    width: 30vw;
+    min-width: 25em;
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
 }
 
-.contractor-section-index-item-image-placeholder{
+.profile-photo-preview {
+    width: 7em;
+    margin-right: 10px;
+}
+
+.contractor-preview-image-placeholder {
     height: 70px;
     width: 70px;
-    border-radius: 100%;
+    border-radius: 50%;
     background-color: var(--secondary-background);
-    display: relative;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
-.contractor-index-item-header-container{
-    display: flex;
+.profile-info-preview {
+    flex: 1; /* Take remaining space */
 }
 
-.reviews-tag{
-    font-size: 11px;
-}
-
-.header-name-container{
+.preview-body-container {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    height: 40px;
-    width: 70px;
-    position: relative;
-    padding: 15px 0 0 15px;
+    justify-content: space-around;
+    height: 8em;
 }
 
-.header-name-container h3{
-    width: 175px;
+.preview-contractor-name {
     font-weight: 500;
-    color: var(--primary-text)
-}
-
-.index-item-body-container{
-    margin: 20px 0 0 10px; 
-}
-
-.index-item-body-container > *{
-    margin: 10px 0;
-}
-
-.contractor-name {
-    width: 10vw;
+    color: var(--primary-text);
     margin-bottom: 0.5em;
+}
+
+.preview-reviews-tag {
+    font-size: 11px;
 }

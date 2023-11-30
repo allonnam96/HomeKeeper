@@ -42,7 +42,7 @@ const ContractorShow = () => {
                         { reviews && reviews.map(review => {
                             return (
                                 <div>
-                                    <p>Body: {review.reviewSummary}</p>
+                                    <p>{review.reviewSummary}</p>
                                     <p>ReviewId: {review._id}</p>
                                 </div>
                             )
