@@ -6,6 +6,7 @@ import { useParams } from 'react-router-dom';
 import Calendar from './Calendar/Calendar';
 import { fetchReviews, getReviews, getReviewsAverage } from '../../store/reviews';
 import StarRating from './Calendar/starRating';
+import GoogleMaps from '../GoogleMaps/GoogleMaps';
 
 const ContractorShow = () => {
     const dispatch = useDispatch();
@@ -36,6 +37,14 @@ const ContractorShow = () => {
                             <p className='user-show-information'>{contractor?.email}</p>
                             <p className='user-show-information'>{contractor?.phoneNum}</p>
                             <p id="address" className='user-show-information'>{contractor?.address}</p>
+                        </div>
+                        <div className="google-maps">
+                            <GoogleMaps
+                                lat={37.128086930007335}
+                                lng={-113.52320119021715}
+                                name="test"
+                                mapId={Math.random()}
+                            />
                         </div>
                     </div>
                     <div className="contractor-show-reviews-card">
