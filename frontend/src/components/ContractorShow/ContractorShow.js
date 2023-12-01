@@ -26,16 +26,16 @@ const ContractorShow = () => {
                         <div className="contractor-index-item-header-container">
                             <img src={contractor?.photoUrl} className="contractor-show-image" />
                             <div className="header-name-container wider">
-                                <h3>{contractor?.name}</h3>
-                                <h3 id="category">{contractor?.category ? contractor.category?.name : ''}</h3>
-                                <p id="bio">{contractor?.bio}</p>
+                                <h3 className='user-show-information'>{contractor?.name}</h3>
+                                <h3 id="category" className='user-show-information'>{contractor?.category ? contractor.category?.name : ''}</h3>
+                                <p id="bio" className='user-show-information'>{contractor?.bio}</p>
                             </div>
                         </div>
                         <div className="info-card">
-                            <p>{reviewsAverage}★({reviewCount})</p>
-                            <p>{contractor?.email}</p>
-                            <p>{contractor?.phoneNum}</p>
-                            <p id="address">{contractor?.address}</p>
+                            <p className='user-show-information'>{reviewsAverage} <span style={{ color: 'orange' }}>★</span> ({reviewCount})</p>
+                            <p className='user-show-information'>{contractor?.email}</p>
+                            <p className='user-show-information'>{contractor?.phoneNum}</p>
+                            <p id="address" className='user-show-information'>{contractor?.address}</p>
                         </div>
                     </div>
                     <div className="contractor-show-reviews-card">
@@ -55,7 +55,6 @@ const ContractorShow = () => {
                                 </div>
                             )
                         })}
-                        {/* <p>Reviews go here</p> */}
                     </div>
                 </div>
 
