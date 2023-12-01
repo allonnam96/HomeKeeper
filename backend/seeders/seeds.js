@@ -19,14 +19,67 @@ const seedCategories = async () => {
   return await Category.insertMany(categories.map(category => ({ name: category })));
 };
 
+
+const nycAddresses = [
+  '350 5th Ave, New York, NY 10118',
+  '40 Wall St, New York, NY 10005',
+  '1 Rockefeller Plaza, New York, NY 10020',
+  '1280 Avenue of the Americas, New York, NY 10019',
+  '233 Broadway, New York, NY 10279',
+  '1600 Broadway, New York, NY 10019',
+  '55 Broadway, New York, NY 10006',
+  '120 Broadway, New York, NY 10271',
+  '1 Liberty Plaza, New York, NY 10006',
+  '60 Wall St, New York, NY 10005',
+  '345 Park Ave, New York, NY 10154',
+  '100 Wall St, New York, NY 10005',
+  '11 Times Square, New York, NY 10036',
+  '30 Rockefeller Plaza, New York, NY 10112',
+  '20 Exchange Pl, New York, NY 10005',
+  '299 Park Ave, New York, NY 10171',
+  '1 New York Plaza, New York, NY 10004',
+  '7 World Trade Center, New York, NY 10007',
+  '685 5th Ave, New York, NY 10022',
+  '23 Wall St, New York, NY 10005',
+  '570 Lexington Ave, New York, NY 10022',
+  '9 W 57th St, New York, NY 10019',
+  '4 Times Square, New York, NY 10036',
+  '1 Union Square W, New York, NY 10003',
+  '300 Park Ave, New York, NY 10022',
+  '375 Park Ave, New York, NY 10152',
+  '1350 Broadway, New York, NY 10018',
+  '450 Park Ave, New York, NY 10022',
+  '250 Vesey St, New York, NY 10281',
+  '1 Battery Park Plaza, New York, NY 10004',
+  '3 Times Square, New York, NY 10036',
+  '2 Park Ave, New York, NY 10016',
+  '55 Water St, New York, NY 10041',
+  '7 Bryant Park, New York, NY 10018',
+  '110 Wall St, New York, NY 10005',
+  '2 Broadway, New York, NY 10004',
+  '1177 Avenue of the Americas, New York, NY 10036',
+  '1095 6th Ave, New York, NY 10036',
+  '230 Park Ave, New York, NY 10169',
+  '810 7th Ave, New York, NY 10019',
+  '1345 Avenue of the Americas, New York, NY 10105',
+  '51 Astor Pl, New York, NY 10003',
+  '151 W 42nd St, New York, NY 10036',
+  '120 Wall St, New York, NY 10005',
+  '1 Bryant Park, New York, NY 10036',
+  '1301 Avenue of the Americas, New York, NY 10019',
+  '75 Wall St, New York, NY 10005',
+  '2 Penn Plz, New York, NY 10121',
+  '450 Lexington Ave, New York, NY 10017',
+];
+
+
+
 const generateFakeContractor = (categoryObjectIds) => {
   const firstName = faker.person.firstName();
   const lastName = faker.person.lastName();
-  const phoneFormats = ['###-###-####', '(###) ###-####', '1-###-###-####'];
   const phoneNum = formatPhoneNumber();
   const randomCategoryObjectId = categoryObjectIds[Math.floor(Math.random() * categoryObjectIds.length)]._id;
-
-  // const imageUrl = 'https://source.unsplash.com/400x400/?headshot%20professional';
+  const randomAddress = nycAddresses[Math.floor(Math.random() * nycAddresses.length)];
 
   const genericPhrases = [
     'Experienced professional in the field',
@@ -41,7 +94,7 @@ const generateFakeContractor = (categoryObjectIds) => {
     name: `${firstName} ${lastName}`,
     title: faker.name.jobTitle(),
     bio: genericPhrases[Math.floor(Math.random() * genericPhrases.length)],
-    address: faker.address.streetAddress(),
+    address: randomAddress,
     photoUrl: faker.image.avatarLegacy(),
     phoneNum: phoneNum,
     email: faker.internet.email(firstName),
