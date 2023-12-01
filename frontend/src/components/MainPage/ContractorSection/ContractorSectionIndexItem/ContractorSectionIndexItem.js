@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux';
-import { getReviewsAverage, getReviews } from '../../../../store/reviews';
+import { getReviewsAverage } from '../../../../store/reviews';
 import './ContractorSectionIndexItem.css'
 
 const ContractorSectionIndexItem = ({contractor}) => {

@@ -18,6 +18,11 @@
     padding: 10px;
 } */
 
+.google-maps{
+    height: 200px;
+    width: 500px;
+}
+
 .contractor-show-info-card{
     width: 40%;
     margin-bottom: 20px;
