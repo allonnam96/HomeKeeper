@@ -40,8 +40,8 @@ const ContractorShow = () => {
                         </div>
                         <div className="google-maps">
                             <GoogleMaps
-                                lat={37.128086930007335}
-                                lng={-113.52320119021715}
+                                lat={parseFloat(contractor?.latitude)}
+                                lng={parseFloat(contractor?.longitude)}
                                 name="test"
                                 mapId={Math.random()}
                             />
