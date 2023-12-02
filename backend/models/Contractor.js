@@ -20,6 +20,14 @@ const contractorSchema = new Schema({
         type: String,
         required: true
     },
+    longitude: {
+        type: String,
+        required: true
+    },
+    latitude: {
+        type: String,
+        required: true
+    },
     photoUrl: {
         type: String,
         required: true

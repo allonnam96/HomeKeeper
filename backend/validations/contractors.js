@@ -15,6 +15,12 @@ const validateContractorInput = [
     check('address')
         .exists({ checkFalsy: true })
         .withMessage('Address is required'),
+    check('longitude')
+        .exists({ checkFalsy: true })
+        .withMessage('Longitude is required'),
+    check('latitude')
+        .exists({ checkFalsy: true })
+        .withMessage('Latitude is required'),
     check('photoUrl')
         .exists({ checkFalsy: true })
         .withMessage('Photo URL is required'),
