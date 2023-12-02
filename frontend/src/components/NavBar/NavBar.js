@@ -15,6 +15,14 @@ function NavBar () {
   const dispatch = useDispatch();
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
+  const handleApptClick = () => {
+    if (loggedIn) {
+      history.push('/appointments')
+    } else {
+      toggleModal()
+    }
+  }
+
   const openModal = () => {
     setModalIsOpen(true);
   };
@@ -49,6 +57,7 @@ function NavBar () {
   return (
     <div className="nav-bar-main">
       <h1 onClick={() => {history.push('/')}}>HomeKeeper</h1>
+      <h1 onClick={handleApptClick}>Appointments</h1>
       <MainSearchBar />
       { getLinks() }
     </div>

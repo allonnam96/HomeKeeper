@@ -9,14 +9,14 @@ import { useHistory } from "react-router-dom/cjs/react-router-dom.min"
 
 
 const AppointmentPreview = ({appointment}) => {
-    const history = useHistory()
+    // const history = useHistory()
     const dispatch = useDispatch()
     const contractor = useSelector(state => state?.contractors ? state.contractors[appointment.contractor] : [])
     const [formattedDate, setFormattedDate] = useState("");
 
     useEffect(() => {
-        dispatch(fetchContractor(appointment.contractor))
-    },[dispatch, appointment.contractor])
+        dispatch(fetchContractor(appointment?.contractor))
+    },[dispatch, appointment?.contractor])
 
     useEffect(() => {
         if (appointment?.appointmentDate) {

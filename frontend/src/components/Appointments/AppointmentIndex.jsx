@@ -15,7 +15,6 @@ const AppointmentIndex = () => {
     return (
         appointments.map((appointment) => {
             return <AppointmentPreview appointment={appointment} key={appointment._id} />
-
         })
     )
 }

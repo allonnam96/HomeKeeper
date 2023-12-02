@@ -37,8 +37,7 @@ router.post('/new', requireUser, async (req, res, next) => {
         });
         let appointment = await newAppointment.save();
         appointment = await appointment.populate('user', '_id name')
-        await appointment.populate('contractor', '_id name');
-        console.log("hello")
+        await appointment.populate('contractor', '_id name')
         return res.json(appointment);
     }
     catch(err) {
