@@ -7,9 +7,11 @@ import Calendar from './Calendar/Calendar';
 import { fetchReviews, getReviews, getReviewsAverage } from '../../store/reviews';
 import StarRating from './Calendar/starRating';
 import GoogleMaps from '../GoogleMaps/GoogleMaps';
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 
 const ContractorShow = () => {
     const dispatch = useDispatch();
+    const history = useHistory();
     const contractorId = useParams()['id'];
     const contractor = useSelector(state => state?.contractors ? state.contractors[contractorId] : '')
     const [reviewCount, reviewsAverage] = useSelector(state => state && contractor?._id ? getReviewsAverage(state, contractor._id) : [])
@@ -18,6 +20,10 @@ const ContractorShow = () => {
         dispatch(fetchContractor(contractorId))
         dispatch(fetchReviews())
     }, [dispatch])
+
+    const handleCategoryClick = () => {
+        history.push(`/categories/${contractor.category._id}`)
+    }
 
     return (
         <div className="contractor-show-container">
@@ -28,7 +34,7 @@ const ContractorShow = () => {
                             <img src={contractor?.photoUrl} className="contractor-show-image" />
                             <div className="header-name-container wider">
                                 <h3 className='user-show-information'>{contractor?.name}</h3>
-                                <h3 id="category" className='user-show-information'>{contractor?.category ? contractor.category?.name : ''}</h3>
+                                <h3 id="category" className='user-show-information category-name' onClick={handleCategoryClick}>{contractor?.category ? contractor.category?.name : ''}</h3>
                                 <p id="bio" className='user-show-information'>{contractor?.bio}</p>
                             </div>
                         </div>
@@ -42,7 +48,7 @@ const ContractorShow = () => {
                             <GoogleMaps
                                 lat={parseFloat(contractor?.latitude)}
                                 lng={parseFloat(contractor?.longitude)}
-                                name="test"
+                                name="Contractor Show"
                                 mapId={Math.random()}
                             />
                         </div>
