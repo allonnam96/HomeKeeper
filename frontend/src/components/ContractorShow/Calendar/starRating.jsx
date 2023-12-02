@@ -6,7 +6,7 @@ const StarRating = ({ rating }) => {
 
     const renderStars = () => {
         const stars = [];
-
+        
         for (let i = 0; i < fullStars; i++) {
         stars.push(<span key={i} className="star" style={{ color: 'orange' }}>&#9733;</span>);
         }

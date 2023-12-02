@@ -5,13 +5,15 @@ import errors from './errors'
 import contractorsReducer from './contractors';
 import reviewsReducer from './reviews';
 import categoriesReducer from './category';
+import appointmentsReducer from './appointment';
 
 const rootReducer = combineReducers({
   session,
   errors,
   contractors : contractorsReducer,
   reviews: reviewsReducer,
-  categories : categoriesReducer
+  categories : categoriesReducer,
+  appointments : appointmentsReducer
 });
 
 let enhancer;

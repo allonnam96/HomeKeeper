@@ -1,0 +1,19 @@
+.appt-preview-container {
+    background-color: white;
+    width: 40vw;
+    min-width: 35em;
+    border-radius: 8px;
+    padding: 1em;
+    margin: 0.5em;
+    display: flex;
+}
+
+.appt-preview-info {
+    padding: 1em;
+}
+
+.appt-status-pending {
+    border-radius: 8px;
+    border: 1px solid orange;
+    box-shadow: inset 0 0 0 2px rgb(255, 221, 177);
+}

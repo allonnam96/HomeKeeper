@@ -20,8 +20,8 @@ export const removeAppointment = (appointmentId) => ({
     appointmentId
 })
 
-export const fetchAppointments = () => async dispatch => {
-    const res = await jwtFetch('/api/appointments')
+export const fetchAppointments = (userId) => async dispatch => {
+    const res = await jwtFetch(`/api/appointments/user/${userId}`)
 
     if (res.ok) {
         const appointments = await res.json()
@@ -55,14 +55,14 @@ export const createAppointment = (appointment) => async dispatch => {
 }
 
 export const updateAppointment = (appointment) => async dispatch => {
-    const res = await jwtFetch((`/api/appointments/${appointment.id}`), {
+    const res = await jwtFetch((`/api/appointments/${appointment._id}`), {
         method: 'PATCH',
         headers: {
             'Content-Type' : 'application/json'
         },
         body: JSON.stringify(appointment)
     })
-    
+
     if (res.ok) {
         const appointment = await res.json()
         dispatch(receiveAppointment(appointment))
@@ -73,9 +73,9 @@ export const deleteAppointment = (appointmentId) => async dispatch => {
     const res = await jwtFetch((`/api/appointments/${appointmentId}`), {
         method: 'DELETE'
     })
-    
+
     if (res.ok) {
-        dispatch(removeAppointment({appointmentId}))
+        dispatch(removeAppointment(appointmentId))
     }
 }
 
