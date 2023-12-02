@@ -1,4 +1,5 @@
 .nav-bar-main{
+    
     position: relative;
     height: 70px;
     padding: 0 130px;
@@ -7,7 +8,7 @@
     justify-content: space-between;
     align-items: center;
     background-color: var(--primary-background);
-    /* position: fixed;  */
+
 }
 
 .nav-bar-main h1{
@@ -20,6 +21,7 @@
     align-items: center;
     gap: 0.5em;
     font-size: 20px;
+    cursor: pointer;
 }
 
 .house-icon-navbar{
@@ -42,12 +44,14 @@
 .links-auth svg {
     height: 1.5em;
     width: 1.5em;
-    transition: fill 100ms ease-out;
+    transition: opacity 100ms ease-out;
     cursor: pointer;
+    /* fill: #ff9437; */
 }
 
 .links-auth svg:hover{
-    fill: var(--primary-gray);
+    opacity: 0.5;
+    fill: #ff9437;
 
 }
 .signup-nav-link{

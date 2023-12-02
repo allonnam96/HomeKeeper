@@ -15,7 +15,7 @@ const NUM_SEED_CONTRACTORS = 100;
 const users = [];
 
 const seedCategories = async () => {
-  const categories = ['Plumber', 'Painter', 'Electrician', 'Home Remodeler', 'Lawyer'];
+  const categories = ['Plumber', 'Painter', 'Electrician', 'Remodeler', 'Lawyer'];
   return await Category.insertMany(categories.map(category => ({ name: category })));
 };
 
@@ -114,6 +114,7 @@ const formatPhoneNumber = () => {
 };
 
 const seedData = async () => {
+  await Category.deleteMany({});
   const categoryObjectIds = await seedCategories();
 
   users.push(
@@ -151,6 +152,8 @@ const seedData = async () => {
     await Contractor.deleteMany({});
     await Review.deleteMany({});
     await User.insertMany(users);
+
+    
     const insertedContractors = await Contractor.insertMany(contractors);
 
     const genericReviewPhrases = [
