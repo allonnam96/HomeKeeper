@@ -9,14 +9,14 @@ import { useHistory } from "react-router-dom/cjs/react-router-dom.min"
 
 
 const AppointmentPreview = ({appointment}) => {
-    // const history = useHistory()
+    const history = useHistory()
     const dispatch = useDispatch()
     const contractor = useSelector(state => state?.contractors ? state.contractors[appointment.contractor] : [])
     const [formattedDate, setFormattedDate] = useState("");
 
     useEffect(() => {
-        dispatch(fetchContractor(appointment?.contractor))
-    },[dispatch, appointment?.contractor])
+        dispatch(fetchContractor(appointment.contractor))
+    },[dispatch, appointment.contractor])
 
     useEffect(() => {
         if (appointment?.appointmentDate) {
@@ -32,6 +32,24 @@ const AppointmentPreview = ({appointment}) => {
         setFormattedDate(formatted);
         }
     }, [appointment]);
+
+    useEffect(() => {
+        const timeoutId = setTimeout(() => {
+            if (appointment?.status === 'Pending') {
+                dispatch(updateAppointment({
+                    _id: appointment._id,
+                    appointmentDate: appointment.appointmentDate,
+                    contractor: appointment.contractor,
+                    status: 'Confirmed',
+                    type: appointment.type
+                }));
+            }
+        history.push('/appointments')
+        }, 5000);
+
+        return () => clearTimeout(timeoutId);
+
+    }, [dispatch, appointment]);
 
     return (
         <div className="appt-preview-container">
