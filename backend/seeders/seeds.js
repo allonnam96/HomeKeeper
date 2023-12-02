@@ -162,7 +162,29 @@ const seedData = async () => {
       'The service received was nothing short of professional and efficient. Every aspect of the job was handled with expertise and care. I highly recommend this contractor for any project.',
       'Exceeded all expectations! The dedication to delivering high-quality service was evident in every step of the process. I will certainly hire again for any upcoming projects.',
       'Impressed by the exceptional quality of workmanship. The attention to detail and craftsmanship were remarkable. A reliable and skilled contractor that I would recommend without hesitation.',
+      // Additional reviews
+      'Remarkable service! The dedication to perfection and consistent delivery of outstanding results were truly commendable. Highly recommended for their expertise.',
+      'Exceptionally satisfied with the service provided. The professionalism and dedication displayed were beyond compare. I\'ll definitely engage their services again.',
+      'A truly professional experience from start to finish. The meticulous attention to detail and proficiency in handling the project were outstanding. Strongly recommend!',
+      'Surpassed all expectations! The commitment to delivering top-tier service was evident throughout. I\'ll absolutely rehire for any future projects.',
+      'Impressed by the impeccable quality of work. The precision and skill exhibited were truly impressive. A dependable contractor I\'d endorse wholeheartedly.',
+      'Outstanding service delivered! The meticulous approach and commitment to excellence were evident at every stage. Highly recommend this contractor for their expertise.',
+      'Extremely satisfied with the exceptional service. The professionalism and efficiency shown throughout the project were exemplary. Will definitely hire again!',
+      'A seamless, professional experience. The attention to detail and expertise displayed were remarkable. I highly recommend this contractor for their exceptional work.',
+      'Exceeded expectations in every aspect! The dedication to delivering high-quality results was evident throughout. I\'ll certainly engage their services again.',
+      'Impressed by the exceptional craftsmanship. The attention to detail and commitment to quality were unparalleled. A highly skilled and reliable contractor.',
+      'Delivered exceptional service! The attention to detail and dedication to excellence were truly commendable. Highly recommended for their expertise.',
+      'Extremely satisfied with the professionalism exhibited. The efficiency and expertise displayed were exceptional. Will definitely engage their services again.',
+      'A top-notch, professional experience. The meticulous attention to detail and proficiency in handling the project were truly impressive. Strongly recommend!',
+      'Surpassed all expectations! The commitment to delivering outstanding service was evident at every turn. I\'ll absolutely rehire for future projects.',
+      'Impressed by the impeccable quality of workmanship. The precision and skill exhibited were truly remarkable. A dependable contractor I\'d endorse wholeheartedly.',
+      'Delivered exceptional service! The dedication to perfection and consistent delivery of top-tier results were truly commendable. Highly recommended for their expertise.',
+      'Exceptionally satisfied with the outstanding service provided. The professionalism and dedication shown were beyond compare. I\'ll definitely engage their services again.',
+      'A truly professional and seamless experience. The attention to detail and expertise displayed were remarkable. I highly recommend this contractor for their exceptional work.',
+      'Exceeded expectations in every aspect! The commitment to delivering high-quality service was evident throughout. I\'ll certainly engage their services again.',
+      'Impressed by the exceptional craftsmanship. The attention to detail and commitment to excellence were unparalleled. A highly skilled and reliable contractor.'
     ];
+    
 
 
     const reviews = [];
