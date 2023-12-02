@@ -4,8 +4,11 @@ import './NavBar.css';
 import { logout } from '../../store/session';
 import MainSearchBar from '../MainPage/MainSearchBar/MainSearchBar';
 import Modal from '../Modal/Modal';
+import Dropdown from '../Dropdown/Dropdown';
 import LoginForm from '../SessionForms/LoginForm';
-import { useState } from 'react';
+import house_icon from '../../img/house-icon-clipart-transparent-background-free-png.webp'
+import { ReactComponent as UserIcon } from "../../img/UserIcon.svg";
+import { useEffect, useRef, useState } from 'react';
 // import ContractorsIndex from '../Contractors/ContractorsIndex';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 
@@ -14,6 +17,25 @@ function NavBar () {
   const loggedIn = useSelector(state => !!state.session.user);
   const dispatch = useDispatch();
   const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [userDropdownOpen, setUserDropdownOpen] = useState(false);
+  const userDropdownRef = useRef(null);
+
+  useEffect(() => {
+    function handleOutsideClick(e) {
+      const userIcon = document.getElementById("user-icon")
+      console.log(e.target)
+      console.log(userIcon)
+      if (userDropdownRef.current
+          && !userDropdownRef.current.contains(e.target)
+          && !userIcon.contains(e.target)) {
+        setUserDropdownOpen(false);
+      }
+    }
+    document.addEventListener("mousedown", handleOutsideClick);
+    return () => {
+      document.removeEventListener("mousedown", handleOutsideClick);
+    };
+  }, [userDropdownRef]);
 
   const handleApptClick = () => {
     if (loggedIn) {
@@ -38,9 +60,15 @@ function NavBar () {
 
   const getLinks = () => {
     if (loggedIn) {
+      const userDropdown = [
+        { value: "Appointments", fn: handleApptClick },
+        { value: "Logout", fn: logoutUser }
+      ];
+
       return (
         <div className="links-auth">
-          <button className="login-nav-link" onClick={logoutUser}>Logout</button>
+          <UserIcon id="user-icon" onClick={() => setUserDropdownOpen(!userDropdownOpen)} />
+          {userDropdownOpen ? <Dropdown children={userDropdown} ref={userDropdownRef}/> : <></>}
         </div>
       );
     } else {
@@ -56,9 +84,8 @@ function NavBar () {
 
   return (
     <div className="nav-bar-main">
-      <h1 onClick={() => {history.push('/')}}>HomeKeeper</h1>
-      <h1 onClick={handleApptClick}>Appointments</h1>
-      <MainSearchBar />
+      <h1 onClick={() => {history.push('/')}}><img className='house-icon-navbar' src={house_icon}></img>HomeKeeper</h1>
+      {/* <MainSearchBar /> */}
       { getLinks() }
     </div>
   );

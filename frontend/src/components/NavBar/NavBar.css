@@ -7,27 +7,30 @@
     justify-content: space-between;
     align-items: center;
     background-color: var(--primary-background);
+    /* position: fixed;  */
 }
 
 .nav-bar-main h1{
-    padding: 10px;
+    /* padding: 10px;
     font-size: 20px;
     border-radius: 4px;
     background-color: var(--primary-white);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    font-size: 20px;
 }
 
-.nav-bar-main h1:hover{
-    background-color: var(--tertiary-gray);
-    cursor: pointer;
+.house-icon-navbar{
+    height: 2em;
 }
 
 .links-auth{
     display: flex;
     justify-content: space-between;
     flex-shrink: 0;
-    background-color: var(--primary-white);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
     border-radius: 4px;
 }
 
@@ -36,6 +39,17 @@
     text-decoration: none;
 }
 
+.links-auth svg {
+    height: 1.5em;
+    width: 1.5em;
+    transition: fill 100ms ease-out;
+    cursor: pointer;
+}
+
+.links-auth svg:hover{
+    fill: var(--primary-gray);
+
+}
 .signup-nav-link{
     padding: 10px 5px 10px 10px
 }
@@ -49,6 +63,8 @@
 
 .login-nav-link{
     padding: 10px 10px 10px 5px;
+    font-family: 'Poppins', sans-serif;
+    border-radius: 7px;
 }
 
 .login-nav-link:hover{
@@ -57,3 +73,4 @@
     border-bottom-right-radius: 4px;
     cursor: pointer;
 }
+

@@ -168,7 +168,7 @@ const seedData = async () => {
       const lastName = faker.person.lastName();
       const contractor = insertedContractors[Math.floor(Math.random() * insertedContractors.length)];
       reviews.push({
-        reviewStar: faker.datatype.number({ min: 1, max: 5 }),
+        reviewStar: faker.datatype.number({ min: 3, max: 5 }),
         reviewSummary: genericReviewPhrases[Math.floor(Math.random() * genericReviewPhrases.length)],
         name: `${firstName} ${lastName}`,
         contractor: contractor._id,
