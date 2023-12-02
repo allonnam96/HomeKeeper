@@ -18,6 +18,13 @@
     padding: 10px;
 } */
 
+
+.category-name:hover{
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+
 .google-maps{
     height: 200px;
     width: 500px;
