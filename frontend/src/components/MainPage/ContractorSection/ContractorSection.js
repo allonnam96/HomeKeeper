@@ -25,7 +25,7 @@ const ContractorSection = () => {
     contractors.forEach((contractor) => {
         if (contractor.category.name === 'Painter') {
             painting.push(contractor)
-        } else if (contractor.category.name === 'Home Remodeler') {
+        } else if (contractor.category.name === 'Remodeler') {
             remodeling.push(contractor)
         } else if (contractor.category.name === 'Electrician') {
             electrician.push(contractor)
