@@ -2,7 +2,7 @@ import './MainPage.css'
 import CategorySection from './CategorySection/CategorySection'
 import MainSearchBar from './MainSearchBar/MainSearchBar';
 import ContractorSection from './ContractorSection/ContractorSection';
-import Footer from '../Footer/Footer';
+// import Footer from '../Footer/Footer';
 
 const MainPage = () => {
     return (
