@@ -25,7 +25,7 @@ function App() {
 
   return loaded && (
     <>
-      <NavBar />
+      <NavBar/>
       <Switch>
         <Route exact path="/" component={MainPage} />
         <Route exact path="/appointments" component={AppointmentIndex} />

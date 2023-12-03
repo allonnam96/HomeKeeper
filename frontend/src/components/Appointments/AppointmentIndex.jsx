@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchAppointments } from '../../store/appointment';
 import AppointmentPreview from './AppointmentPreview'
 import './AppointmentIndex.css'
+import NavBar from '../NavBar/NavBar';
 
 const AppointmentIndex = () => {
     const dispatch = useDispatch();
@@ -14,6 +15,7 @@ const AppointmentIndex = () => {
     }, [dispatch, user._id]);
 
     return (
+        <>
         <div className='all-appts'>
         {appointments?.length > 0 ?
         <div className='appts-heading'>
@@ -28,6 +30,7 @@ const AppointmentIndex = () => {
             return <AppointmentPreview appointment={appointment} key={appointment._id} />
         })}
         </div>
+        </>
     )
 }
 

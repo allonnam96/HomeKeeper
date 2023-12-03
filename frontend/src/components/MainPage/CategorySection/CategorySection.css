@@ -1,8 +1,7 @@
 .category-section-main{
     width: 100vw;
-    height: 50px;
     margin: 0;
-    padding: 0;
+    padding-bottom: 1em;
     background-color: var(--tertiary-background);
     display: flex;
     justify-content: space-around;

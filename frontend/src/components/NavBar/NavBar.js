@@ -10,6 +10,7 @@ import house_icon from '../../img/house-icon-clipart-transparent-background-free
 import { ReactComponent as UserIcon } from "../../img/UserIcon.svg";
 import { useEffect, useRef, useState } from 'react';
 // import ContractorsIndex from '../Contractors/ContractorsIndex';
+import CategorySection from '../MainPage/CategorySection/CategorySection';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 
 function NavBar () {
@@ -73,6 +74,7 @@ function NavBar () {
       );
     } else {
       return (
+        // <div className='navbar-all'>
         <div className="links-auth">
           <Modal onClose={toggleModal} isOpen={modalIsOpen}><LoginForm toggleModal={toggleModal}/></Modal>
           <Link className="signup-nav-link" to={'/signup'}>Signup</Link>
@@ -83,10 +85,12 @@ function NavBar () {
   }
 
   return (
+    <>
     <div className="nav-bar-main">
       <h1 onClick={() => {history.push('/')}}> {/*<img className='house-icon-navbar' src={house_icon}></img> */} HomeKeeper</h1>
       { getLinks() }
     </div>
+    </>
   );
 }
 

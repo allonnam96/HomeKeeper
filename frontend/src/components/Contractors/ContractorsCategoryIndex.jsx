@@ -6,6 +6,7 @@ import ContractorPreview from './ContractorPreview'
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 import "./ContractorsCategoryIndex.css";
 import MultiPinMap from "../GoogleMaps/MultiPinMap";
+import CategorySection from "../MainPage/CategorySection/CategorySection";
 
 const ContractorsIndex = () => {
     const dispatch = useDispatch();
@@ -24,6 +25,8 @@ const ContractorsIndex = () => {
     }, [dispatch, categoryId]);
 
     return (
+        <>
+        <CategorySection />
         <div className="contractors-index-container">
             <div className="contractors-list">
                 {contractors.map((contractor) => (
@@ -38,6 +41,7 @@ const ContractorsIndex = () => {
                 />
             </div>
         </div>
+        </>
     );
 }
 

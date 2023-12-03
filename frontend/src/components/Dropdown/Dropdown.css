@@ -7,7 +7,7 @@
     border-radius: 7px;
     display: flex;
     flex-direction: column;
-    background-color: #f5f0e2;
+    background-color: white;
     filter: brightness(1.02);
 }
 
@@ -26,5 +26,5 @@
 }
 
 .dropdown li:hover {
-    background-color: white;
+    background-color: whitesmoke;
 }
