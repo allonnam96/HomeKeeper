@@ -17,9 +17,13 @@ const Calendar = ({ contractor }) => {
     const [formData, setFormData] = useState({
         name: '',
     });
+    const [appointmentType, setAppointmentType] = useState("Quote");
     const [modalIsOpen, setModalIsOpen] = useState(false);
     const [appointmentBooked, setAppointmentBooked] = useState(false);
 
+    const appointmentTypeChange = (e) => {
+        setAppointmentType(e.target.value);
+    };
     const openModal = () => {
         setModalIsOpen(true);
     };
@@ -38,15 +42,16 @@ const Calendar = ({ contractor }) => {
 
     const addAppointment = async (e) => {
         e.preventDefault();
-
         if (user) {
         const appointment = {
             appointmentDate: startDate,
             status: 'Pending',
-            type: 'Quote',
+            type: appointmentType,
             contractor: contractor._id,
             user: user._id,
         };
+
+        debugger
 
         try {
             await dispatch(createAppointment(appointment));
@@ -55,7 +60,7 @@ const Calendar = ({ contractor }) => {
             console.error('Error creating appointment:', error);
         }
         } else {
-        openModal();
+            openModal();
         }
     };
 
@@ -65,14 +70,19 @@ const Calendar = ({ contractor }) => {
             <LoginForm toggleModal={toggleModal} />
         </Modal>
         <form onSubmit={addAppointment}>
-            <label htmlFor="appointment-type">Appointment Type</label>
-            <br />
-            <select id="appointment-type" className="slight-shadow">
-            <option value="default">Select One</option>
-            <option value="quote">Quote</option>
-            <option value="consultation">Consultation</option>
-            <option value="other">Other</option>
-            </select>
+                <label htmlFor="appointment-type">Appointment Type</label>
+                <br />
+                <select
+                    id="appointment-type"
+                    className="slight-shadow"
+                    value={appointmentType}
+                    onChange={appointmentTypeChange}
+                >
+                    <option value="default">Select One</option>
+                    <option value="Quote">Quote</option>
+                    <option value="Consultation">Consultation</option>
+                    <option value="Other">Other</option>
+                </select>
             <div>
             <label>Select A time</label>
             <DatePicker

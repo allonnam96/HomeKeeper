@@ -1,19 +1,68 @@
 .appt-preview-container {
     background-color: white;
-    width: 40vw;
-    min-width: 35em;
+    width: 50vw;
+    min-width: 50em;
+    height: 5em;
     border-radius: 8px;
     padding: 1em;
-    margin: 0.5em;
+    margin: 0.3em;
     display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+
+.appt-preview-individual {
+    display: flex;
+    align-items: center;
+}
+
+.appt-preview-name {
+    width: 5em;
+}
+
+.contractor-preview-image-appt {
+    height: 70px;
+    width: 70px;
+    border-radius: 50%;
+    background-color: var(--secondary-background);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-right: 1em;
+}
+
+.appt-time-type {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.update-appt {
+    margin-right: 1em;
+}
+
+.update-appt, .delete-appt {
+    height: 3em;
+    font-size: 15px;
+}
+
 
 .appt-preview-info {
     padding: 1em;
+    font-size: 16px;
 }
 
 .appt-status-pending {
     border-radius: 8px;
     border: 1px solid orange;
     box-shadow: inset 0 0 0 2px rgb(255, 221, 177);
+    font-size: 15px;
+}
+
+.appt-status-confirmed {
+    border-radius: 8px;
+    border: 1px solid rgb(0, 83, 0);
+    box-shadow: inset 0 0 0 2px rgb(232, 253, 232);
+    font-size: 15px;
 }

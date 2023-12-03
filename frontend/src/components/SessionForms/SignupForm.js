@@ -85,11 +85,6 @@ function SignupForm() {
     return (
         <div className="signup-container">
           <Modal onClose={toggleModal} isOpen={modalIsOpen}><LoginForm toggleModal={toggleModal}/></Modal>
-            {/* {modalIsOpen && (
-              <Modal onClose={toggleModal} isOpen={modalIsOpen}>
-                <LoginForm />
-              </Modal>
-            )} */}
             <form className="session-form" onSubmit={handleSubmit}>
                 <span className='create-account'>Create an account</span>
                 <div className="user-info">

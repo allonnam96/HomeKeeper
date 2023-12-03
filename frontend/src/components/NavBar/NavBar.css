@@ -1,5 +1,4 @@
 .nav-bar-main{
-    
     position: relative;
     height: 70px;
     padding: 0 130px;
@@ -8,15 +7,9 @@
     justify-content: space-between;
     align-items: center;
     background-color: var(--primary-background);
-
 }
 
 .nav-bar-main h1{
-    /* padding: 10px;
-    font-size: 20px;
-    border-radius: 4px;
-    background-color: var(--primary-white);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
     display: flex;
     align-items: center;
     gap: 0.5em;
@@ -76,5 +69,9 @@
     border-top-right-radius: 4px;
     border-bottom-right-radius: 4px;
     cursor: pointer;
+}
+
+.user-dropdown {
+    z-index: 1;
 }
 
