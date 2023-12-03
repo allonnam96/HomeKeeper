@@ -19,6 +19,8 @@
 
 .contractor-section-index{
     display: flex;
+    justify-content: space-between;
+    align-items: stretch;
     height: 100%;
     overflow-x: auto;
     padding: 2em;
@@ -26,6 +28,14 @@
     border-radius: 8px;
     background-color: var(--primary-background);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.contractor-section-index > h3 {
+    margin-right: 50px;
+}
+
+.contractor-section-index > div {
+    flex: 1;
 }
 
 .contractor-section-index h3{
