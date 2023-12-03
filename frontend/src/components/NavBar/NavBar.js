@@ -10,8 +10,10 @@ import house_icon from '../../img/house-icon-clipart-transparent-background-free
 import { ReactComponent as UserIcon } from "../../img/UserIcon.svg";
 import { useEffect, useRef, useState } from 'react';
 // import ContractorsIndex from '../Contractors/ContractorsIndex';
-import CategorySection from '../MainPage/CategorySection/CategorySection';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
+
+// import ContractorsIndex from '../Contractors/ContractorsIndex';
+
 
 function NavBar () {
   const history = useHistory()

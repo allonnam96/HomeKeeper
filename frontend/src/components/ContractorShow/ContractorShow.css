@@ -22,12 +22,17 @@
 .category-name:hover{
     cursor: pointer;
     text-decoration: underline;
+    
 }
 
 
 .google-maps{
-    height: 200px;
-    width: 500px;
+    height: 235px;
+    width: 725px;
+    padding-top: 2em;
+    padding-right: 1em;
+    padding-bottom: 1em;
+    
 }
 
 .contractor-show-info-card{
@@ -103,7 +108,8 @@ select{
 }
 
 .contractor-show-reviews-card {
-    padding: 1em;
+    padding-right: 1em;
+    padding-bottom: 1em;
 }
 
 .contractor-review {
