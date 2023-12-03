@@ -1,6 +1,6 @@
 .contractor-section-index-item-container{
-    height: 12em;
-    min-width: 15em;
+    height: 13em;
+    min-width: 16em;
     width: 40%;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     background-color: var(--primary-white);
@@ -13,6 +13,7 @@
 
 .contractor-section-index-item-container:hover {
     box-shadow: none;
+    cursor:pointer;
 }
 
 .contractor-section-index-item-image-placeholder{
