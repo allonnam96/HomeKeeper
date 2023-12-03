@@ -1,11 +1,13 @@
 .appt-preview-container {
     background-color: white;
-    width: 40vw;
+    width: 50vw;
     min-width: 35em;
     border-radius: 8px;
     padding: 1em;
     margin: 0.5em;
     display: flex;
+    justify-content: space-around;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .appt-preview-info {

@@ -12,30 +12,43 @@ const AppointmentPreview = ({ appointment }) => {
     const [formattedDate, setFormattedDate] = useState("");
     const [modalIsOpen, setModalIsOpen] = useState(false);
     const dispatch = useDispatch();
-    // const userId = useSelector((state) => state.session.user._id)
+    const userId = useSelector((state) => state.session.user._id)
 
     useEffect(() => {
-        console.log("Fetching contractor with ID:", appointment.contractor);
         dispatch(fetchContractor(appointment.contractor));
     }, [dispatch, appointment.contractor]);
 
-        useEffect(() => {
-            if (appointment?.appointmentDate) {
-                const date = new Date(appointment?.appointmentDate);
-                const formatted = new Intl.DateTimeFormat("en-US", {
-                    year: "numeric",
-                    month: "numeric",
-                    day: "numeric",
-                    hour: "numeric",
-                    minute: "numeric",
-            hour12: true,
-        }).format(date);
-        setFormattedDate(formatted);
-        }
-    }, [appointment]);
+    useEffect(() => {
+        if (appointment?.appointmentDate) {
+            const date = new Date(appointment?.appointmentDate);
+            const formatted = new Intl.DateTimeFormat("en-US", {
+                year: "numeric",
+                month: "numeric",
+                day: "numeric",
+                hour: "numeric",
+                minute: "numeric",
+        hour12: true,
+            }).format(date);
+            setFormattedDate(formatted);
+            }
+        }, [appointment]);
+
+    useEffect(() => {
+        const timeoutId = setTimeout(() => {
+            if (appointment?.status === 'Pending') {
+                dispatch(updateAppointment({
+                    ...appointment,
+                    status: 'Confirmed'
+                })).then(() => dispatch(fetchAppointments(userId)));
+            }
+        }, 5000);
+
+        return () => clearTimeout(timeoutId)
+
+    }, [dispatch, appointment]);
 
     const handleDelete = () => {
-        dispatch(deleteAppointment(appointment._id))
+        dispatch(deleteAppointment(appointment._id)).then(() => dispatch(fetchAppointments(userId)))
     };
 
     const handleUpdate = () => {
@@ -47,7 +60,7 @@ const AppointmentPreview = ({ appointment }) => {
     };
 
     const handleSubmitUpdate = (updatedAppointment) => {
-        dispatch(updateAppointment(updatedAppointment));
+        dispatch(updateAppointment(updatedAppointment)).then(dispatch(fetchAppointments(userId)))
         setModalIsOpen(false);
     };
 
@@ -55,8 +68,6 @@ const AppointmentPreview = ({ appointment }) => {
         <div className="appt-preview-container">
         <p className="appt-preview-info">{formattedDate}</p>
         <p className="appt-preview-info">{contractor?.name}</p>
-        <button onClick={handleUpdate}>Update</button>
-        <button onClick={handleDelete}>Delete</button>
         <p className="appt-preview-info">{appointment?.type}</p>
         {appointment?.status === "Pending" ? (
             <p className="appt-preview-info appt-status-pending">
@@ -69,6 +80,8 @@ const AppointmentPreview = ({ appointment }) => {
             <span style={{ color: "green" }}>&#x2714;</span>
             </p>
         )}
+        <button className="button" onClick={handleUpdate}>Update</button>
+        <button className="button" onClick={handleDelete}>Delete</button>
         <Modal onClose={closeModal} isOpen={modalIsOpen}>
             <UpdateAppointmentForm
             appointment={appointment}

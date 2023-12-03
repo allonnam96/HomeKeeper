@@ -4,13 +4,13 @@ import "react-datepicker/dist/react-datepicker.css";
 import { useDispatch } from "react-redux";
 import { fetchAppointments } from "../../store/appointment";
 import { useSelector } from "react-redux/es/hooks/useSelector";
+import './UpdateAppointmentForm.css'
 
 const UpdateAppointmentForm = ({ appointment, onClose, onSubmit }) => {
     const dispatch = useDispatch()
     const [startDate, setStartDate] = useState(new Date());
     const [appointmentType, setAppointmentType] = useState(appointment.type || "Quote");
     const [appointmentBooked, setAppointmentBooked] = useState(false);
-    const userId = useSelector((state) => state.session.user._id)
 
     const appointmentTypeChange = (e) => {
         setAppointmentType(e.target.value);
@@ -24,6 +24,7 @@ const UpdateAppointmentForm = ({ appointment, onClose, onSubmit }) => {
         e.preventDefault();
         const updatedAppointment = {
             ...appointment,
+            status: 'Pending',
             appointmentDate: startDate,
             type: appointmentType,
         };
@@ -31,10 +32,10 @@ const UpdateAppointmentForm = ({ appointment, onClose, onSubmit }) => {
         onSubmit(updatedAppointment, () => {
             setAppointmentBooked(true);
         });
-        dispatch(fetchAppointments(userId))
     };
 
     return (
+        <div className="update-calender-container">
         <form onSubmit={handleSubmit}>
         <label htmlFor="update-appointment-type">Appointment Type</label>
         <br />
@@ -59,6 +60,7 @@ const UpdateAppointmentForm = ({ appointment, onClose, onSubmit }) => {
             dateFormat="Pp"
             />
         </div>
+        <div className="update-calendar-buttons">
         <button
             className="inverse-button slight-shadow"
             type="submit"
@@ -73,7 +75,9 @@ const UpdateAppointmentForm = ({ appointment, onClose, onSubmit }) => {
         >
             Cancel
         </button>
+        </div>
         </form>
+        </div>
     );
 };
 

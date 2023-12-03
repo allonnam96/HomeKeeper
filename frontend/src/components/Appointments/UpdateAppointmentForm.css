@@ -1,0 +1,14 @@
+.update-calender-container {
+    position: sticky;
+    z-index: 1;
+    margin-top: 3em;
+    height: 70%;
+    background-color: var(--secondary-background);
+    padding: 40px;
+    border: 2px solid var(--primary-border);
+    border-radius: 8px;
+}
+
+.update-calendar-buttons > button {
+    margin-right: 1em;
+}
