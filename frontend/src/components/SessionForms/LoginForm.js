@@ -74,10 +74,10 @@ function LoginForm ({toggleModal}) {
                   <button className='button login-submit' type="submit" disabled={!email || !password}>
                     Log in
                   </button>
-                  <button type="button" onClick={handleDemoLogin}>
+                </div>
+                  <button className="inverse-button login-submit" onClick={handleDemoLogin}>
                     Demo User
                   </button>
-                </div>
           </div>
     </form>
   );
