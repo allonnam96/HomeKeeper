@@ -9,8 +9,10 @@ import LoginForm from '../SessionForms/LoginForm';
 import house_icon from '../../img/house-icon-clipart-transparent-background-free-png.webp'
 import { ReactComponent as UserIcon } from "../../img/UserIcon.svg";
 import { useEffect, useRef, useState } from 'react';
-// import ContractorsIndex from '../Contractors/ContractorsIndex';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
+
+// import ContractorsIndex from '../Contractors/ContractorsIndex';
+
 
 function NavBar () {
   const history = useHistory()
