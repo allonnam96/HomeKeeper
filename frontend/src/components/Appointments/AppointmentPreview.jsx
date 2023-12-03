@@ -15,7 +15,9 @@ const AppointmentPreview = ({ appointment }) => {
     const userId = useSelector((state) => state.session.user._id)
 
     useEffect(() => {
-        dispatch(fetchContractor(appointment.contractor));
+        if (typeof appointment.contractor !== 'object' && appointment.contractor !== null) {
+            dispatch(fetchContractor(appointment.contractor));
+        }
     }, [dispatch, appointment.contractor]);
 
     useEffect(() => {
@@ -40,6 +42,7 @@ const AppointmentPreview = ({ appointment }) => {
                     ...appointment,
                     status: 'Confirmed'
                 })).then(() => dispatch(fetchAppointments(userId)));
+                window.location.reload(false)
             }
         }, 5000);
 
@@ -62,33 +65,52 @@ const AppointmentPreview = ({ appointment }) => {
     const handleSubmitUpdate = (updatedAppointment) => {
         dispatch(updateAppointment(updatedAppointment)).then(dispatch(fetchAppointments(userId)))
         setModalIsOpen(false);
+        window.location.reload(false)
+    };
+
+    const backgroundImageStyle = {
+        backgroundImage: `url(${contractor?.photoUrl})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
     };
 
     return (
         <div className="appt-preview-container">
-        <p className="appt-preview-info">{formattedDate}</p>
-        <p className="appt-preview-info">{contractor?.name}</p>
-        <p className="appt-preview-info">{appointment?.type}</p>
-        {appointment?.status === "Pending" ? (
-            <p className="appt-preview-info appt-status-pending">
-            {appointment?.status}{" "}
-            <span style={{ color: "orange" }}>&#x23F2;</span>
-            </p>
-        ) : (
-            <p className="appt-preview-info appt-status-confirmed">
-            {appointment?.status}{" "}
-            <span style={{ color: "green" }}>&#x2714;</span>
-            </p>
-        )}
-        <button className="button" onClick={handleUpdate}>Update</button>
-        <button className="button" onClick={handleDelete}>Delete</button>
-        <Modal onClose={closeModal} isOpen={modalIsOpen}>
-            <UpdateAppointmentForm
-            appointment={appointment}
-            onClose={closeModal}
-            onSubmit={handleSubmitUpdate}
-            />
-        </Modal>
+            <div className="appt-preview-individual">
+            <div className="contractor-preview-image-appt" style={backgroundImageStyle}></div>
+                <div className="appt-preview-info appt-preview-name">{contractor?.name}</div>
+            </div>
+            <div className='appt-time-type'>
+                <p className="appt-preview-info">{formattedDate}</p>
+                <p className="appt-preview-info">{appointment?.type}</p>
+            </div>
+            <div>
+            </div>
+            <div>
+                {appointment?.status === "Pending" ? (
+                    <p className="appt-preview-info appt-status-pending">
+                    {appointment?.status}{" "}
+                    <span style={{ color: "orange" }}>&#x23F2;</span>
+                    </p>
+                ) : (
+                    <p className="appt-preview-info appt-status-confirmed">
+                    {appointment?.status}{" "}
+                    <span style={{ color: "green" }}>&#x2714;</span>
+                    </p>
+                )}
+            </div>
+            <div>
+                <button className="button update-appt" onClick={handleUpdate}>Reschedule</button>
+                <button className="button delete-appt" onClick={handleDelete}>Cancel</button>
+            </div>
+            <Modal onClose={closeModal} isOpen={modalIsOpen}>
+                <UpdateAppointmentForm
+                appointment={appointment}
+                onClose={closeModal}
+                onSubmit={handleSubmitUpdate}
+                />
+            </Modal>
         </div>
     );
 };

@@ -1,6 +1,8 @@
 .contractor-preview-container {
-    background-color: var(--primary-background);
+    background-color: whitesmoke;
     padding: 2em;
+    margin-bottom: 0;
+    border-bottom: 1px solid var(--tertiary-border);
     width: 30vw;
     min-width: 25em;
     display: flex;
