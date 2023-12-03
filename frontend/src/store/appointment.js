@@ -86,7 +86,7 @@ const appointmentsReducer = (state = {}, action) => {
         case RECEIVE_APPOINTMENTS:
             return {...action.appointments}
         case RECEIVE_APPOINTMENT:
-            return {...state, [action.appointment._id] : action.appointment}
+            return {...newState, [action.appointment._id] : action.appointment}
         case REMOVE_APPOINTMENT:
             delete newState[action.appointmentId]
             return newState

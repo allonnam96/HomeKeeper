@@ -23,10 +23,10 @@ function LoginForm ({toggleModal}) {
     return e => setState(e.currentTarget.value);
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    dispatch(login({ email, password })); 
-    history.push('/')
+    await dispatch(login({ email, password }))
+      .then(toggleModal())
   }
 
   const handleDemoLogin = async () => {
@@ -37,7 +37,7 @@ function LoginForm ({toggleModal}) {
   
     try {
       await dispatch(login(demoUser)).then(() => {
-        history.push('/');
+        toggleModal()
       });
     } catch (err) {
       let data;

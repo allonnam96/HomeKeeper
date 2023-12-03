@@ -68,7 +68,7 @@ function NavBar () {
       return (
         <div className="links-auth">
           <UserIcon id="user-icon" onClick={() => setUserDropdownOpen(!userDropdownOpen)} />
-          {userDropdownOpen ? <Dropdown children={userDropdown} ref={userDropdownRef}/> : <></>}
+          {userDropdownOpen ? <Dropdown className='user-dropdown' children={userDropdown} ref={userDropdownRef}/> : <></>}
         </div>
       );
     } else {
@@ -84,8 +84,7 @@ function NavBar () {
 
   return (
     <div className="nav-bar-main">
-      <h1 onClick={() => {history.push('/')}}><img className='house-icon-navbar' src={house_icon}></img>HomeKeeper</h1>
-      {/* <MainSearchBar /> */}
+      <h1 onClick={() => {history.push('/')}}> {/*<img className='house-icon-navbar' src={house_icon}></img> */} HomeKeeper</h1>
       { getLinks() }
     </div>
   );

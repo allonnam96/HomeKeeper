@@ -6,11 +6,11 @@ import AppointmentPreview from './AppointmentPreview'
 const AppointmentIndex = () => {
     const dispatch = useDispatch();
     const user = useSelector((state) => state.session.user);
-    const appointments = useSelector((state) => state?.appointments ? Object.values(state.appointments) : []);
-
+    const appointments = useSelector((state) => state?.appointments ? Object.values(state.appointments).reverse() : []);
+    
     useEffect(() => {
         dispatch(fetchAppointments(user._id));
-    }, [dispatch]);
+    }, [dispatch, user._id]);
 
     return (
         appointments.map((appointment) => {
