@@ -47,6 +47,14 @@ function NavBar () {
     }
   }
 
+  const handleAboutUsClick = () => {
+    if (loggedIn) {
+      history.push('/aboutUs')
+    } else {
+      toggleModal()
+    }
+  }
+
   const openModal = () => {
     setModalIsOpen(true);
   };
@@ -64,6 +72,7 @@ function NavBar () {
     if (loggedIn) {
       const userDropdown = [
         { value: "Appointments", fn: handleApptClick },
+        { value: "About Us", fn: handleAboutUsClick },
         { value: "Logout", fn: logoutUser }
       ];
 

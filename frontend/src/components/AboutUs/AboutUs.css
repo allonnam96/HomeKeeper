@@ -1,0 +1,36 @@
+.aboutUs-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 10em;
+    justify-content: flex-start;
+  }
+  
+  .aboutUs-title {
+    margin-top: 2em;
+  }
+  
+  .aboutUs-card {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 columns with equal width */
+    grid-gap: 20px; /* Spacing between grid items */
+    width: 60%;
+    margin-top: 20px;
+  }
+  
+  .aboutUs-column {
+    flex: 1;
+  }
+  
+  .aboutUs-name,
+  .aboutUs-info {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+  }
+  
+  .aboutUs-name li,
+  .aboutUs-info li {
+    margin-bottom: 10px;
+  }
+  

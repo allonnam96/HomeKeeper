@@ -9,6 +9,7 @@ import MainPage from './components/MainPage/MainPage';
 import LoginForm from './components/SessionForms/LoginForm';
 import SignupForm from './components/SessionForms/SignupForm';
 import Profile from './components/Profile/Profile';
+import AboutUsIndex from './components/AboutUs/AboutUs';
 
 import { getCurrentUser } from './store/session';
 import { Route } from 'react-router-dom/cjs/react-router-dom.min';
@@ -31,6 +32,7 @@ function App() {
         <Route exact path="/appointments" component={AppointmentIndex} />
         <Route exact path="/contractors/:id" component={ContractorShow} />
         <Route exact path="/categories/:categoryId" component={ContractorsIndex} />
+        <Route exact path="/aboutUs" component={AboutUsIndex} />
         <AuthRoute exact path="/login" component={LoginForm} />
         <AuthRoute exact path="/signup" component={SignupForm} />
         <ProtectedRoute exact path="/profile" component={Profile} />

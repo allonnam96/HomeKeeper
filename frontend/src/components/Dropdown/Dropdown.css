@@ -17,10 +17,13 @@
     border-radius: 7px 7px 0 0;
 }
 
-.dropdown li:first-child {
+.dropdown li:nth-child(1) {
     border-radius: 7px 7px 0 0;
 }
 
+.dropdown li:nth-child(2) {
+    border-radius: 0;
+}
 .dropdown li:last-child {
     border-radius: 0 0 7px 7px;
 }
