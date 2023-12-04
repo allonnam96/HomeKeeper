@@ -1,36 +1,90 @@
-.aboutUs-container {
-    display: flex;
+.about-team-parent-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 5rem;
+}
+
+.about-team-content {
+  max-width: 80%;
+  margin: 3rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.about-team-header h1, h2, h3, p, span {
+    color: #F4FFFD;
+}
+
+.about-team-header h1 {
+  margin-bottom: 1rem;
+}
+
+.about-team-section {
+  width: 95%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-evenly;
+  margin: 3rem 1rem;
+  gap: 4rem;
+}
+
+.person-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  height: auto;
+  width: 20%;
+}
+
+.person-container h3 {
+  margin-bottom: 1rem;
+}
+
+.person-container p {
+  margin-bottom: 1rem;
+}
+
+.person-container img {
+  margin-bottom: 1rem;
+}
+
+.about-img {
+  width: 10rem;
+  height: 10rem;
+  border-radius: 100%;
+}
+
+.team-link-icons {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: space-evenly
+}
+
+.about-team-url-icon {
+  width: 2rem;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  fill: #F4FFFD;
+  transition: fill, ease 0.2s;
+}
+
+.about-team-url-icon:hover {
+  fill: #FF5964;
+}
+
+@media screen and (max-width: 768px) {
+  .about-team-section {
     flex-direction: column;
-    align-items: center;
-    height: 10em;
-    justify-content: flex-start;
   }
-  
-  .aboutUs-title {
-    margin-top: 2em;
+
+  .person-container {
+    width: auto; /* Adjusts width on smaller screens */
   }
-  
-  .aboutUs-card {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 2 columns with equal width */
-    grid-gap: 20px; /* Spacing between grid items */
-    width: 60%;
-    margin-top: 20px;
-  }
-  
-  .aboutUs-column {
-    flex: 1;
-  }
-  
-  .aboutUs-name,
-  .aboutUs-info {
-    list-style: none;
-    padding: 0;
-    text-align: center;
-  }
-  
-  .aboutUs-name li,
-  .aboutUs-info li {
-    margin-bottom: 10px;
-  }
-  
+}
