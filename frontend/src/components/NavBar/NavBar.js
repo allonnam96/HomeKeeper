@@ -12,8 +12,6 @@ import { useEffect, useRef, useState } from 'react';
 // import ContractorsIndex from '../Contractors/ContractorsIndex';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 
-// import ContractorsIndex from '../Contractors/ContractorsIndex';
-
 
 function NavBar () {
   const history = useHistory()
