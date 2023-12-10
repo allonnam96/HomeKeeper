@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import './Calendar.css';
@@ -94,7 +95,7 @@ const Calendar = ({ contractor }) => {
             />
             </div>
             <button className="inverse-button slight-shadow" type="submit" disabled={appointmentBooked}>
-            {appointmentBooked ? 'Appointment Booked!' : 'Book Appointment'}
+            {appointmentBooked ? history.push('/appointments') : 'Book Appointment'}
             </button>
         </form>
         </div>
