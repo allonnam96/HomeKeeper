@@ -9,6 +9,7 @@
     flex-direction: column;
     background-color: white;
     filter: brightness(1.02);
+    z-index: 3;
 }
 
 .dropdown li {

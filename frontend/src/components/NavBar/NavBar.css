@@ -26,7 +26,6 @@
     display: flex;
     justify-content: space-between;
     flex-shrink: 0;
-    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
     border-radius: 4px;
 }
 
@@ -76,3 +75,4 @@
     flex-direction: column;
     align-items: center;
 } */
+
