@@ -11,8 +11,10 @@ const AppointmentIndex = () => {
     const appointments = useSelector((state) => state?.appointments ? Object.values(state.appointments).reverse() : []);
     
     useEffect(() => {
-        dispatch(fetchAppointments(user._id));
-    }, [dispatch, user._id]);
+        if (user && user._id) {
+            dispatch(fetchAppointments(user._id));
+        }
+    }, [dispatch, user]);
 
     return (
         <>

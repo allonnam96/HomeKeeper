@@ -12,7 +12,8 @@ const AppointmentPreview = ({ appointment }) => {
     const [formattedDate, setFormattedDate] = useState("");
     const [modalIsOpen, setModalIsOpen] = useState(false);
     const dispatch = useDispatch();
-    const userId = useSelector((state) => state.session.user._id);
+    // const userId = useSelector((state) => state.session.user._id);
+    const userId = useSelector((state) => state?.session?.user?._id);
     const [startDate, setStartDate] = useState(new Date());
 
     useEffect(() => {
