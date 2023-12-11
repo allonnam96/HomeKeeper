@@ -12,13 +12,22 @@ const ContractorsIndex = () => {
     const dispatch = useDispatch();
     const { categoryId } = useParams();
     const contractors = useSelector(state => Object.values(state.contractors || {}));
+    const alphabet = "abcdefjhijklmnopqrstuvwxyz"
+    let count = 0;
+    const uniqueLatitudes = new Set();
 
     let pins = []
     contractors.forEach(contractor => {
-        let coordinates = { lat: contractor.latitude, lng: contractor.longitude}
+        let  contractorId = contractor._id
+        if(!uniqueLatitudes.has(contractor.latitude)){
+            uniqueLatitudes.add(contractor.latitude)
+        }else{
+            return
+        }
+
+        let coordinates = { lat: contractor.latitude, lng: contractor.longitude, contractorId, name: contractor.name, count: alphabet[count++ % alphabet.length] }
         pins.push(coordinates)
     })
-    console.log(pins)
 
     useEffect(() => {
         dispatch(fetchCategoryContractors(categoryId));
