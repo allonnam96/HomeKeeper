@@ -1,5 +1,5 @@
 .nav-bar-main{
-    position: relative;
+    position: sticky;
     padding: 0 130px;
     height: 4em;
     margin: auto;

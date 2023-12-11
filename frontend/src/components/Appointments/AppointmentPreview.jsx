@@ -12,7 +12,8 @@ const AppointmentPreview = ({ appointment }) => {
     const [formattedDate, setFormattedDate] = useState("");
     const [modalIsOpen, setModalIsOpen] = useState(false);
     const dispatch = useDispatch();
-    const userId = useSelector((state) => state.session.user._id)
+    const userId = useSelector((state) => state.session.user._id);
+    const [startDate, setStartDate] = useState(new Date());
 
     useEffect(() => {
         if (typeof appointment.contractor !== 'object' && appointment.contractor !== null) {
@@ -85,6 +86,7 @@ const AppointmentPreview = ({ appointment }) => {
                 <p className="appt-preview-info">{formattedDate}</p>
                 <p className="appt-preview-info">{appointment?.type}</p>
             </div>
+            
             <div>
             </div>
             <div>
