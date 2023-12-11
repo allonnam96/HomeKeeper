@@ -10,19 +10,23 @@ const reviewSchema = new Schema({
     },
     reviewSummary: {
         type: String,
-        required: true 
+        required: true,
+        minlength: 1, 
+        maxlength: 500
     },
-    name:{
-        type:String,
+    name: {
+        type: String,
         required: true
     },
     contractor: {
         type: Schema.Types.ObjectId,
-        ref: "Contractor" }
-    }, {
-        timestamps: true
-});
+        ref: 'Contractor',
+        required: true
+    }
+    },
+    {
+    timestamps: true
+    }
+);
 
-module.exports = mongoose.model('Review', reviewSchema)
-
-// add reviewName
+module.exports = mongoose.model('Review', reviewSchema);

@@ -16,6 +16,34 @@ router.get('/', async (req, res) => {
     }
 });
 
+router.post('/new', async (req, res, next) => {
+    try {
+        const { reviewStar, reviewSummary, name, contractor } = req.body;
+        if (!reviewStar || !reviewSummary || !name || !contractor) {
+            return res.status(400).json({ message: 'Invalid request. Please provide all required fields.' });
+        }
+
+        const newReview = new Review({
+            reviewStar,
+            reviewSummary,
+            name,
+            contractor
+        });
+
+        const validationError = newReview.validateSync();
+        if (validationError) {
+            return res.status(400).json({ message: validationError.message });
+        }
+
+        let review = await newReview.save();
+        review = await review.populate('contractor', '_id name').execPopulate();
+        return res.json(review);
+    } catch (err) {
+        console.error(err);
+        return res.status(500).json({ message: 'Could not create review.' });
+    }
+});
+
 router.get('/:contractorId/reviews', async (req, res, next) => {
     try {
         const reviews = await Review.find({ contractor: req.params.contractorId})
