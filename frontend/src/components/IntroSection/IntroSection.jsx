@@ -1,16 +1,19 @@
 import React from 'react';
 import './IntroSection.css'; // Import your CSS file with the styles
 import house_icon from '../../img/house-icon-clipart-transparent-background-free-png.webp'
+import SearchBar from '../NavBar/SearchBar';
+
 
 const IntroSection = () => {
     return (
         <div className='outer-intro'>
         <div className="intro-container">
+        
             <div className="intro-content">
                 <p>Welcome to,</p>
                 <h1>HomeKeeper</h1>
                 <p>Your go-to platform for hassle-free home transformations.</p>
-                {/* <button>get started</button> */}
+                <SearchBar/>
             </div>
             <div className="intro-image-placeholder" data-aos="zoom-out" data-aos-delay="300">
                 <img className='house-icon' src={house_icon}></img>

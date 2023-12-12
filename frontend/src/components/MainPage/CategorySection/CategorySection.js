@@ -6,7 +6,7 @@ const CategorySection = () => {
     return (
         <div className="category-section-main">
             <div className="section-content">
-                <SearchBar />
+
                 <CategoryIndex />
             </div>
         </div>
