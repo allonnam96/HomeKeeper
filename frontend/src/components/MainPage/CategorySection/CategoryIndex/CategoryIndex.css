@@ -1,7 +1,9 @@
-.category-index{
+.category-index {
     width: 50%;
     height: 80%;
     display: flex;
+    flex-wrap: wrap; 
     justify-content: space-around;
+    align-items: center; /* Align items vertically center */
     position: relative;
 }

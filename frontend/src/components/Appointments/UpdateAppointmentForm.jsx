@@ -13,19 +13,16 @@ const UpdateAppointmentForm = ({ appointment, onClose, onSubmit }) => {
     const [appointmentBooked, setAppointmentBooked] = useState(false);
 
     const filterTimes = (time) => {
-        // Convert the provided time and today's date to a comparable format
         const selectedTime = new Date(time);
         selectedTime.setMinutes(0);
         selectedTime.setSeconds(0);
         selectedTime.setMilliseconds(0);
 
-        // Define the start and end time limits
         const startTime = new Date(selectedTime);
         startTime.setHours(9, 0, 0, 0); // 9:00 AM
         const endTime = new Date(selectedTime);
         endTime.setHours(18, 0, 0, 0); // 6:00 PM
 
-        // Only allow times between 9:00 AM and 6:00 PM
         return time >= startTime && time <= endTime;
     };
 

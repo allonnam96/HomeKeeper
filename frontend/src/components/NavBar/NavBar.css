@@ -1,13 +1,16 @@
-.nav-bar-main{
-    position: sticky;
+.nav-bar-main {
+    position: sticky; 
+    top: 0; 
+    left: 0; 
+    right: 0; 
     padding: 0 130px;
     height: 4em;
-    margin: auto;
+    margin: 0; 
     display: flex;
     justify-content: space-between;
     align-items: center;
     background-color: var(--primary-background);
-    z-index: 1000;
+    z-index: 1000; 
 }
 
 .nav-bar-main h1{
@@ -69,10 +72,3 @@
     border-radius: 8px;
     cursor: pointer;
 }
-
-/* .nav-bar-all {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-} */
-
