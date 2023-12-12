@@ -54,7 +54,7 @@ const AppointmentPreview = ({ appointment }) => {
     }, [dispatch, appointment]);
 
     const handleDelete = () => {
-        dispatch(deleteAppointment(appointment._id)).then(() => dispatch(fetchAppointments(userId)))
+        dispatch(deleteAppointment(appointment._id))
     };
 
     const handleUpdate = () => {
