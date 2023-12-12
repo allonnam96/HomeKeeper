@@ -38,7 +38,7 @@ const AboutUsIndex = () => {
         imgSrc: spencerImg,
         name: 'Spencer Heywood',
         role: 'Frontend Lead',
-        email: 'https://spencerheywood.com',
+        email: 'https://spencerheywood.com/',
         githubUrl: 'https://github.com/heyspence',
         linkedinUrl: 'https://www.linkedin.com/in/spencer-heywood/',
       },
