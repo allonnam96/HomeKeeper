@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { Loader } from "@googlemaps/js-api-loader";
+import markerIcon from '../../assets/orange-marker.png'
 
 const GoogleMaps = ({ lat, lng, name, mapId }) => {
     const mapRef = useRef(null);
@@ -25,7 +26,11 @@ const GoogleMaps = ({ lat, lng, name, mapId }) => {
                 new window.google.maps.Marker({
                     position: pos,
                     map: map,
-                    title: name
+                    title: name,
+                    icon: {
+                        url: markerIcon,
+                        scaledSize: new window.google.maps.Size(50, 50)
+                    }
                 });
             }
         });
