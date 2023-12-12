@@ -14,7 +14,9 @@ import { getCurrentUser } from './store/session';
 import { Route } from 'react-router-dom/cjs/react-router-dom.min';
 import ContractorShow from './components/ContractorShow/ContractorShow';
 import ContractorsIndex from './components/Contractors/ContractorsCategoryIndex';
-import AppointmentIndex from '../src/components/Appointments/AppointmentIndex'
+import AppointmentIndex from '../src/components/Appointments/AppointmentIndex';
+import AboutUsIndex from './components/AboutUs/AboutUs';
+
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -29,6 +31,7 @@ function App() {
       <Switch>
         <Route exact path="/" component={MainPage} />
         <Route exact path="/appointments" component={AppointmentIndex} />
+        <Route exact path="/AboutUs" component={AboutUsIndex} />
         <Route exact path="/contractors/:id" component={ContractorShow} />
         <Route exact path="/categories/:categoryId" component={ContractorsIndex} />
         <AuthRoute exact path="/login" component={LoginForm} />
