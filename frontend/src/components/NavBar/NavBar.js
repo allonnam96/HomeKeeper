@@ -11,7 +11,6 @@ import { ReactComponent as UserIcon } from "../../img/UserIcon.svg";
 import { useEffect, useRef, useState } from 'react';
 // import ContractorsIndex from '../Contractors/ContractorsIndex';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
-import SearchBar from './SearchBar';
 
 
 function NavBar () {
@@ -98,9 +97,6 @@ function NavBar () {
     <>
       <div className="nav-bar-main">
         <h1 onClick={() => {history.push('/')}}> {/*<img className='house-icon-navbar' src={house_icon}></img> */} HomeKeeper</h1>
-
-        <SearchBar />
-        
         { getLinks() }
       </div>
     </>
