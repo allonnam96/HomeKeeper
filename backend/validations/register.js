@@ -9,14 +9,15 @@ const validateRegisterInput = [
     .withMessage('Email is invalid'),
   check('name')
     .exists({ checkFalsy: true })
-    .isLength({ min: 1 })
+    .isLength({ min: 2 })
     .withMessage('Name must be at least 1 character'),
   check('password')
     .exists({ checkFalsy: true })
     .isLength({ min: 6, max: 30 })
     .withMessage('Password must be between 6 and 30 characters'),
   check('birthday')
-    .exists({ checkFalsy: true }),
+    .exists({ checkFalsy: true })
+    .withMessage('Enter birthday'),
   handleValidationErrors
 ];
 

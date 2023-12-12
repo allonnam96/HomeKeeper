@@ -1,8 +1,12 @@
 import React, { useEffect, useRef } from 'react';
 import { Loader } from "@googlemaps/js-api-loader";
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
+import markerIcon from '../../assets/orange-marker.png'
+
 
 const MultiPinMap = ({ pins, name, mapId }) => {
     const mapRef = useRef(null);
+    const history = useHistory();
 
     useEffect(() => {
         const googleMapsApiKey = process.env.REACT_APP_GOOGLE_MAPS_API_KEY;
@@ -17,17 +21,31 @@ const MultiPinMap = ({ pins, name, mapId }) => {
                 const pos = { lat: parseFloat(pins[0].lat), lng: parseFloat(pins[0].lng) };
                 const map = new window.google.maps.Map(mapRef.current, {
                     center: pos,
-                    zoom: 14,
+                    zoom: 13,
                     mapId: mapId,
                     disableDefaultUI: true,
                 });
 
                 pins.forEach(pin => {
-                    new window.google.maps.Marker({
+                    const marker = new window.google.maps.Marker({
                         position: {lat: parseFloat(pin.lat), lng: parseFloat(pin.lng)},
-                        map: map,
-                        title: name
+                        map,
+                        title: pin.name,
+                        icon: {
+                            url: markerIcon,
+                            scaledSize: new window.google.maps.Size(50, 50)
+                        },
+                        label: {
+                            text: pin.count,
+                            color: "#4682B4",
+                            fontSize: "25px",
+                            fontWeight: "bold",
+                            className: "marker-label"
+                        },
+                        contactorId: pin.contractorId
                     })
+                    marker.addListener("click", () => {history.push(`/contractors/${pin.contractorId}`)})
+                    // marker.addListener("mouseOver", marker.setIcon(markerIcon))
                 })
             }
         });

@@ -52,7 +52,7 @@ const Calendar = ({ contractor }) => {
             user: user._id,
         };
 
-        debugger
+        // debugger
 
         try {
             await dispatch(createAppointment(appointment));

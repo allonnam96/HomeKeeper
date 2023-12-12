@@ -93,3 +93,10 @@ label {
 .login-link:hover {
     text-decoration: underline;
 }
+
+.signup-click:disabled,
+.signup-click.disabled {
+  background-color: gray;
+  color: white;
+  cursor: not-allowed;
+}
