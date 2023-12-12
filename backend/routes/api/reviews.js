@@ -36,7 +36,7 @@ router.post('/new', async (req, res, next) => {
         }
 
         let review = await newReview.save();
-        review = await review.populate('contractor', '_id name').execPopulate();
+        review = await review.populate('contractor', '_id name')
         return res.json(review);
     } catch (err) {
         console.error(err);
@@ -72,5 +72,62 @@ router.get('/:id', async (req, res, next) => {
         return next(error);
     }
 });
+
+router.delete('/:id', async (req, res, next) => {
+    try {
+        const reviewId = req.params.id;
+
+        const existingReview = await Review.findById(reviewId);
+        if (!existingReview) {
+            const error = new Error('Review not found');
+            error.statusCode = 404;
+            return next(error);
+        }
+
+        await Review.findByIdAndDelete(reviewId);
+
+        return res.json({ message: 'Review deleted successfully' });
+    } catch (err) {
+        console.error(err);
+        const error = new Error('Could not delete review');
+        error.statusCode = 500;
+        return next(error);
+    }
+});
+
+router.patch('/:id', async (req, res, next) => {
+    try {
+        const reviewId = req.params.id;
+        const updateFields = req.body;
+
+        const existingReview = await Review.findById(reviewId);
+        if (!existingReview) {
+            const error = new Error('Review not found');
+            error.statusCode = 404;
+            return next(error);
+        }
+
+        for (const field in updateFields) {
+            existingReview[field] = updateFields[field];
+        }
+
+        const validationError = existingReview.validateSync();
+        if (validationError) {
+            return res.status(400).json({ message: validationError.message });
+        }
+
+        const updatedReview = await existingReview.save();
+
+        await updatedReview.populate('contractor', '_id name')
+
+        return res.json(updatedReview);
+    } catch (err) {
+        console.error(err);
+        const error = new Error('Could not update review');
+        error.statusCode = 500;
+        return next(error);
+    }
+});
+
 
 module.exports = router;

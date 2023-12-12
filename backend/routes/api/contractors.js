@@ -28,10 +28,58 @@ router.get('/:categoryId/contractors', async (req, res, next) => {
     }
     catch (err) {
         const error = new Error('Error retrieving contractors for this category');
-        error.statusCode = 500; // Internal Server Error
+        error.statusCode = 500; 
         return next(error);
     }
 });
+
+router.get('/search', async (req, res, next) => {
+    try {
+        const { name, category, title } = req.query;
+
+        const searchQuery = {};
+        if (name) {
+            searchQuery.name = { $regex: new RegExp(name, 'i') };
+        }
+        if (category) {
+            searchQuery.category = category;
+        }
+        if (title) {
+            searchQuery.title = { $regex: new RegExp(title, 'i') };
+        }
+
+        const contractors = await Contractor.find(searchQuery)
+            .populate('category', '_id name');
+
+        return res.json(contractors);
+    } catch (err) {
+        console.error(err);
+        const error = new Error('Error during contractor search');
+        error.statusCode = 500;
+        return next(error);
+    }
+});
+
+// router.get('/search', async (req, res, next) => {
+//     try {
+//         const queryParams = req.query;
+
+//         const searchQuery = {};
+//         Object.keys(queryParams).forEach((key) => {
+//             searchQuery[key] = { $regex: new RegExp(queryParams[key], 'i') };
+//         });
+
+//         const contractors = await Contractor.find(searchQuery)
+//             .populate('category', '_id name');
+
+//         return res.json(contractors);
+//     } catch (err) {
+//         console.error(err);
+//         const error = new Error('Error during contractor search');
+//         error.statusCode = 500;
+//         return next(error);
+//     }
+// });
 
 router.get('/:id', async (req, res, next) => {
     try {

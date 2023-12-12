@@ -14,6 +14,7 @@ const AppointmentPreview = ({ appointment }) => {
     const dispatch = useDispatch();
     const userId = useSelector((state) => state.session.user._id);
     const [startDate, setStartDate] = useState(new Date());
+    const appt = useSelector((state) => state.session.appointment)
 
     useEffect(() => {
         if (typeof appointment.contractor !== 'object' && appointment.contractor !== null) {
@@ -42,8 +43,8 @@ const AppointmentPreview = ({ appointment }) => {
                 dispatch(updateAppointment({
                     ...appointment,
                     status: 'Confirmed'
-                })).then(() => dispatch(fetchAppointments(userId)));
-                window.location.reload(false)
+                }))
+                // window.location.reload(false)
             }
         }, 5000);
 
@@ -64,9 +65,10 @@ const AppointmentPreview = ({ appointment }) => {
     };
 
     const handleSubmitUpdate = (updatedAppointment) => {
-        dispatch(updateAppointment(updatedAppointment)).then(dispatch(fetchAppointments(userId)))
+        dispatch(updateAppointment(updatedAppointment))
+        // .then(dispatch(fetchAppointments(userId)))
         setModalIsOpen(false);
-        window.location.reload(false)
+        // window.location.reload(false)
     };
 
     const backgroundImageStyle = {

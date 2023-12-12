@@ -84,9 +84,19 @@ const appointmentsReducer = (state = {}, action) => {
 
     switch(action.type) {
         case RECEIVE_APPOINTMENTS:
-            return {...action.appointments}
+            let appointments = {}
+            action.appointments.forEach((appt) => {
+                appointments[appt._id] = appt
+            })
+            return appointments
+            
         case RECEIVE_APPOINTMENT:
-            return {...newState, [action.appointment._id] : action.appointment}
+            if (action.appointment._id in newState) {
+                newState[action.appointment._id] = action.appointment
+                return {...newState}
+            } else {
+                return {...newState, [action.appointment._id] : action.appointment}
+            }
         case REMOVE_APPOINTMENT:
             delete newState[action.appointmentId]
             return newState
