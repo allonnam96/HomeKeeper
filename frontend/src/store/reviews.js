@@ -2,8 +2,6 @@ import jwtFetch from './jwt';
 
 const RECEIVE_REVIEWS = "reviews/RECEIVE_REVIEWS";
 const RECEIVE_REVIEW = "reviews/RECEIVE_REVIEW";
-const CREATE_REVIEW = "reviews/CREATE_REVIEW";
-const UPDATE_REVIEW = "reviews/UPDATE_REVIEW";
 const DELETE_REVIEW = "reviews/DELETE_REVIEW";
 
 const receiveReviews = reviews => ({
@@ -59,7 +57,7 @@ export const updateReview = (updatedReview) => async dispatch => {
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify(updateFields),
+        body: JSON.stringify(updatedReview),
     })
 
     if (res.ok) {
@@ -112,7 +110,7 @@ const reviewsReducer = (state = { }, action) => {
                 reviews[review._id] = review
             })
             return reviews
-            
+
         case RECEIVE_REVIEW:
             return {...newState, [action.review._id] : action.review}
         case DELETE_REVIEW:
