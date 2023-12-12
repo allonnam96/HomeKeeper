@@ -72,3 +72,17 @@
     border-radius: 8px;
     cursor: pointer;
 }
+
+#search-bar {
+    height: 40px;
+    border-radius: 8px;
+    border: 1px solid black;
+    padding-left: 10px;
+}
+
+/* .nav-bar-all {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+} */
+
