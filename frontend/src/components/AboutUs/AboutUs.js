@@ -54,7 +54,7 @@ const AboutUsIndex = () => {
               <div className="about-us-info">
                 <h3>{member.name}</h3>
                 <p>{member.role}</p>
-                <a href={`mailto:${member.email}`}>{member.email}</a>
+                <a href={`${member.email}`}>{member.email}</a>
                 <div className="about-us-socials">
                   <a href={member.githubUrl} target="_blank" rel="noopener noreferrer">
                     <img src={githubIcon} alt="GitHub" />
