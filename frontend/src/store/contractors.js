@@ -20,7 +20,7 @@ const receiveCategoryContractors = (categoryId) => ({
 });
 
 export const fetchContractors = () => async dispatch => {
-    const res = await jwtFetch ('/api/contractors');
+    const res = await jwtFetch('/api/contractors');
     if (res.ok) {
         const contractors = await res.json();
         dispatch(receiveContractors(contractors));
@@ -28,7 +28,7 @@ export const fetchContractors = () => async dispatch => {
 };
 
 export const fetchContractor = (contractorId) => async dispatch => {
-    const res = await jwtFetch (`/api/contractors/${contractorId}`);
+    const res = await jwtFetch(`/api/contractors/${contractorId}`);
     if (res.ok) {
         const contractor = await res.json();
         dispatch(receiveContractor(contractor));
@@ -41,20 +41,28 @@ export const fetchCategoryContractors = (categoryId) => async dispatch => {
         const contractors = await res.json();
         dispatch(receiveCategoryContractors(contractors));
     }
-}
+};
+
+export const searchContractors = (searchQuery) => async dispatch => {
+    const res = await jwtFetch(`/api/contractors/search?name=${searchQuery}`);
+    if (res.ok) {
+        const contractors = await res.json();
+        dispatch(receiveContractors(contractors));
+    }
+};
 
 const contractorsReducer = (state = {}, action) => {
-    const newState = {...state}
-    switch(action.type) {
+    const newState = { ...state }
+    switch (action.type) {
         case RECEIVE_CONTRACTORS:
-            return {...action.contractors};
+            return { ...action.contractors };
         case RECEIVE_CONTRACTOR:
-            return {...newState, [action.contractor._id] : action.contractor}
+            return { ...newState, [action.contractor._id]: action.contractor }
         case RECEIVE_CATEGORY_CONTRACTORS:
-            return {...action.categoryId};
+            return { ...action.categoryId };
         default:
             return state;
     }
 }
 
-export default contractorsReducer
+export default contractorsReducer;
