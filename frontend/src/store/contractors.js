@@ -3,6 +3,11 @@ import jwtFetch from './jwt';
 const RECEIVE_CONTRACTORS = "contractors/RECEIVE_CONTRACTORS";
 const RECEIVE_CONTRACTOR = "contractors/RECEIVE_CONTRACTOR";
 const RECEIVE_CATEGORY_CONTRACTORS = "contractors/RECEIVE_CATEGORY_CONTRACTORS"
+const CLEAR_SEARCH_RESULTS = "contractors/CLEAR_SEARCH_RESULTS"
+
+export const clearSearchResults = () => ({
+    type: CLEAR_SEARCH_RESULTS,
+});
 
 const receiveContractors = contractors => ({
     type: RECEIVE_CONTRACTORS,
@@ -47,7 +52,9 @@ export const searchContractors = (searchQuery) => async dispatch => {
     const res = await jwtFetch(`/api/contractors/search?name=${searchQuery}`);
     if (res.ok) {
         const contractors = await res.json();
-        dispatch(receiveContractors(contractors));
+        // debugger
+        // dispatch(receiveContractors(contractors));
+        return contractors;
     }
 };
 
