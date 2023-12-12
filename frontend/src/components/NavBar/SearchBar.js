@@ -33,9 +33,11 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { searchContractors, clearSearchResults } from '../../store/contractors';
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 import './NavBar.css';
 
 const SearchBar = () => {
+  const history = useHistory();
   const dispatch = useDispatch();
   const [searchQuery, setSearchQuery] = useState('');
   const [searchResults, setSearchResults] = useState([]); // Local state for dropdown
@@ -95,7 +97,7 @@ const SearchBar = () => {
         <div className="search-results-dropdown">
           {searchResults.map((result) => (
             // Render each search result as needed
-            <div key={result._id} className="search-result-item">
+            <div key={result._id} className="search-result-item" onClick={() => { history.push(`/contractors/${result._id}`) }}>
               <img src={result.photoUrl} alt={result.name} />
               <span>{result.name}</span>
             </div>
