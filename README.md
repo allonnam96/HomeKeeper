@@ -1,6 +1,8 @@
 # HomeKeeper
 
-HomeKeeper is designed to streamline the process of finding and booking contractors. This intuitive platform enhances user experience by allowing the reading and writing of detailed reviews about the contractors. This feature-rich app serves as a one-stop solution for efficiently managing interactions with various service providers across multiple fields.
+HomeKeeper is designed to streamline the process of finding and booking contractors. This intuitive platform enhances user experience by allowing the reading and writing of detailed reviews about the contractors. This feature-rich app serves as a one-stop solution for efficiently managing interactions with various service providers across multiple fields.<br>
+https://home-keeper.com/ <br>
+https://home-keeper.com/AboutUs
 
 
 ![plot](./frontend/src/img/_snippets/mainpageSnip.png)
