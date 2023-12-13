@@ -1,5 +1,5 @@
 .category-index-item {
-    position: sticky; 
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -22,10 +22,9 @@
     border-radius: 10px;
 }
 
-
 .category-index-item .icon-container {
-    width: 50px;
-    height: 50px;
+    width: 3em;
+    height: 3em;
     margin-bottom: 10px;
 }
 
@@ -40,4 +39,40 @@
     font-weight: 500;
     font-size: 16px;
     margin: 0;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+    .category-index-item {
+        padding: 3px; /* Decrease padding */
+        height: 80px; /* Adjust height if necessary */
+        width: 120px; /* Adjust width if necessary */
+    }
+
+    .category-index-item .icon-container {
+        width: 2.5em; /* Decrease icon size */
+        height: 2.5em;
+    }
+
+    .index-item-title {
+        font-size: 0.75rem; /* Decrease font size */
+    }
+}
+
+/* Additional breakpoint for very small screens */
+@media (max-width: 480px) {
+    .category-index-item {
+        padding: 2px; /* Further decrease padding */
+        height: 70px; /* Further adjust height if necessary */
+        width: 100px; /* Further adjust width if necessary */
+    }
+
+    .category-index-item .icon-container {
+        width: 2em; /* Further decrease icon size */
+        height: 2em;
+    }
+
+    .index-item-title {
+        font-size: 0.7rem; /* Further decrease font size */
+    }
 }

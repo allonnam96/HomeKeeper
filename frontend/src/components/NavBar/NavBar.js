@@ -46,6 +46,14 @@ function NavBar () {
     }
   }
 
+  const handleAboutClick = () => {
+    if (loggedIn) {
+      history.push('/AboutUs')
+    } else {
+      toggleModal()
+    }
+  }
+
   const openModal = () => {
     setModalIsOpen(true);
   };
@@ -63,6 +71,7 @@ function NavBar () {
     if (loggedIn) {
       const userDropdown = [
         { value: "Appointments", fn: handleApptClick },
+        { value: "About Us", fn: handleAboutClick},
         { value: "Logout", fn: logoutUser }
       ];
 
@@ -86,10 +95,10 @@ function NavBar () {
 
   return (
     <>
-    <div className="nav-bar-main">
-      <h1 onClick={() => {history.push('/')}}> {/*<img className='house-icon-navbar' src={house_icon}></img> */} HomeKeeper</h1>
-      { getLinks() }
-    </div>
+      <div className="nav-bar-main">
+        <h1 onClick={() => {history.push('/')}}> {/*<img className='house-icon-navbar' src={house_icon}></img> */} HomeKeeper</h1>
+        { getLinks() }
+      </div>
     </>
   );
 }
