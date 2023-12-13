@@ -30,7 +30,7 @@ The Reviews feature empowers users to share their experiences by submitting revi
 
 The Search tool enhances the user's ability to discover contractors. As users type, the contractor list dynamically updates upon each keystroke, offering real-time search results and an improved user experience.
 
-![plot](./frontend/src/img/_snippets/ReviewSnip.gif)
+![plot](./frontend/src/img/_snippets/searchSnip.gif)
 
 ## Technologies
 + Frontend: React, Redux, Javascript, HTML, and CSS
