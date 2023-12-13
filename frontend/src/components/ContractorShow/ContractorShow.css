@@ -43,7 +43,7 @@
 .contractor-show-right{
     position: sticky;
     z-index: 1;
-    top: 50px;
+    top: 70px;
     height: 70%;
     background-color: var(--secondary-background);
     padding: 40px;
@@ -121,6 +121,31 @@ select{
     border-radius: 8px;
 }
 
+.contractor-add-review {
+    margin-right: 2em;
+    margin-bottom: 1em;
+    margin-top: 1em;
+    padding: 1em;
+    background-color: white;
+    border-radius: 8px;
+}
+
+.review-user-input {
+    border: 1px solid white;
+    border: 1px solid grey;
+    border-radius: 5px;
+    max-width: 80%;
+    min-width: 50%;
+    max-height: 10em;
+    min-height: 2em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+::placeholder {
+    padding: 3px;
+}
+
 .review-info {
     padding: 0.5em;
 }
@@ -132,4 +157,13 @@ select{
 
 .info-card {
     margin-top: 0.5em
+}
+
+.review-actions {
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+    width: 100%;
+    min-width: 270px;
+    gap: 10px;
 }

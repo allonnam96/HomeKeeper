@@ -82,29 +82,21 @@
     padding-left: 10px;
 }
 
-/* Add these styles to your existing styles or create a new CSS file */
+
 .search-bar-container {
     position: relative;
-    /* Position relative for the dropdown positioning */
+    z-index: 100;
 }
 
 .search-results-dropdown {
     position: absolute;
-    /* Position the dropdown absolutely */
     top: 100%;
-    /* Position below the search bar */
     left: 0;
-    /* Align with the left side of the search bar */
     width: 100%;
-    /* Full width */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    /* Add a subtle box shadow */
     background-color: #fff;
-    /* Background color for the dropdown */
     border-radius: 4px;
-    /* Add border-radius for rounded corners */
-    z-index: 1;
-    /* Ensure the dropdown appears above other elements */
+    z-index: 100;
 }
 
 .search-result-item {
@@ -112,9 +104,7 @@
     align-items: center;
     padding: 8px;
     cursor: pointer;
-    /* Add a pointer cursor for better UX */
     transition: background-color 0.3s;
-    /* Add a smooth transition for hover effect */
 
 }
 
