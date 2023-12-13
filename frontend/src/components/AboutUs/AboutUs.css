@@ -18,6 +18,8 @@
   margin: auto; 
 }
 
+
+
 .about-us-card {
   background: #fff;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -46,9 +48,10 @@
 }
 
 .about-us-socials img {
-  width: 40px;
+  width: 2em;
   height: auto;
 }
+
 
 @media (max-width: 768px) {
   .about-us-container {

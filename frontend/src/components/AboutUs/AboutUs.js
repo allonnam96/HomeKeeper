@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import githubIcon from '../../img/bioIcon-img/GithubIcon.png';
 import linkedinIcon from '../../img/bioIcon-img/LinkedInIcon.png';
+import emailIcon from '../../img/bioIcon-img/EmailIcon.png'
 import allonImg from "../../img/profile-img/AllonImg.jpg"
 import harrisonImg from "../../img/profile-img/HarrisonImg.jpg"
 import spencerImg from "../../img/profile-img/SpencerImg.jpeg"
@@ -38,7 +39,7 @@ const AboutUsIndex = () => {
         imgSrc: spencerImg,
         name: 'Spencer Heywood',
         role: 'Frontend Lead',
-        email: 'https://spencerheywood.com/',
+        email: 'spencer@bookservo.com',
         githubUrl: 'https://github.com/heyspence',
         linkedinUrl: 'https://www.linkedin.com/in/spencer-heywood/',
       },
@@ -54,14 +55,17 @@ const AboutUsIndex = () => {
               <div className="about-us-info">
                 <h3>{member.name}</h3>
                 <p>{member.role}</p>
-                <a href={`${member.email}`}>{member.email}</a>
+
                 <div className="about-us-socials">
                   <a href={member.githubUrl} target="_blank" rel="noopener noreferrer">
-                    <img src={githubIcon} alt="GitHub" />
+                    <img src={githubIcon} alt="GitHub" className='github-icon'/>
                   </a>
                   <a href={member.linkedinUrl} target="_blank" rel="noopener noreferrer">
                     <img src={linkedinIcon} alt="LinkedIn" />
                   </a>
+                  <a href={`mailto:${member.email}`}>
+                  <img src={emailIcon} alt="Email"/>
+                </a>
                 </div>
               </div>
             </div>
