@@ -92,6 +92,8 @@ const Calendar = ({ contractor }) => {
                 onChange={handleDateChange}
                 showTimeSelect
                 dateFormat="Pp"
+                minTime={new Date().setHours(9, 0, 0)}
+                maxTime={new Date().setHours(17, 30, 0)}
             />
             </div>
             <button className="inverse-button slight-shadow" type="submit" disabled={appointmentBooked}>
