@@ -4,13 +4,13 @@
     left: 0; 
     right: 0; 
     padding: 0 130px;
-    height: 4em;
+    height: 3.5em;
     margin: 0; 
     display: flex;
     justify-content: space-between;
     align-items: center;
     background-color: var(--primary-background);
-    z-index: 1000; 
+    z-index: 1000;
 }
 
 .nav-bar-main h1{

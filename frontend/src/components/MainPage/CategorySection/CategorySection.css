@@ -1,16 +1,18 @@
 .category-section-main{
-    width: 100vw;
     margin: 0;
     padding-bottom: 1em;
     background-color: var(--tertiary-background);
     display: flex;
     justify-content: space-around;
     align-items: center;
+    min-width: 770px;
+    width: 100%;
 }
 
 .section-content{
+    width: 90%;
     display: flex;
     justify-content: space-around;
     align-items: center;
-    width: 100%;
+
 }
