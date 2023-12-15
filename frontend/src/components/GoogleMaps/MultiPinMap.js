@@ -33,15 +33,15 @@ const MultiPinMap = ({ pins, name, mapId }) => {
                         title: pin.name,
                         icon: {
                             url: markerIcon,
-                            scaledSize: new window.google.maps.Size(50, 50)
+                            scaledSize: new window.google.maps.Size(30, 30)
                         },
-                        label: {
-                            text: pin.count,
-                            color: "#4682B4",
-                            fontSize: "25px",
-                            fontWeight: "bold",
-                            className: "marker-label"
-                        },
+                        // label: {
+                        //     text: pin.count,
+                        //     color: "#4682B4",
+                        //     fontSize: "25px",
+                        //     fontWeight: "bold",
+                        //     className: "marker-label"
+                        // },
                         contactorId: pin.contractorId
                     })
                     marker.addListener("click", () => {history.push(`/contractors/${pin.contractorId}`)})
