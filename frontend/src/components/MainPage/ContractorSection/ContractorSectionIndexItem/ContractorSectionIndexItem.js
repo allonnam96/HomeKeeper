@@ -23,7 +23,7 @@ const ContractorSectionIndexItem = ({contractor}) => {
             <div className="index-item-body-container">
                 <p>{contractor?.phoneNum}</p>
                 <p>{contractor?.email}</p>
-                <p>{contractor?.address}, NY</p>
+                <p>{contractor?.address}</p>
             </div>
         </div>
     )
